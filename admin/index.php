@@ -69,11 +69,16 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
             <a href="./queueChoose.php" target="frame">学生选课</a>
         </div>
         <div class="item">
+            <a href="./editStudentCourse.php" target="frame">选课修改</a>
+        </div>
+        <!--
+        <div class="item">
             <a href="./queueMark.php" target="frame">登记分数</a>
         </div>
         <div class="item">
             <a href="./queueRetake.php" target="frame">补考重修</a>
         </div>
+        
         <div class="subtitle">
             数据统计
         </div>
@@ -83,6 +88,7 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
         <div class="item">
             <a href="./classStatistic.php" target="frame">选课统计</a>
         </div>
+-->
         <div class="subtitle">
             系统设置
         </div>

@@ -1,7 +1,7 @@
 <?php
 require_once("../../config/database.php");
 
-$id = $_POST["id"];
+$id = $_POST["cid"];
 $competition_name = $_POST["competition_name"];
 $competition_level = $_POST["competition_level"];
 $submit_time = $_POST["submit_time"];
@@ -16,7 +16,7 @@ $sql = "UPDATE course SET
     submit_requirements = '$submit_requirements',
     student_requirements = '$student_requirements',
     card_requirement = '$card_requirement'
-    WHERE id = $id
+    WHERE cid = $id
 ";
 
 $result = mysqli_query($db, $sql);

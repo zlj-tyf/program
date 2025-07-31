@@ -53,14 +53,14 @@ $sid = $_SESSION["user"];
     if ($result) {
         while ($row = mysqli_fetch_object($result)) {
             echo '<tr>';
-            echo '<td>' . htmlspecialchars($row->id) . '</td>';
+            echo '<td>' . htmlspecialchars($row->cid) . '</td>';
             echo '<td>' . htmlspecialchars($row->competition_name) . '</td>';
             echo '<td>' . htmlspecialchars($row->competition_level) . '</td>';
             echo '<td>' . htmlspecialchars($row->submit_time) . '</td>';
             echo '<td>' . htmlspecialchars($row->submit_requirements) . '</td>';
             echo '<td>' . htmlspecialchars($row->student_requirements) . '</td>';
             echo '<td>' . htmlspecialchars($row->card_requirement) . '</td>';
-            echo '<td><button onclick="chooseCourse(\'' . addslashes($row->id) . '\')">选课</button></td>';
+            echo '<td><button onclick="chooseCourse(\'' . addslashes($row->cid) . '\')">选课</button></td>';
             echo '</tr>';
         }
     } else {

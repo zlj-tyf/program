@@ -42,7 +42,7 @@ CREATE TABLE student (
 
 
 CREATE TABLE course (
-    id INT AUTO_INCREMENT PRIMARY KEY COMMENT '课程ID',
+    cid INT AUTO_INCREMENT PRIMARY KEY COMMENT '课程ID',
     competition_name VARCHAR(255) NOT NULL COMMENT '比赛名称',
     competition_level VARCHAR(255) NOT NULL COMMENT '比赛级别',
     submit_time VARCHAR(100) NOT NULL COMMENT '申报时间',

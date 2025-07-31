@@ -3,11 +3,13 @@ require_once("../../config/database.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // 过滤输入，防止SQL注入
-    $sid = mysqli_real_escape_string($db, $_POST["sid"]);
-    $name = mysqli_real_escape_string($db, $_POST["name"]);
+    $sid = $_POST["sid"];
+    $name =$_POST["name"];
+    $card_name = $_POST["card_name"];
 
     // 插入学生表，仅插入sid和name
-    $com = "INSERT INTO student (sid, name) VALUES ('$sid', '$name')";
+    
+    $com = "INSERT INTO student (sid, name, card_type) VALUES ('$sid', '$name','$card_name')";
 
     // 设置学生默认密码为学号后6位的MD5
     $pwd = md5(substr($sid, -6));

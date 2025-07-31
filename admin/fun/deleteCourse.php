@@ -1,8 +1,8 @@
 <?php
 require_once("../../config/database.php");
 
-$id = $_GET["id"];
-$sql = "DELETE FROM course WHERE id = $id";
+$id = $_GET["cid"];
+$sql = "DELETE FROM course WHERE cid = $id";
 
 $result = mysqli_query($db, $sql);
 

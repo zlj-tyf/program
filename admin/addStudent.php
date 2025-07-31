@@ -10,11 +10,12 @@
 <form action="./fun/addStudent.php" method="post" target="resultbox">
     <div class="inputbox"><span>学号：</span><input name="sid" required type="text"></div>
     <div class="inputbox"><span>姓名：</span><input name="name" required type="text"></div>
-
+    <div class="inputbox"><span>卡片类型：(1/2)</span><input name="card_name" required type="text"></div>
+    
     <br>
     <div class="clickbox clearfloat"><span></span><input name="submit" type="submit" value="提交"></div>
     <div class="redbox clickbox "><span></span><input name="reset" type="reset" value="清除"></div>
-    <p>注：学号和姓名必填！</p>
+    <p>注：三个字段均必填！</p>
 </form>
 
 <iframe name="resultbox" frameborder="0" width="100%" height="200px"></iframe>

@@ -32,7 +32,7 @@
         while ($row = mysqli_fetch_object($result)) {
             ?>
             <tr>
-                <td><?php echo $row->id ?></td>
+                <td><?php echo $row->cid ?></td>
                 <td><?php echo $row->competition_name ?></td>
                 <td><?php echo $row->competition_level ?></td>
                 <td><?php echo $row->submit_time ?></td>

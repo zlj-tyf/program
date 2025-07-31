@@ -1,66 +1,76 @@
 <?php
-
 require_once("../../config/database.php");
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="../css/fun.css">
-</head>
-<body>
-<table>
-    <tr>
-        <th>学号</th>
-        <th>姓名</th>
-        <th>课程号</th>
-        <th>课程名</th>
-        <th>教师</th>
-        <th>学分</th>
-        
-        <th>备注</th>
-    </tr>
-    <?php
-    $com="select * from student natural join student_course as v1 left join course on v1.cid=course.cid where score is null  " ;
 
-    
-    if($_GET['sid']){
-        $com=$com." and sid like '%".$_GET['sid']."%'";
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    // 读取并过滤输入
+    $sid = isset($_GET['sid']) ? mysqli_real_escape_string($db, $_GET['sid']) : '';
+    $name = isset($_GET['name']) ? mysqli_real_escape_string($db, $_GET['name']) : '';
+    $cid = isset($_GET['cid']) ? mysqli_real_escape_string($db, $_GET['cid']) : '';
+    $cname = isset($_GET['cname']) ? mysqli_real_escape_string($db, $_GET['cname']) : '';
+
+    // 构造WHERE条件
+    $where = [];
+    if ($sid !== '') {
+        $where[] = "student.sid LIKE '%$sid%'";
     }
-    if($_GET['cid']){
-        $com=$com." and v1.cid like '%".$_GET['cid']."%'";
+    if ($name !== '') {
+        $where[] = "student.name LIKE '%$name%'";
     }
-    if($_GET['name']){
-        $com=$com." and name like '%".$_GET['name']."%'";
+    if ($cid !== '') {
+        $where[] = "course.cid LIKE '%$cid%'";
     }
-    if($_GET['cname']){
-        $com=$com." and cname like '%".$_GET['cname']."%'";
-    }
-    if($_GET['tname']){
-        $com=$com." and tname like '%".$_GET['tname']."%'";
+    if ($cname !== '') {
+        $where[] = "course.competition_name LIKE '%$cname%'";
     }
 
-    $result=mysqli_query($db,$com);
-    if($result){
-        while($row=mysqli_fetch_object($result)){
-            ?>
-            <tr>
-                <td><?php echo $row->sid ?></td>
-                <td><?php echo $row->name ?></td>
-                <td><?php echo $row->cid ?></td>
-                <td><?php echo $row->cname ?></td>
-                <td><?php echo $row->tname ?></td>
-                <td><?php echo $row->credit ?></td>
-                <td><?php if($row->status==0) echo("首次"); else echo("重修")?> / 
-                <a href="delCourse.php?cid=<?php echo $row->cid."&sid=".$row->sid; ?>">退选</a></td>
-            </tr>
-            <?php
-        }
+    $where_sql = '';
+    if (count($where) > 0) {
+        $where_sql = "WHERE " . implode(' AND ', $where);
     }
 
+    // 联表查询选课记录，包括学生和课程信息
+    $sql = "
+        SELECT student.sid, student.name, course.cid, course.competition_name, sc.score, sc.status
+        FROM student_course sc
+        INNER JOIN student ON sc.sid = student.sid
+        INNER JOIN course ON sc.cid = course.cid
+        $where_sql
+        ORDER BY student.sid, course.cid
+    ";
+
+    $result = mysqli_query($db, $sql);
+
+    if (!$result) {
+        echo "查询失败：" . mysqli_error($db);
+        exit;
+    }
+
+    // 输出结果表格
+    echo '<h3>查询结果</h3>';
+    echo '<table border="1" cellspacing="0" cellpadding="5">';
+    echo '<tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>课程号</th>
+            <th>比赛名称</th>
+            <th>成绩</th>
+            <th>状态</th>
+          </tr>';
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo '<tr>';
+        echo '<td>' . htmlspecialchars($row['sid']) . '</td>';
+        echo '<td>' . htmlspecialchars($row['name']) . '</td>';
+        echo '<td>' . htmlspecialchars($row['cid']) . '</td>';
+        echo '<td>' . htmlspecialchars($row['competition_name']) . '</td>';
+        echo '<td>' . htmlspecialchars($row['score'] ?? '') . '</td>';
+        echo '<td>' . htmlspecialchars($row['status'] ?? '') . '</td>';
+        echo '</tr>';
+    }
+    echo '</table>';
+
+    mysqli_free_result($result);
     mysqli_close($db);
-    ?>
-</table>
-</body>
-</html>
+} else {
+    echo "无效请求。";
+}
