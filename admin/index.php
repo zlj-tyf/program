@@ -59,6 +59,9 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
         <div class="item">
             <a href="./addCourse.php" target="frame">新增课程</a>
         </div>
+        <div class="item">
+            <a href="./modifyCourse.php" target="frame">修改课程</a>
+        </div>
         <div class="subtitle">
             选课管理
         </div>
