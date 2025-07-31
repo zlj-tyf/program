@@ -1,43 +1,60 @@
 <?php
 session_start();
-$sid=$_SESSION["user"];
+if (!isset($_SESSION["user"])) {
+    echo "请先登录。";
+    exit;
+}
+$sid = $_SESSION["user"];
 require_once("../config/database.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>已选课程管理</title>
     <link rel="stylesheet" type="text/css" href="./user.css">
 </head>
 <body>
-    <h3>选课管理</h3>
-<table>
+<h3>我的选课</h3>
+<table border="1">
     <tr>
-        <th>课程号</th>
-        <th>课程名</th>
-        <th>学分</th>
-        <th>地点</th>
-        <th>教师名</th>
+        <th>课程编号</th>
+        <th>比赛名称</th>
+        <th>比赛级别</th>
+        <th>申报时间</th>
+        <th>申报要求</th>
+        <th>学生提交材料</th>
+        <th>卡种类要求</th>
         <th>操作</th>
     </tr>
     <?php
+    // 查询当前学生选的课程（未打分）
+    $sql = "
+        SELECT course.* 
+        FROM course 
+        NATURAL JOIN (
+            SELECT cid 
+            FROM student_course 
+            WHERE sid = '$sid' AND score IS NULL
+        ) AS chosen
+    ";
 
-    $com="select * from course natural join (select cid from student_course where score is null and sid='$sid') as chosen" ;
-    
-    $result=mysqli_query($db,$com);
-    if($result){
-        while($row=mysqli_fetch_object($result)){
-            ?>
-            <tr>
-                <td><?php echo $row->cid ?></td>
-                <td><?php echo $row->cname ?></td>
-                <td><?php echo $row->credit ?></td>
-                <td><?php echo $row->cadd ?></td>
-                <td><?php echo $row->tname ?></td>
-                <td><a href="delCourse.php?cid=<?php echo $row->cid."&sid=".$row->sid; ?>">退选</a></td>
-            </tr>
-            <?php
+    $result = mysqli_query($db, $sql);
+    if ($result) {
+        while ($row = mysqli_fetch_object($result)) {
+            echo "<tr>";
+            echo "<td>" . htmlspecialchars($row->cid) . "</td>";
+            echo "<td>" . htmlspecialchars($row->competition_name) . "</td>";
+            echo "<td>" . htmlspecialchars($row->competition_level) . "</td>";
+            echo "<td>" . htmlspecialchars($row->submit_time) . "</td>";
+            echo "<td>" . htmlspecialchars($row->submit_requirements) . "</td>";
+            echo "<td>" . htmlspecialchars($row->student_requirements) . "</td>";
+            echo "<td>" . htmlspecialchars($row->card_requirement) . "</td>";
+            echo "<td><a href='delCourse.php?cid=" . urlencode($row->cid) . "&sid=" . urlencode($sid) . "'>退选</a></td>";
+            echo "</tr>";
         }
+    } else {
+        echo "<tr><td colspan='8'>加载失败</td></tr>";
     }
 
     mysqli_close($db);

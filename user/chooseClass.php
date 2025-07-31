@@ -28,7 +28,7 @@ if (!mysqli_stmt_fetch($stmt)) {
 mysqli_stmt_close($stmt);
 
 // 查询课程卡种类要求
-$sql = "SELECT card_requirement FROM course WHERE id = ?";
+$sql = "SELECT card_requirement FROM course WHERE cid = ?";
 $stmt = mysqli_prepare($db, $sql);
 mysqli_stmt_bind_param($stmt, "s", $cid);
 mysqli_stmt_execute($stmt);

@@ -16,7 +16,7 @@ $sid = $_SESSION["user"];
     function chooseCourse(courseId) {
         // 创建异步请求
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", "./chooseClass.php?id=" + encodeURIComponent(courseId), true);
+        xhr.open("GET", "chooseClass.php?id=" + encodeURIComponent(courseId), true);
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4) {
                 var resultBox = document.getElementById("resultBox");
@@ -33,6 +33,10 @@ $sid = $_SESSION["user"];
 </head>
 <body>
 <h2>课程列表</h2>
+
+<!-- 选课结果显示区域 -->
+<div id="resultBox" style="margin-top:20px; padding:10px; border:1px solid #ccc; min-height:30px;"></div>
+
 <table border="1">
     <tr>
         <th>课程编号</th>
@@ -71,8 +75,6 @@ $sid = $_SESSION["user"];
     ?>
 </table>
 
-<!-- 选课结果显示区域 -->
-<div id="resultBox" style="margin-top:20px; padding:10px; border:1px solid #ccc; min-height:30px;"></div>
 
 </body>
 </html>

@@ -12,14 +12,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $com = "INSERT INTO student (sid, name, card_type) VALUES ('$sid', '$name','$card_name')";
 
     // 设置学生默认密码为学号后6位的MD5
-    $pwd = md5(substr($sid, -6));
+    $pwd = md5(123456);
     $com2 = "INSERT INTO user_student (sid, pwd) VALUES ('$sid', '$pwd')";
 
     $result = mysqli_query($db, $com);
     $result2 = mysqli_query($db, $com2);
 
     if ($result && $result2) {
-        echo "成功，同时已新建学生账户，密码为学号后六位";
+        echo "成功，同时已新建学生账户，密码为123456";
     } else {
         echo "数据未更改。错误信息：" . mysqli_error($db);
     }
