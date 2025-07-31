@@ -50,3 +50,103 @@ CREATE TABLE course (
     student_requirements LONGTEXT COMMENT '需要学生提交的材料',
     card_requirement INT DEFAULT 0 COMMENT '需要级别>x的卡'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='课程/比赛信息表';
+
+-- 表的结构 `student_course`
+--
+
+CREATE TABLE `student_course` (
+  `sid` char(12) NOT NULL,
+  `cid` char(6) NOT NULL,
+  `score` int(3) DEFAULT NULL,
+  `status` char(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- 表的结构 `student_log`
+--
+
+CREATE TABLE `student_log` (
+  `sid` varchar(12) DEFAULT NULL,
+  `type` char(1) DEFAULT NULL,
+  `reason` varchar(30) DEFAULT NULL,
+  `detail` varchar(100) DEFAULT NULL,
+  `logdate` date DEFAULT NULL,
+  `addtime` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+--
+-- 表的结构 `user_admin`
+--
+
+CREATE TABLE `user_admin` (
+  `adminID` varchar(15) DEFAULT NULL,
+  `adminName` varchar(15) DEFAULT NULL,
+  `pwd` char(32) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- 转存表中的数据 `user_admin`
+--
+
+INSERT INTO `user_admin` (`adminID`, `adminName`, `pwd`) VALUES ('1', 'Admin1', 'e10adc3949ba59abbe56e057f20f883e');
+INSERT INTO `user_admin` (`adminID`, `adminName`, `pwd`) VALUES ('999', 'Admin999', 'd41d8cd98f00b204e9800998ecf8427e');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `user_student`
+--
+
+CREATE TABLE `user_student` (
+  `sid` char(12) NOT NULL,
+  `pwd` char(32) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-
+
+--
+-- 转储表的索引
+--
+
+--
+-- 表的索引 `course`
+--
+ALTER TABLE `course`
+  ADD UNIQUE KEY `cid_2` (`cid`),
+  ADD KEY `cid` (`cid`);
+
+--
+-- 表的索引 `student`
+--
+ALTER TABLE `student`
+  ADD PRIMARY KEY (`sid`),
+  ADD UNIQUE KEY `sid` (`sid`);
+
+--
+-- 表的索引 `student_course`
+--
+ALTER TABLE `student_course`
+  ADD KEY `sid` (`sid`),
+  ADD KEY `cid` (`cid`);
+
+--
+-- 表的索引 `student_log`
+--
+ALTER TABLE `student_log`
+  ADD KEY `sid` (`sid`);
+
+--
+-- 表的索引 `user_admin`
+--
+ALTER TABLE `user_admin`
+  ADD KEY `adminID` (`adminID`);
+
+--
+-- 表的索引 `user_student`
+--
+ALTER TABLE `user_student`
+  ADD UNIQUE KEY `sid` (`sid`),
+  ADD KEY `sid_2` (`sid`);
+COMMIT;

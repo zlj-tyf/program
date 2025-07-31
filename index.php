@@ -34,7 +34,7 @@ if (!$_SESSION['login']==true) {
             </div>
             <div class="inputbox">
                 <span>密码</span>
-                <input name="pass" required type="password">
+                <input name="pass" type="password">
             </div>
             <div class="submitbox">
                 <input name="submit" type="submit" value="提交">
