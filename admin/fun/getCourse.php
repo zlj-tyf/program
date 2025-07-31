@@ -2,58 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>课程结果</title>
     <link rel="stylesheet" type="text/css" href="../css/fun.css">
 </head>
 <body>
 <table>
     <tr>
-        <th>课程号</th>
-        <th>课程名</th>
-        <th>学分</th>
-        <th>上课地址</th>
-        <th>开课学院</th>
-        <th>教师名</th>
+        <th>课程ID</th>
+        <th>比赛名称</th>
+        <th>比赛级别</th>
+        <th>申报时间</th>
+        <th>申报要求</th>
+        <th>学生材料要求</th>
+        <th>是否需要卡</th>
     </tr>
     <?php
-   require_once("../../config/database.php");
+    require_once("../../config/database.php");
 
-    $com='select * from course natural join (select did,dname from department) as didname where 1=1  ' ;
-    if($_GET['cid']){
-        $com=$com." and cid like '%".$_GET['cid']."%'";
-    }
-    if($_GET['cname']){
-        $com=$com." and cname like '%".$_GET['cname']."%'";
-    }
-    if($_GET['credit']){
-        $com=$com." and credit like '%".$_GET['credit']."%'";
-    }
-    if($_GET['cadd']){
-        $com=$com." and cadd like '%".$_GET['cadd']."%'";
-    }
-    if($_GET['dname']){
-        $com=$com." and dname like '%".$_GET['dname']."%'";
-    }
-    if($_GET['tname']){
-        $com=$com." and tname like '%".$_GET['tname']."%'";
+    $com = "SELECT * FROM course WHERE 1=1 ";
+
+    if (!empty($_GET['card_requirement'])) {
+        $card_input = $_GET['card_requirement'];
+        $com .= " AND card_requirement LIKE '%" . mysqli_real_escape_string($db, $card_input) . "%'";
     }
 
-    $result=mysqli_query($db,$com);
-    if($result){
-        while($row=mysqli_fetch_object($result)){
+    $result = mysqli_query($db, $com);
+
+    if ($result) {
+        while ($row = mysqli_fetch_object($result)) {
             ?>
             <tr>
-                
-                <td><?php echo $row->cid ?></td>
-                <td><?php echo $row->cname ?></td>
-                <td><?php echo $row->credit ?></td>
-                <td><?php echo $row->cadd ?></td>
-                <td><?php echo $row->dname ?></td>
-                <td><?php echo $row->tname ?></td>
-                <td><a href="./delClass.php?cid=<?php echo $row->cid ?>">删除</a></td>
+                <td><?php echo $row->id ?></td>
+                <td><?php echo $row->competition_name ?></td>
+                <td><?php echo $row->competition_level ?></td>
+                <td><?php echo $row->submit_time ?></td>
+                <td><?php echo $row->submit_requirements ?></td>
+                <td><?php echo $row->student_requirements ?></td>
+                <td><?php echo $row->card_requirement ?></td>
             </tr>
             <?php
         }
+    } else {
+        echo "<tr><td colspan='7'>查询失败: " . mysqli_error($db) . "</td></tr>";
     }
 
     mysqli_close($db);
