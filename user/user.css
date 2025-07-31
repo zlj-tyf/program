@@ -1,4 +1,4 @@
-body{
+/* body{
     margin: 30px;
 }
 .inputbox{
@@ -16,4 +16,55 @@ body{
     height: 25px;
     background: green;
     margin: 20px auto;
+} */
+ body {
+    margin: 30px;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    background: linear-gradient(to right, #f6f9fc, #eef2f7);
+    color: #333;
+}
+
+/* 输入框区域 */
+.inputbox {
+    display: block;
+    width: 280px;
+    height: 40px;
+    margin: 20px;
+    float: left;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.inputbox:focus {
+    border-color: #48c9b0;
+    box-shadow: 0 0 8px rgba(72, 201, 176, 0.3);
+    outline: none;
+}
+
+/* 提交按钮区域 */
+.clickbox input {
+    color: #fff;
+    display: block;
+    clear: both;
+    width: 120px;
+    height: 40px;
+    background: linear-gradient(135deg, #48c9b0, #5dade2);
+    margin: 30px auto;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+.clickbox input:hover {
+    background: linear-gradient(135deg, #5dade2, #48c9b0);
+    transform: scale(1.05);
+}
+.clickbox input:active {
+    transform: scale(0.98);
 }
