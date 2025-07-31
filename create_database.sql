@@ -1,56 +1,38 @@
+CREATE DATABASE IF NOT EXISTS school;
+USE school;
+
 CREATE TABLE student (
-    sid INT PRIMARY KEY AUTO_INCREMENT COMMENT '学生编号',
-    name VARCHAR(50) NOT NULL COMMENT '姓名',
-    sex ENUM('男', '女') NOT NULL COMMENT '性别',
-    birth DATE COMMENT '出生年月',
-    age INT GENERATED ALWAYS AS (TIMESTAMPDIFF(YEAR, birth, CURDATE())) STORED COMMENT '年龄',
+    sid INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    sex ENUM('男', '女') NOT NULL,
+    birth DATE,
+    age INT,  -- 改为普通字段
 
-    -- 教育经历：小学、初中、高中（可为空）
-    primary_start_year YEAR NULL,
-    primary_end_year YEAR NULL,
-    primary_school_name VARCHAR(100) NULL,
+    -- 教育经历（小学、初中、高中）
+    edu_primary_start DATE,
+    edu_primary_end DATE,
+    edu_primary_school VARCHAR(100),
+    edu_junior_start DATE,
+    edu_junior_end DATE,
+    edu_junior_school VARCHAR(100),
+    edu_senior_start DATE,
+    edu_senior_end DATE,
+    edu_senior_school VARCHAR(100),
 
-    junior_start_year YEAR NULL,
-    junior_end_year YEAR NULL,
-    junior_school_name VARCHAR(100) NULL,
+    -- 当前年级和学校（年级改为手动选择）
+    current_grade INT,  -- 1 ~ 12
+    current_school VARCHAR(100),
 
-    senior_start_year YEAR NULL,
-    senior_end_year YEAR NULL,
-    senior_school_name VARCHAR(100) NULL,
-
-    current_grade VARCHAR(50) GENERATED ALWAYS AS (
-        CASE
-            WHEN YEAR(CURDATE()) - senior_start_year BETWEEN 0 AND 2 THEN
-                CONCAT('高', YEAR(CURDATE()) - senior_start_year + 1, '年级')
-            WHEN YEAR(CURDATE()) - junior_start_year BETWEEN 0 AND 2 THEN
-                CONCAT('初', YEAR(CURDATE()) - junior_start_year + 1, '年级')
-            WHEN YEAR(CURDATE()) - primary_start_year BETWEEN 0 AND 5 THEN
-                CONCAT('小', YEAR(CURDATE()) - primary_start_year + 1, '年级')
-            ELSE '未知'
-        END
-    ) STORED COMMENT '当前年级',
-
-    current_school VARCHAR(100) GENERATED ALWAYS AS (
-        CASE
-            WHEN senior_end_year IS NULL THEN senior_school_name
-            WHEN junior_end_year IS NULL THEN junior_school_name
-            WHEN primary_end_year IS NULL THEN primary_school_name
-            ELSE NULL
-        END
-    ) STORED COMMENT '当前学校',
-
+    -- 父母信息
     father_name VARCHAR(50),
-    father_tel VARCHAR(50),
-    father_work_unit VARCHAR(100),
-    father_title VARCHAR(100),
-
+    father_tel VARCHAR(20),
+    father_workplace VARCHAR(100),
+    father_position VARCHAR(50),
     mother_name VARCHAR(50),
-    mother_tel VARCHAR(50),
-    mother_work_unit VARCHAR(100),
-    mother_title VARCHAR(100),
+    mother_tel VARCHAR(20),
+    mother_workplace VARCHAR(100),
+    mother_position VARCHAR(50),
 
-    has_researcher BOOLEAN DEFAULT FALSE COMMENT '家中是否有科研人员',
-
-    email VARCHAR(100),
-    tel VARCHAR(20)
+    -- 是否有科研人员
+    has_researcher BOOLEAN DEFAULT FALSE
 );
