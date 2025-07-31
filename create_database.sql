@@ -4,6 +4,8 @@ USE school;
 CREATE TABLE student (
     sid INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
+    -- 卡的类型
+    card_type INT DEFAULT 0 COMMENT '1 -> S 2 -> SP',
     sex ENUM('男', '女') NOT NULL,
     birth DATE,
     age INT,  -- 改为普通字段
@@ -35,4 +37,16 @@ CREATE TABLE student (
 
     -- 是否有科研人员
     has_researcher BOOLEAN DEFAULT FALSE
+
 );
+
+
+CREATE TABLE course (
+    id INT AUTO_INCREMENT PRIMARY KEY COMMENT '课程ID',
+    competition_name VARCHAR(255) NOT NULL COMMENT '比赛名称',
+    competition_level VARCHAR(255) NOT NULL COMMENT '比赛级别',
+    submit_time VARCHAR(100) NOT NULL COMMENT '申报时间',
+    submit_requirements LONGTEXT COMMENT '申报要求',
+    student_requirements LONGTEXT COMMENT '需要学生提交的材料',
+    card_requirement INT DEFAULT 0 COMMENT '需要级别>x的卡'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='课程/比赛信息表';

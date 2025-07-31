@@ -1,10 +1,10 @@
 <?php 
 session_start();
 if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
-        header ("HTTP/1.1 302 Moved Temporatily"); 
-        header ("Location: "."../"); 
-        exit();
-    }
+    header ("HTTP/1.1 302 Moved Temporatily"); 
+    header ("Location: "."../"); 
+    exit();
+}
 ?>
 <html>
 <head>
@@ -20,7 +20,6 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
     <div class="userbox" style="float:right">
         你好，管理员 <?php echo $_SESSION["admin"]?> <a href="../logout.php"> 登出</a>
     </div>
-
 </div>
 <div class="container main">
     <div class="leftnav">
@@ -37,9 +36,12 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
             <a href="./queueStudent.php" target="frame">查询学生</a>
         </div>
         <div class="item">
+            <a href="./editStudent.php" target="frame">编辑学生</a>
+        </div>
+        <div class="item">
             <a href="./getLog.php" target="frame">奖惩管理</a>
         </div>
-        <div class="subtitle">
+        <!-- <div class="subtitle">
             院系管理
         </div>
         <div class="item">
@@ -47,7 +49,7 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
         </div>
         <div class="item">
             <a href="./queueMajor.php" target="frame">专业列表</a>
-        </div>
+        </div> -->
         <div class="subtitle">
             课程管理
         </div>
@@ -87,13 +89,10 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
         <div class="item">
             <a href="./changePassword.php" target="frame">修改密码</a>
         </div>
-
-
     </div>
     <div class="content">
         <iframe name="frame" frameborder="0" width="100%"  scrolling="yes"  src="./welcome.php"></iframe>
     </div>
-
 </div>
 <div class="container footer">
     <span>数据库系统课程设计@2019</span>
