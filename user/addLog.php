@@ -19,7 +19,7 @@ const today = new Date().toISOString().split('T')[0];
 // 设置默认值为今天
 document.getElementById('logdate').value = today;
 </script>
-    <span>缘由：</span><input name="reason"required  type="text" class="boxwidth">
+    <span>概要：</span><input name="reason"required  type="text" class="boxwidth">
     <br>
     <span>详情：<br/>请引用前端页面链接</span><br><textarea style="display:block;width:90%;height:60px;"name="detail" required form="log"></textarea><br>
     <span></span><input name="submit" type="submit" value="提交"><br>
