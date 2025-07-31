@@ -1,67 +1,73 @@
 <?php
-    require_once("../config/database.php");
-    session_start();
-    // 1.first time cid not exist add and set status 0 2.exist status 0 score is null refuse 3.exist 0 score is not null 1 exist score is not nu
-    $sid=$_SESSION['user'];
-    $cid=$_GET["cid"];
-    $checkfirst="select * from student_course where cid='$cid' and sid='$sid' and status='0'";
-    $checkretake="select * from student_course where cid='$cid' and sid='$sid' and status='1'";
-    $checkretakenotfinish="select * from student_course where cid='$cid' and sid='$sid' and status='1' and score is null";
-    $insertfirst="insert into student_course (sid,cid,status) values ('$sid','$cid','0')";
-    $insertretake="insert into student_course (sid,cid,status) values ('$sid','$cid','1')";
-    $deleteretake="delete from student_course where sid='$sid' and cid='$cid' and score is null and status='1'" ;
+session_start();
+if (!isset($_SESSION["user"])) {
+    echo "请先登录后选课。";
+    exit;
+}
+$sid = $_SESSION["user"];
 
-    $resultfirst=mysqli_query($db,$checkfirst);
-    $resultretake=mysqli_query($db,$checkretake);
-    
-    $ok=false;
+if (!isset($_GET['id']) || empty($_GET['id'])) {
+    echo "课程编号缺失。";
+    exit;
+}
 
-    echo "<h3>";
-    if($resultretake->num_rows>0){ //有重修记录
-        echo("当前课程有重修记录");
-        $checknotfinish=mysqli_query($db,$checkretakenotfinish);
-        if($checknotfinish->num_rows>0){
-             echo('，且当前已有选课记录，退出。');
-        }
-        else{
-            $delretake=mysqli_query($db,$deleteretake);
-            $addretake=mysqli_query($db,$insertretake);
-            if($addretake && $delretake){
-            $ok=true;
-            echo('，删除先前的重修记录，新增选课。');
-            }
-        }
-    }
-    else if($resultfirst->num_rows>0){ //有选课记录
-        echo("当前课程有选课记录");
-        while($row=mysqli_fetch_object($resultfirst)){
-            if($row->score==null){
-                echo('，未完成的课程，退出。');
-            }
-            else{
-                $addretake=mysqli_query($db,$insertretake);
-                if($addretake){
-                $ok=true;
-                echo('，新增首次重修记录。');
-                }
-            }
-        }
-    }
-    else{ //没有记录
-        echo("当前课程为首次选课，新增选课记录。");
-        $addfirst=mysqli_query($db,$insertfirst);
-        if($addfirst){
-            $ok=true;
-        }
-    }
-    
-    if($ok){
-        echo "<br>数据已更新。";
-    }
-    else{
-        echo "<br>数据未更改。";
-    }
+$cid = $_GET['id'];
 
+require_once("../config/database.php");
+
+// 查询学生套餐等级
+$sql = "SELECT card_type FROM student WHERE sid = ?";
+$stmt = mysqli_prepare($db, $sql);
+mysqli_stmt_bind_param($stmt, "s", $sid);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_bind_result($stmt, $card_type);
+if (!mysqli_stmt_fetch($stmt)) {
+    echo "找不到学生信息。";
+    exit;
+}
+mysqli_stmt_close($stmt);
+
+// 查询课程卡种类要求
+$sql = "SELECT card_requirement FROM course WHERE id = ?";
+$stmt = mysqli_prepare($db, $sql);
+mysqli_stmt_bind_param($stmt, "s", $cid);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_bind_result($stmt, $card_requirement);
+if (!mysqli_stmt_fetch($stmt)) {
+    echo "找不到课程信息。";
+    exit;
+}
+mysqli_stmt_close($stmt);
+
+// 判断套餐是否满足
+if ($card_type < $card_requirement) {
+    echo "套餐等级不足，无法选课。";
+    exit;
+}
+
+// 判断是否已选过该课程
+$sql = "SELECT * FROM student_course WHERE sid = ? AND cid = ?";
+$stmt = mysqli_prepare($db, $sql);
+mysqli_stmt_bind_param($stmt, "ss", $sid, $cid);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_store_result($stmt);
+if (mysqli_stmt_num_rows($stmt) > 0) {
+    echo "您已选过该课程。";
+    mysqli_stmt_close($stmt);
     mysqli_close($db);
+    exit;
+}
+mysqli_stmt_close($stmt);
+
+// 追加选课记录
+$sql = "INSERT INTO student_course (sid, cid, score, status) VALUES (?, ?, NULL, 'N')";
+$stmt = mysqli_prepare($db, $sql);
+mysqli_stmt_bind_param($stmt, "ss", $sid, $cid);
+if (mysqli_stmt_execute($stmt)) {
+    echo "选课成功！";
+} else {
+    echo "选课失败，请稍后重试。";
+}
+mysqli_stmt_close($stmt);
+mysqli_close($db);
 ?>
-<div style="width: 90%;height: 55px;margin: 50px"><div style="margin: 0 auto;width: 90px;height: 30px;background-color: #117700"><a style="text-decoration: none;padding:3px;color: #f3f3f3;text-align: center;display: block" href="#" onclick="javascript:history.back(-1);">返回</a></div> </div>

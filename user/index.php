@@ -45,15 +45,7 @@ if(!isset($_SESSION["user"])||!$_SESSION["login"]==true){
         <div class="item">
             <a href="./myClass.php" target="frame">选课管理</a>
         </div>
-        <div class="subtitle">
-            成绩查询
-        </div>
-        <div class="item">
-            <a href="./myScore.php" target="frame">学科成绩</a>
-        </div>
-        <div class="item">
-            <a href="./myRetake.php" target="frame">重修管理</a>
-        </div>
+        
         <div class="subtitle">
             奖惩管理
         </div>
