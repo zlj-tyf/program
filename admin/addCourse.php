@@ -10,6 +10,7 @@
 
 <form action="./fun/addCourse.php" method="post" target="resultbox">
     <div class="inputbox"><span>比赛名称：</span><input name="competition_name" required type="text"></div>
+    <div class="inputbox"><span>比赛简称：</span><input name="competition_short_name" type="text" placeholder="可选"></div>
     <div class="inputbox"><span>比赛级别：</span><input name="competition_level" required type="text"></div>
     <div class="inputbox"><span>申报时间：</span><input name="submit_time" required type="text"></div>
     <div class="inputbox" style="width: 100%;"><span>申报要求：</span><br>

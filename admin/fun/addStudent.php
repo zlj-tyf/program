@@ -2,24 +2,31 @@
 require_once("../../config/database.php");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // 过滤输入，防止SQL注入
-    $sid = $_POST["sid"];
-    $name =$_POST["name"];
-    $card_name = $_POST["card_name"];
+    $name = $_POST["name"];
+    $card_type = $_POST["card_type"];
 
-    // 插入学生表，仅插入sid和name
-    
-    $com = "INSERT INTO student (sid, name, card_type) VALUES ('$sid', '$name','$card_name')";
+    // 插入学生数据（sid 自动增长）
+    $com = "INSERT INTO student (name, card_type) VALUES (?, ?)";
+    $stmt = mysqli_prepare($db, $com);
+    mysqli_stmt_bind_param($stmt, "si", $name, $card_type);
+    $result = mysqli_stmt_execute($stmt);
 
-    // 设置学生默认密码为学号后6位的MD5
-    $pwd = md5(123456);
-    $com2 = "INSERT INTO user_student (sid, pwd) VALUES ('$sid', '$pwd')";
+    if ($result) {
+        // 获取自动生成的 sid
+        $sid = mysqli_insert_id($db);
+        $pwd = md5('123456');
 
-    $result = mysqli_query($db, $com);
-    $result2 = mysqli_query($db, $com2);
+        // 插入账户数据
+        $com2 = "INSERT INTO user_student (sid, pwd) VALUES (?, ?)";
+        $stmt2 = mysqli_prepare($db, $com2);
+        mysqli_stmt_bind_param($stmt2, "is", $sid, $pwd);
+        $result2 = mysqli_stmt_execute($stmt2);
 
-    if ($result && $result2) {
-        echo "成功，同时已新建学生账户，密码为123456";
+        if ($result2) {
+            echo "添加成功，学号为 $sid ，默认密码为123456";
+        } else {
+            echo "学生已添加，但账户创建失败：" . mysqli_error($db);
+        }
     } else {
         echo "数据未更改。错误信息：" . mysqli_error($db);
     }
