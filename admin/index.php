@@ -71,6 +71,9 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
         <div class="item">
             <a href="./editStudentCourse.php" target="frame">选课修改</a>
         </div>
+        <div class="item">
+            <a href="./queryLog.php" target="frame">学生日志查询与修改</a>
+        </div>
         <!--
         <div class="item">
             <a href="./queueMark.php" target="frame">登记分数</a>

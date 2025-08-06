@@ -1,60 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../css/fun.css">
+    <title>查询结果</title>
 </head>
 <body>
 <table>
     <tr>
         <th>学号</th>
         <th>姓名</th>
-        <th>奖惩</th>
-        <th>缘由</th>
-        <th>详情</th>
-        <th>发生时间</th>
-        <th>录入时间</th>
+        <th>比赛</th>
+        <th>操作类型</th>
+        <th>日志日期</th>
+        <th>备注</th>
+        <th>链接</th>
         <th>操作</th>
     </tr>
-    <?php
-    require_once("../../config/database.php");
+<?php
+require_once("../../config/database.php");
 
-    $com='select * from student_log left join (select sid sid2,name from student) as sname on student_log.sid=sname.sid2 where 1=1 ' ;
-    if($_GET['sid']){
-        $com=$com." and sid like '%".$_GET['sid']."%'";
-    }
-    if($_GET['name']){
-        $com=$com." and name like '%".$_GET['name']."%'";
-    }
-    $result=mysqli_query($db,$com);
-    if($result){
-        while($row=mysqli_fetch_object($result)){
-            ?>
-            <tr>
-                
-                <td><?php echo '<a href="./modiLog.php?sid='.$row->sid.'">'.$row->sid.'</a>';?></td>
-                <td><?php echo $row->name ?></td>
-                <td><?php
-                    if ($row->type==1){
-                        echo '奖';
-                    }
-                    else{
-                        echo '惩';
-                    }
-                    ?></td>
-                <td><?php echo $row->reason ?></td>
-                <td><?php echo $row->detail ?></td>
-                <td><?php echo $row->logdate ?></td>
-                <td><?php echo $row->addtime ?></td>
-                <td><a href="modiLog.php?sid=<?php echo $row->sid."&addtime=".$row->addtime; ?>">修改</a> / <a href="delLog.php?sid=<?php echo $row->sid."&addtime=".$row->addtime; ?>">删除</a></td>
-            </tr>
-            <?php
-        }
-    }
+$sid = $_GET['sid'] ?? '';
+$name = $_GET['name'] ?? '';
 
-    mysqli_close($db);
-    ?>
+$sql = "SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE 1 = 1";
+
+if (!empty($sid)) {
+    $sql .= " AND s.sid LIKE '%" . $db->real_escape_string($sid) . "%'";
+}
+if (!empty($name)) {
+    $sql .= " AND s.name LIKE '%" . $db->real_escape_string($name) . "%'";
+}
+
+$sql .= " ORDER BY l.addtime DESC";
+
+$result = $db->query($sql);
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td><a href='./modiLog.php?sid={$row['sid']}&addtime={$row['addtime']}'>{$row['sid']}</a></td>";
+        echo "<td>{$row['name']}</td>";
+        echo "<td>{$row['competition_name']}</td>";
+        echo "<td>" . ($row['type'] == 1 ? "创建项目" : "修改项目") . "</td>";
+        echo "<td>{$row['logdate']}</td>";
+        echo "<td>" . htmlspecialchars($row['reason']) . "</td>";
+        echo "<td><a href='" . htmlspecialchars($row['url']) . "' target='_blank'>查看</a></td>";
+        echo "<td>
+            <a href='modiLog.php?sid={$row['sid']}&addtime={$row['addtime']}'>修改</a> / 
+            <a href='delLog.php?sid={$row['sid']}&addtime={$row['addtime']}'>删除</a>
+        </td>";
+        echo "</tr>";
+    }
+}
+$db->close();
+?>
 </table>
 </body>
 </html>
