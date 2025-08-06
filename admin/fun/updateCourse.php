@@ -8,6 +8,7 @@ $competition_level = mysqli_real_escape_string($db, $_POST["competition_level"])
 $submit_time = mysqli_real_escape_string($db, $_POST["submit_time"]);
 $submit_requirements = mysqli_real_escape_string($db, $_POST["submit_requirements"]);
 $student_requirements = mysqli_real_escape_string($db, $_POST["student_requirements"]);
+$default_content = mysqli_real_escape_string($db, $_POST["default_content"] ?? '');
 $card_requirement = (int)$_POST["card_requirement"];
 
 $sql = "UPDATE course SET
@@ -17,6 +18,7 @@ $sql = "UPDATE course SET
     submit_time = '$submit_time',
     submit_requirements = '$submit_requirements',
     student_requirements = '$student_requirements',
+    default_content = '$default_content',
     card_requirement = $card_requirement
     WHERE cid = $cid
 ";

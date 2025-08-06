@@ -8,6 +8,7 @@ $competition_level = mysqli_real_escape_string($db, $_POST["competition_level"])
 $submit_time = mysqli_real_escape_string($db, $_POST["submit_time"]);
 $submit_requirements = mysqli_real_escape_string($db, $_POST["submit_requirements"]);
 $student_requirements = mysqli_real_escape_string($db, $_POST["student_requirements"]);
+$default_content = mysqli_real_escape_string($db, $_POST["default_content"] ?? '');
 $card_requirement = (int)$_POST["card_requirement"];  // 转为整数
 
 // 构造 SQL 插入语句，competition_short_name 可为空
@@ -18,6 +19,7 @@ $com = "INSERT INTO course (
     submit_time,
     submit_requirements,
     student_requirements,
+    default_content,
     card_requirement
 ) VALUES (
     '$competition_name',
@@ -26,6 +28,7 @@ $com = "INSERT INTO course (
     '$submit_time',
     '$submit_requirements',
     '$student_requirements',
+    '$default_content',
     $card_requirement
 )";
 

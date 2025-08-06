@@ -28,7 +28,7 @@ if (!$cid || !$type || !$logdate) {
 }
 
 // 获取学生姓名和比赛名称
-$sql = "SELECT s.name as student_name, c.competition_name 
+$sql = "SELECT s.name as student_name, c.competition_name, c.default_content
         FROM student s 
         JOIN student_course sc ON s.sid = sc.sid 
         JOIN course c ON c.cid = sc.cid 
@@ -40,6 +40,7 @@ $res = $stmt->get_result();
 if ($row = $res->fetch_assoc()) {
     $student_name = $row['student_name'];
     $competition_name = $row['competition_name'];
+    $default_content = $row['default_content'];  // 新增，读取默认页面内容
 } else {
     die("未找到学生或比赛信息");
 }
@@ -70,8 +71,8 @@ if ($type == '1') {
         die("❌ 获取 JWT Token 失败，请确认用户名密码及JWT插件");
     }
 
-    // 创建文章内容默认提示
-    $post_content = "请在此填写你的申报内容……";
+    // 使用 course 表的 default_content 作为文章内容
+    $post_content = $default_content ?: "请在此填写你的申报内容……";
 
     $post_data = [
         'title' => $post_title,

@@ -6,6 +6,7 @@ $courses = mysqli_query($db, "SELECT cid, competition_name FROM course");
 
 // 处理通过ID加载课程信息
 $loaded_course = null;
+$error = null;
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["load_by_id"])) {
     $load_cid = intval($_POST["load_by_id"]);
     $result = mysqli_query($db, "SELECT * FROM course WHERE cid = $load_cid");
@@ -22,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["load_by_id"])) {
     <meta charset="UTF-8">
     <title>课程管理 >> 修改 / 删除申报项目</title>
     <link rel="stylesheet" href="./css/fun.css">
+    <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 </head>
 <body>
 <h3 class="subtitle">课程管理 >> 修改 / 删除申报项目</h3>
@@ -34,13 +36,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["load_by_id"])) {
     </form>
 </div>
 
-<?php if (isset($error)): ?>
+<?php if ($error): ?>
     <p style="color: red; margin-left: 30px;"><?= htmlspecialchars($error) ?></p>
 <?php endif; ?>
 
 <?php if ($loaded_course): ?>
+
+    <form action="./fun/deleteCourse.php" method="get" onsubmit="return confirm('确定要删除此项目吗？')">
+    <input type="hidden" name="cid" value="<?= $loaded_course["cid"] ?>">
+    <div class="clickbox clearfloat"><input type="submit" value="删除项目" style="background: red;"></div>
+</form>
 <form action="./fun/updateCourse.php" method="post" style="margin-top:30px;">
     <input type="hidden" name="cid" value="<?= $loaded_course["cid"] ?>">
+    <div class="clickbox clearfloat"><input type="submit" value="保存修改"></div>
 
     <div class="inputbox"><span>比赛名称：</span>
         <input name="competition_name" type="text" value="<?= htmlspecialchars($loaded_course["competition_name"]) ?>" required>
@@ -58,25 +66,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["load_by_id"])) {
         <input name="submit_time" type="text" value="<?= htmlspecialchars($loaded_course["submit_time"]) ?>" required>
     </div>
 
-    <div class="inputbox" style="width: 100%;"><span>申报要求：</span><br>
+    <div class="inputbox" style="width: 90%;"><span>申报要求：</span><br>
         <textarea name="submit_requirements" rows="5" style="width: 90%;" required><?= htmlspecialchars($loaded_course["submit_requirements"]) ?></textarea>
     </div>
 
-    <div class="inputbox" style="width: 100%;"><span>学生需提交材料：</span><br>
+    <div class="inputbox" style="width: 90%;"><span>学生需提交材料：</span><br>
         <textarea name="student_requirements" rows="5" style="width: 90%;" required><?= htmlspecialchars($loaded_course["student_requirements"]) ?></textarea>
+    </div>
+
+    <div class="inputbox" style="width: 90%;"><span>默认页面内容：</span><br>
+        <textarea name="default_content" id="default_content" rows="15" style="width: 90%;"><?= htmlspecialchars($loaded_course["default_content"]) ?></textarea>
     </div>
 
     <div class="inputbox"><span>卡种类要求：</span>
         <input name="card_requirement" type="number" min="0" step="1" value="<?= htmlspecialchars($loaded_course["card_requirement"]) ?>" required>
     </div>
 
-    <div class="clickbox clearfloat"><input type="submit" value="保存修改"></div>
 </form>
 
-<form action="./fun/deleteCourse.php" method="get" onsubmit="return confirm('确定要删除此项目吗？')">
-    <input type="hidden" name="cid" value="<?= $loaded_course["cid"] ?>">
-    <div class="clickbox clearfloat"><input type="submit" value="删除项目" style="background: red;"></div>
-</form>
+
 <?php endif; ?>
 
 <div class="inputbox" style="margin-top: 40px;">
@@ -86,5 +94,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["load_by_id"])) {
     <?php endwhile; ?>
 </div>
 
+<script>
+    ClassicEditor
+        .create(document.querySelector('#default_content'))
+        .catch(error => { console.error(error); });
+</script>
 </body>
 </html>
