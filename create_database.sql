@@ -1,6 +1,11 @@
 -- 数据库编码设置（可选）
+drop database if EXISTS school;
+create database school;
+use school;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+
 
 -- 表: course
 DROP TABLE IF EXISTS `course`;
@@ -45,8 +50,7 @@ INSERT INTO `course` (`cid`, `competition_name`, `competition_short_name`, `comp
 (27,	'青少年科学研究院小研究员',	'小研究员',	'省市级',	'全年滚动',	'课题立项书、课题研究计划书',	'课题研究计划书',	2),
 (28,	'上海市青少年科学创新实践工作站',	'工作站',	'省市级',	'1-3月',	'自荐信、获奖证明、课题研究计划书',	'课题研究计划书',	2);
 -- 2025-08-01 02:29:57 UTC
--- 表: student
-DROP TABLE IF EXISTS `student`;
+-- 表: studentDROP TABLE IF EXISTS `student`;
 CREATE TABLE `student` (
   `sid` INT AUTO_INCREMENT PRIMARY KEY,
   `name` VARCHAR(50) NOT NULL,
@@ -73,8 +77,11 @@ CREATE TABLE `student` (
   `mother_tel` VARCHAR(20),
   `mother_workplace` VARCHAR(100),
   `mother_position` VARCHAR(50),
-  `has_researcher` TINYINT(1)
+  `has_researcher` TINYINT(1),
+  `wp_user_id` INT -- 新增字段，用于存储 WordPress 用户 ID
+  -- FOREIGN KEY (`wp_user_id`) REFERENCES wp_users(`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='学生信息表';
+
 
 -- 表: student_course
 DROP TABLE IF EXISTS `student_course`;
@@ -89,13 +96,16 @@ CREATE TABLE `student_course` (
 -- 表: student_log
 DROP TABLE IF EXISTS `student_log`;
 CREATE TABLE `student_log` (
-  `sid` VARCHAR(12),
-  `type` CHAR(1),
-  `reason` VARCHAR(30),
-  `detail` VARCHAR(100),
-  `logdate` DATE,
-  `addtime` DATETIME
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='学生行为日志';
+  `sid` VARCHAR(12) NOT NULL COMMENT '学生 ID',
+  `cid` CHAR(6) NOT NULL COMMENT '比赛 ID',
+  `type` CHAR(1) NOT NULL COMMENT '0=新建，1=修改',
+  `reason` VARCHAR(30) NOT NULL COMMENT '备注',
+  `logdate` DATE NOT NULL COMMENT '记录时间',
+  `addtime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '添加时间',
+  PRIMARY KEY (`sid`, `cid`, `logdate`, `type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='学生行为日志记录';
+
+
 
 -- 表: user_admin
 DROP TABLE IF EXISTS `user_admin`;
@@ -117,3 +127,8 @@ CREATE TABLE `user_student` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='学生账户表';
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+
+ALTER TABLE student_log ADD COLUMN url VARCHAR(255);
+ALTER TABLE course
+ADD COLUMN content LONGTEXT DEFAULT NULL;

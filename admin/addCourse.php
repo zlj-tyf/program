@@ -1,33 +1,45 @@
+<?php
+require_once("../config/database.php");
+session_start();
+$sid = $_SESSION['sid'];
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="./css/fun.css">
-    <title>课程管理 >> 新增申报项目</title>
+    <title>创建比赛项目</title>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#html_content',
+            height: 400
+        });
+    </script>
 </head>
 <body>
-<h3 class="subtitle">课程管理 >> 新增申报项目</h3>
+    <h2>创建比赛项目</h2>
+    <form action="fun/addCourse.php" method="post">
+        <label>选择比赛：</label>
+        <select name="cid" required>
+            <?php
+            $sql = "SELECT * FROM student_course WHERE sid = ? AND status = '1'";
+            $stmt = $db->prepare($sql);
+            $stmt->execute([$sid]);
+            while ($row = $stmt->fetch()) {
+                $cid = $row['cid'];
+                $courseQuery = $db->prepare("SELECT competition_name FROM course WHERE cid = ?");
+                $courseQuery->execute([$cid]);
+                $course = $courseQuery->fetch();
+                echo "<option value='{$cid}'>{$course['competition_name']}</option>";
+            }
+            ?>
+        </select><br><br>
 
-<form action="./fun/addCourse.php" method="post" target="resultbox">
-    <div class="inputbox"><span>比赛名称：</span><input name="competition_name" required type="text"></div>
-    <div class="inputbox"><span>比赛简称：</span><input name="competition_short_name" type="text" placeholder="可选"></div>
-    <div class="inputbox"><span>比赛级别：</span><input name="competition_level" required type="text"></div>
-    <div class="inputbox"><span>申报时间：</span><input name="submit_time" required type="text"></div>
-    <div class="inputbox" style="width: 100%;"><span>申报要求：</span><br>
-        <textarea name="submit_requirements" rows="5" style="width: 90%;" required></textarea>
-    </div>
-    <div class="inputbox" style="width: 100%;"><span>学生需提交材料：</span><br>
-        <textarea name="student_requirements" rows="5" style="width: 90%;" required></textarea>
-    </div>
-    <div class="inputbox"><span>卡种类要求：</span>
-        <input name="card_requirement" type="number" min="0" step="1" required>
-    </div>
+        <label>申报内容（支持 HTML）：</label><br>
+        <textarea id="html_content" name="html_content"></textarea><br><br>
 
-    <br>
-    <div class="clickbox clearfloat"><span></span><input name="submit" type="submit" value="提交"></div>
-    <div class="redbox clickbox"><span></span><input name="reset" type="reset" value="清除"></div>
-</form>
-
-<iframe name="resultbox" frameborder="0" width="100%" height="100px"></iframe>
+        <input type="submit" value="创建项目">
+    </form>
 </body>
 </html>
