@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
 }
 body{
@@ -100,4 +100,182 @@ a{
 iframe{
     margin: 25px;
     height: 950px;
+} */
+
+/* 全局重置和基础样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f2f2f2;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* 顶部导航 */
+.topnav {
+    background-color: #357ABD; /* 调整蓝色，更加沉稳 */
+    height: 48px;
+    line-height: 48px;
+    overflow: hidden;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+    color: #fff;
+    float: left;
+    user-select: none;
+}
+
+.userbox {
+    color: #f0f0f0;
+    font-size: 14px;
+    float: right;
+    margin-right: 20px;
+}
+
+.userbox a,
+.userbox a:visited {
+    color: #f0f0f0;
+    transition: color 0.3s ease;
+}
+
+.userbox a:hover {
+    color: #d0e6ff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* 容器和布局 */
+.container {
+    width: 100%;
+    min-width: 1000px;
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    min-height: 1000px;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+/* 左侧导航 */
+.leftnav {
+    width: 20%;
+    background-color: #e1e4e8;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: inset -2px 0 5px rgba(0,0,0,0.05);
+}
+
+.leftnav a {
+    color: #2a2a2a;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.leftnav a:hover {
+    background-color: #357ABD;
+    color: #fff;
+}
+
+/* 主页条目样式 */
+.homepage {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-color: #0e84b5;
+    font-size: 1.1rem;
+    padding: 12px 10px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 4px;
+    user-select: none;
+}
+
+.homepage a {
+    color: #d6e9f8;
+}
+
+.homepage a:hover {
+    color: #fff;
+}
+
+/* 左侧菜单项 */
+.item {
+    background-color: #f5f7fa;
+    text-align: center;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.item a {
+    color: #007acc;
+    padding: 10px 50px;
+    display: inline-block;
+}
+
+.item a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.item:hover {
+    background-color: #357ABD;
+    color: #fff;
+}
+
+/* 副标题 */
+.subtitle {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-color: #d0dce0;
+    font-size: 1.2rem;
+    padding: 12px 0;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    color: #333;
+}
+
+/* 内容区 */
+.content {
+    width: 80%;
+    padding: 20px 30px;
+    overflow: auto;
+}
+
+/* 页脚 */
+.footer {
+    line-height: 100px;
+    background-color: #e4e4e4;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    user-select: none;
+}
+
+/* iframe 样式 */
+iframe {
+    margin: 25px 0;
+    width: 100%;
+    height: 950px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }

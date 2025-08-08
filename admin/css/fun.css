@@ -1,4 +1,4 @@
-body{
+/* body{
     margin: 30px;
 }
 .clearfloat{
@@ -87,4 +87,124 @@ table{
     width:80%;
     margin: 0 auto;
     font-size: 15px;
+} */
+
+/* 基础体块和间距 */
+body {
+    margin: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.clearfloat {
+    clear: both;
+}
+
+/* 副标题间距 */
+.subtitle {
+    margin: 40px 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* 输入框组 */
+.inputbox, .input_mid {
+    display: flex;
+    align-items: center;
+    width: 265px;
+    height: 40px;
+    margin: 20px;
+    gap: 10px;
+}
+
+.inputbox span, .deptbox span, form span {
+    width: 100px;
+    text-align: right;
+    font-weight: 500;
+    user-select: none;
+}
+
+.inputbox input, .inputbox select {
+    flex: 1;
+    height: 30px;
+    padding: 5px 8px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.inputbox input:focus, .inputbox select:focus {
+    outline: none;
+    border-color: #357ABD;
+    box-shadow: 0 0 6px #a3c5f7;
+}
+
+/* 点击按钮区域 */
+.clickbox {
+    float: left;
+    width: 46%;
+    text-align: center;
+    margin: 10px 0;
+}
+
+.clickbox input {
+    width: 100px;
+    height: 35px;
+    background-color: #2e7d32;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.clickbox input:hover {
+    background-color: #1b4d20;
+}
+
+/* 红色警告输入框 */
+.redbox input {
+    background-color: #c83838;
+    color: #fff;
+    border: none;
+}
+
+/* 部门输入框 */
+.deptbox {
+    display: flex;
+    align-items: center;
+    width: 350px;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+/* 表格 */
+table {
+    width: 80%;
+    margin: 0 auto 40px auto;
+    font-size: 15px;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+table th {
+    background-color: #f0f0f0;
+    font-weight: 600;
+}
+
+/* 其他辅助样式 */
+.smallfont {
+    font-size: 10px;
+    color: #888;
+}
+
+.firstbox {
+    clear: both;
 }
