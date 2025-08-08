@@ -96,14 +96,16 @@ CREATE TABLE `student_course` (
 -- 表: student_log
 DROP TABLE IF EXISTS `student_log`;
 CREATE TABLE `student_log` (
+  `id` INT AUTO_INCREMENT COMMENT 'ID',
   `sid` VARCHAR(12) NOT NULL COMMENT '学生 ID',
   `cid` CHAR(6) NOT NULL COMMENT '比赛 ID',
   `type` CHAR(1) NOT NULL COMMENT '0=新建，1=修改',
   `reason` VARCHAR(30) NOT NULL COMMENT '备注',
   `logdate` DATE NOT NULL COMMENT '记录时间',
   `addtime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '添加时间',
-  PRIMARY KEY (`sid`, `cid`, `logdate`, `type`)
+  PRIMARY KEY (`id`,`sid`, `cid`, `logdate`, `type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='学生行为日志记录';
+-- ALTER TABLE student_log ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY FIRST;
 
 
 
@@ -132,4 +134,3 @@ SET FOREIGN_KEY_CHECKS = 1;
 ALTER TABLE student_log ADD COLUMN url VARCHAR(255);
 -- ALTER TABLE course
 ALTER TABLE course ADD COLUMN default_content LONGTEXT DEFAULT NULL;
-ALTER TABLE student_log ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY FIRST;

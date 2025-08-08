@@ -11,11 +11,12 @@ if(!isset($_SESSION["user"])||!$_SESSION["login"]==true){
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Project Log System - User Page</title>
 </head>
 <body>
 <div class="container topnav">
     <div class="logo">
-        学生选课信息管理系统
+        Project Log System
     </div>
     <div class="userbox" style="float:right">
         当前用户：<?php echo $_SESSION["user"]?>  <a href="../logout.php">登出</a>
@@ -71,7 +72,7 @@ if(!isset($_SESSION["user"])||!$_SESSION["login"]==true){
 
 </div>
 <div class="container footer">
-    <span>数据库系统课程设计@2019</span>
+    <span>Project Log System<br/>Opensource based on MIT licence.</span>
 </div>
 </body>
 </html>

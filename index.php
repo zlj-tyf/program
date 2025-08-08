@@ -14,14 +14,14 @@ if (!$_SESSION['login']==true) {
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, height=device-height, inital-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="static/login.css" type="text/css" media="all" />
-        <title>登录到系统 - 学生选课信息管理系统</title>
+        <title>Login Page - Project Log System</title>
     </head>
     
     <body>
         <div class="loginbox">
             <div class="title">
             <span>
-                学生选课信息管理系统
+                Project Log System
             </span>
             </div>
             <div class="subtitle">
@@ -43,10 +43,8 @@ if (!$_SESSION['login']==true) {
             </form>
         </div>
         <div class="footer">
-        Copyright © 2019 Database Course Design. All rights reserved. 
+        Opensource based on MIT licence.
         </div>
-        <!-- Written by mrning -->
-        <!-- 2019.12 -->
     </body>
 </html>
 

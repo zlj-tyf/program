@@ -10,12 +10,12 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>学生选课信息管理系统@2019</title>
+    <title>Project Log System - Admin Page</title>
 </head>
 <body>
 <div class="container topnav">
     <div class="logo">
-        学生选课信息管理系统
+        Project Log System
     </div>
     <div class="userbox" style="float:right">
         你好，管理员 <?php echo $_SESSION["admin"]?> <a href="../logout.php"> 登出</a>
@@ -38,9 +38,9 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
         <div class="item">
             <a href="./editStudent.php" target="frame">编辑学生</a>
         </div>
-        <div class="item">
+        <!-- <div class="item">
             <a href="./getLog.php" target="frame">奖惩管理</a>
-        </div>
+        </div> -->
         <!-- <div class="subtitle">
             院系管理
         </div>
@@ -107,7 +107,7 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
     </div>
 </div>
 <div class="container footer">
-    <span>数据库系统课程设计@2019</span>
+    <span>Project Log System<br/>Opensource based on MIT licence.</span>
 </div>
 </body>
 </html>
