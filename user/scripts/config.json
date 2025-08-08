@@ -1,0 +1,10 @@
+{
+    "SMTP_SERVER": "smtp.yeah.net",
+    "SMTP_PORT": 465,
+    "SENDER_EMAIL": "zljzljsweepy@yeah.net",
+    "SENDER_PASSWORD": "sweepy",
+    "SENDER_NAME": "问题反馈系统",
+    "TARGET_EMAIL": "3442242644@qq.com",
+    "TARGET_NAME": "管理员",
+    "VERIFY_CODE": "123456"
+}
