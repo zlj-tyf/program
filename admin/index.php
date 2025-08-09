@@ -5,6 +5,49 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
     header ("Location: "."../"); 
     exit();
 }
+
+require_once '../config/database.php';
+
+$adminID = $_SESSION["admin"];
+$adminName = "管理员"; // 默认
+
+if ($adminID == 999) {
+    $adminName = "超级管理员";
+} else {
+    $stmt = $db->prepare("SELECT adminName FROM user_admin WHERE adminID = ?");
+    if ($stmt) {
+        $stmt->bind_param("i", $adminID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($row = $result->fetch_assoc()) {
+            $adminName = $row['adminName'];
+        }
+        $stmt->close();
+    }
+}
+
+$permissions = [];
+if($adminID == 999){
+    $permissions = [
+        "addStudent","queueStudent","editStudent",
+        "queueCourse","addCourse","modifyCourse",
+        "queueChoose","editStudentCourse",
+        "queryLog","userManage","changePassword",
+    ];
+} else {
+    $stmt = $db->prepare("SELECT permissions FROM user_admin WHERE adminID = ?");
+    $stmt->bind_param("i", $adminID);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if($row = $result->fetch_assoc()){
+        $permissions = explode(',', $row['permissions']);
+    }
+    $stmt->close();
+}
+
+function hasPermission($perm, $permissions){
+    return in_array($perm, $permissions);
+}
 ?>
 <html>
 <head>
@@ -18,7 +61,7 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
         Project Log System
     </div>
     <div class="userbox" style="float:right">
-        你好，管理员 <?php echo $_SESSION["admin"]?> <a href="../logout.php"> 登出</a>
+        你好，管理员 <?php echo htmlspecialchars($adminName); ?> <a href="../logout.php"> 登出</a>
     </div>
 </div>
 <div class="container main">
@@ -26,88 +69,64 @@ if(!isset($_SESSION["admin"])||!$_SESSION["login"]==true){
         <div class="homepage">
             <a href="./welcome.php" target="frame">首页</a>
         </div>
-        <div class="subtitle">
-            学生管理
-        </div>
-        <div class="item">
-            <a href="./addStudent.php" target="frame">新增学生</a>
-        </div>
-        <div class="item">
-            <a href="./queueStudent.php" target="frame">查询学生</a>
-        </div>
-        <div class="item">
-            <a href="./editStudent.php" target="frame">编辑学生</a>
-        </div>
-        <!-- <div class="item">
-            <a href="./getLog.php" target="frame">奖惩管理</a>
-        </div> -->
-        <!-- <div class="subtitle">
-            院系管理
-        </div>
-        <div class="item">
-            <a href="./queueDept.php" target="frame">院系信息</a>
-        </div>
-        <div class="item">
-            <a href="./queueMajor.php" target="frame">专业列表</a>
-        </div> -->
-        <div class="subtitle">
-            课程管理
-        </div>
-        <div class="item">
-            <a href="./queueCourse.php" target="frame">课程查询</a>
-        </div>
-        <div class="item">
-            <a href="./addCourse.php" target="frame">新增课程</a>
-        </div>
-        <div class="item">
-            <a href="./modifyCourse.php" target="frame">修改课程</a>
-        </div>
-        <div class="subtitle">
-            选课管理
-        </div>
-        <div class="item">
-            <a href="./queueChoose.php" target="frame">学生选课</a>
-        </div>
-        <div class="item">
-            <a href="./editStudentCourse.php" target="frame">选课修改</a>
-        </div>
-        <div class="item">
-            <a href="./queryLog.php" target="frame">学生日志查询与修改</a>
-        </div>
-        <!--
-        <div class="item">
-            <a href="./queueMark.php" target="frame">登记分数</a>
-        </div>
-        <div class="item">
-            <a href="./queueRetake.php" target="frame">补考重修</a>
-        </div>
-        
-        <div class="subtitle">
-            数据统计
-        </div>
-        <div class="item">
-            <a href="./scoreStatistic.php" target="frame">成绩统计</a>
-        </div>
-        <div class="item">
-            <a href="./classStatistic.php" target="frame">选课统计</a>
-        </div>
--->
-        <div class="subtitle">
-            系统设置
-        </div>
-        <div class="item">
-            <a href="./userManage.php" target="frame">用户管理</a>
-        </div>
-        <div class="item">
-            <a href="./changePassword.php" target="frame">修改密码</a>
-        </div>
+
+        <?php if(hasPermission("addStudent",$permissions) || hasPermission("queueStudent",$permissions) || hasPermission("editStudent",$permissions)): ?>
+        <div class="subtitle">学生管理</div>
+        <?php if(hasPermission("addStudent",$permissions)): ?>
+        <div class="item"><a href="./addStudent.php" target="frame">新增学生</a></div>
+        <?php endif; ?>
+        <?php if(hasPermission("queueStudent",$permissions)): ?>
+        <div class="item"><a href="./queueStudent.php" target="frame">查询学生</a></div>
+        <?php endif; ?>
+        <?php if(hasPermission("editStudent",$permissions)): ?>
+        <div class="item"><a href="./editStudent.php" target="frame">编辑学生</a></div>
+        <?php endif; ?>
+        <?php endif; ?>
+
+        <?php if(hasPermission("queueCourse",$permissions) || hasPermission("addCourse",$permissions) || hasPermission("modifyCourse",$permissions)): ?>
+        <div class="subtitle">课程管理</div>
+        <?php if(hasPermission("queueCourse",$permissions)): ?>
+        <div class="item"><a href="./queueCourse.php" target="frame">课程查询</a></div>
+        <?php endif; ?>
+        <?php if(hasPermission("addCourse",$permissions)): ?>
+        <div class="item"><a href="./addCourse.php" target="frame">新增课程</a></div>
+        <?php endif; ?>
+        <?php if(hasPermission("modifyCourse",$permissions)): ?>
+        <div class="item"><a href="./modifyCourse.php" target="frame">修改课程</a></div>
+        <?php endif; ?>
+        <?php endif; ?>
+
+        <?php if(hasPermission("queueChoose",$permissions) || hasPermission("editStudentCourse",$permissions) || hasPermission("queryLog",$permissions)): ?>
+        <div class="subtitle">选课管理</div>
+        <?php if(hasPermission("queueChoose",$permissions)): ?>
+        <div class="item"><a href="./queueChoose.php" target="frame">学生选课</a></div>
+        <?php endif; ?>
+        <?php if(hasPermission("editStudentCourse",$permissions)): ?>
+        <div class="item"><a href="./editStudentCourse.php" target="frame">选课修改</a></div>
+        <?php endif; ?>
+        <?php if(hasPermission("queryLog",$permissions)): ?>
+        <div class="item"><a href="./queryLog.php" target="frame">学生日志查询与修改</a></div>
+        <?php endif; ?>
+        <?php endif; ?>
+
+        <div class="subtitle">系统设置</div>
+        <?php if(hasPermission("userManage",$permissions)): ?>
+        <div class="item"><a href="./userManage.php" target="frame">用户管理</a></div>
+        <?php endif; ?>
+        <?php if(hasPermission("changePassword",$permissions)): ?>
+        <div class="item"><a href="./changePassword.php" target="frame">修改密码</a></div>
+        <?php endif; ?>
+        <?php if($_SESSION["admin"] == 999): ?>
+        <div class="item"><a href="./createAdmin.php" target="frame">创建管理员</a></div>
+        <?php endif; ?>
     </div>
+
     <div class="content">
         <iframe name="frame" frameborder="0" width="100%"  scrolling="yes"  src="./welcome.php"></iframe>
     </div>
 </div>
 
-<!-- 在 body 最后加上悬浮窗按钮和反馈表单 -->
+<!-- 以下是你原先的反馈悬浮窗及样式和脚本，保持不变 -->
 
 <style>
 #feedbackBtn {
@@ -237,8 +256,6 @@ function validateForm() {
 <div class="container footer">
     <span>Project Log System<br/>Opensource based on MIT licence.</span>
 </div>
-
-
 
 </body>
 </html>

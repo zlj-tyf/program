@@ -109,17 +109,21 @@ CREATE TABLE `student_log` (
 
 
 
--- 表: user_admin
-DROP TABLE IF EXISTS `user_admin`;
-CREATE TABLE `user_admin` (
-  `adminID` VARCHAR(15) PRIMARY KEY,
-  `adminName` VARCHAR(15),
-  `pwd` CHAR(32)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='管理员账户表';
 
 
-INSERT INTO `user_admin` (`adminID`, `adminName`, `pwd`) VALUES ('1', 'Admin1', 'e10adc3949ba59abbe56e057f20f883e');
-INSERT INTO `user_admin` (`adminID`, `adminName`, `pwd`) VALUES ('999', 'Admin999', 'd41d8cd98f00b204e9800998ecf8427e');
+-- 创建 user_admin 表
+CREATE TABLE IF NOT EXISTS user_admin (
+    adminID INT UNSIGNED NOT NULL PRIMARY KEY,          -- 管理员ID，整型，作为主键
+    adminName VARCHAR(50) NOT NULL UNIQUE,              -- 管理员用户名，唯一约束
+    pwd CHAR(32) NOT NULL,                              -- 密码，MD5加密后的32位字符串
+    permissions VARCHAR(255) DEFAULT NULL               -- 以逗号分隔的权限列表字符串
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- 创建默认管理员示例（可选）
+INSERT INTO user_admin (adminID, adminName, pwd, permissions)
+VALUES (999, 'Admin', MD5('123456'), 'addStudent,queueStudent,editStudent,queueCourse,addCourse,modifyCourse,queueChoose,editStudentCourse,queryLog,userManage,changePassword,createAdmin')
+ON DUPLICATE KEY UPDATE adminName = VALUES(adminName);
+
 
 -- 表: user_student
 DROP TABLE IF EXISTS `user_student`;
