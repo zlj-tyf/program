@@ -1,9 +1,19 @@
 <?php
 session_start();
-require_once("../config/database.php");
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once("../config/database.php"); // 业务数据库
+// WordPress JWT 地址
+$wordpress_url = "http://106.15.139.140";
 
 if (!isset($_SESSION['user'])) {
     die("请先登录！");
+}
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    die("无效请求");
 }
 
 $sid = $_SESSION['user'];
@@ -17,15 +27,100 @@ if (!$cid || !$type || !$logdate) {
     die("缺少必要参数");
 }
 
-// 插入日志，url初始为空
-$stmt = $db->prepare("INSERT INTO student_log (sid, cid, type, reason, logdate, addtime, url) VALUES (?, ?, ?, ?, ?, ?, NULL)");
-$stmt->bind_param("ssisss", $sid, $cid, $type, $reason, $logdate, $addtime);
-
-if ($stmt->execute()) {
-    echo "日志添加成功";
+// 获取学生姓名和比赛名称
+$sql = "SELECT s.name as student_name, c.competition_name, c.default_content
+        FROM student s 
+        JOIN student_course sc ON s.sid = sc.sid 
+        JOIN course c ON c.cid = sc.cid 
+        WHERE s.sid = ? AND c.cid = ?";
+$stmt = $db->prepare($sql);
+$stmt->bind_param("ss", $sid, $cid);
+$stmt->execute();
+$res = $stmt->get_result();
+if ($row = $res->fetch_assoc()) {
+    $student_name = $row['student_name'];
+    $competition_name = $row['competition_name'];
+    $default_content = $row['default_content'];  // 新增，读取默认页面内容
 } else {
-    echo "日志添加失败：" . $stmt->error;
+    die("未找到学生或比赛信息");
 }
 $stmt->close();
-$db->close();
+
+$post_title = "{$student_name} + {$competition_name} + 申报材料";
+
+// 辅助函数：获取 JWT Token
+function get_jwt_token($username, $password, $url) {
+    $data = json_encode(['username' => $username, 'password' => $password]);
+    $opts = ['http' => [
+        'method' => 'POST',
+        'header' => "Content-Type: application/json\r\n",
+        'content' => $data,
+        'ignore_errors' => true,
+    ]];
+    $context = stream_context_create($opts);
+    $result = file_get_contents($url . "/wp-json/jwt-auth/v1/token", false, $context);
+    if (!$result) return null;
+    $json = json_decode($result, true);
+    return $json['token'] ?? null;
+}
+
+if ($type == '1') {
+    // 创建新项目，先获取 JWT Token
+    $token = get_jwt_token($sid, '123456', $wordpress_url);
+    if (!$token) {
+        die("❌ 获取 JWT Token 失败，请确认用户名密码及JWT插件");
+    }
+
+    // 使用 course 表的 default_content 作为文章内容
+    $post_content = $default_content ?: "请在此填写你的申报内容……";
+
+    $post_data = [
+        'title' => $post_title,
+        'content' => $post_content,
+        'status' => 'publish',
+    ];
+
+    $opts = ['http' => [
+        'method' => 'POST',
+        'header' => "Authorization: Bearer $token\r\nContent-Type: application/json\r\n",
+        'content' => json_encode($post_data),
+        'ignore_errors' => true,
+    ]];
+
+    $context = stream_context_create($opts);
+    $result = file_get_contents($wordpress_url . "/wp-json/wp/v2/posts", false, $context);
+    $response = json_decode($result, true);
+
+    if (isset($response['id']) && isset($response['link'])) {
+        $post_link = $response['link'];
+
+        // 写入日志，url字段存链接
+        $stmt_log = $db->prepare("INSERT INTO student_log (sid, cid, type, reason, logdate, addtime, url) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        if (!$stmt_log) die("日志插入准备失败：" . $db->error);
+        $stmt_log->bind_param("ssissss", $sid, $cid, $type, $reason, $logdate, $addtime, $post_link);
+        if (!$stmt_log->execute()) {
+            die("日志插入失败：" . $stmt_log->error);
+        }
+        $stmt_log->close();
+
+        echo "✅ 创建成功！文章链接：<a href='{$post_link}' target='_blank'>{$post_link}</a>";
+    } else {
+        echo "❌ 创建文章失败，接口返回：" . $result;
+    }
+} elseif ($type == '2') {
+    // 修改项目，读取最新创建的文章链接
+    $stmt_link = $db->prepare("SELECT url FROM student_log WHERE sid = ? AND cid = ? AND type = '1' ORDER BY addtime DESC LIMIT 1");
+    if (!$stmt_link) die("SQL准备失败：" . $db->error);
+    $stmt_link->bind_param("ss", $sid, $cid);
+    $stmt_link->execute();
+    $stmt_link->bind_result($url);
+    if ($stmt_link->fetch()) {
+        echo "最近创建的文章链接：<a href='" . htmlspecialchars($url) . "' target='_blank'>" . htmlspecialchars($url) . "</a>";
+    } else {
+        echo "⚠️ 未找到对应的文章链接，请先创建项目。";
+    }
+    $stmt_link->close();
+} else {
+    echo "无效操作类型";
+}
 ?>
