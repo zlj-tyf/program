@@ -138,3 +138,24 @@ SET FOREIGN_KEY_CHECKS = 1;
 ALTER TABLE student_log ADD COLUMN url VARCHAR(255);
 -- ALTER TABLE course
 ALTER TABLE course ADD COLUMN default_content LONGTEXT DEFAULT NULL;
+
+
+-- 先确保被引用表 student 的 sid 是 INT 或 INT UNSIGNED（示例：INT）
+-- 然后创建 card、student_card（示例）
+CREATE TABLE card (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  allowed_courses TEXT NOT NULL,
+  max_courses INT NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE student_card (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  sid INT NOT NULL,
+  card_id INT NOT NULL,
+  quantity INT NOT NULL DEFAULT 0,
+  INDEX (sid),
+  INDEX (card_id),
+  CONSTRAINT fk_student_card_card FOREIGN KEY (card_id) REFERENCES card(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT fk_student_card_student FOREIGN KEY (sid) REFERENCES student(sid) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

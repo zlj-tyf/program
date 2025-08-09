@@ -33,6 +33,9 @@ if($adminID == 999){
         "queueCourse","addCourse","modifyCourse",
         "queueChoose","editStudentCourse",
         "queryLog","userManage","changePassword",
+        "createAdmin",  // 记得超级管理员拥有创建管理员权限
+        "createCard",   // 新增卡片管理权限
+        "modifyCard"
     ];
 } else {
     $stmt = $db->prepare("SELECT permissions FROM user_admin WHERE adminID = ?");
@@ -109,6 +112,17 @@ function hasPermission($perm, $permissions){
         <?php endif; ?>
         <?php endif; ?>
 
+        <!-- 新增卡片管理菜单 -->
+        <?php if(hasPermission("createCard",$permissions) || hasPermission("modifyCard",$permissions)): ?>
+        <div class="subtitle">卡片管理</div>
+        <?php if(hasPermission("createCard",$permissions)): ?>
+        <div class="item"><a href="./createCard.php" target="frame">创建卡片</a></div>
+        <?php endif; ?>
+        <?php if(hasPermission("modifyCard",$permissions)): ?>
+        <div class="item"><a href="./modifyCard.php" target="frame">修改卡片</a></div>
+        <?php endif; ?>
+        <?php endif; ?>
+
         <div class="subtitle">系统设置</div>
         <?php if(hasPermission("userManage",$permissions)): ?>
         <div class="item"><a href="./userManage.php" target="frame">用户管理</a></div>
@@ -125,6 +139,9 @@ function hasPermission($perm, $permissions){
         <iframe name="frame" frameborder="0" width="100%"  scrolling="yes"  src="./welcome.php"></iframe>
     </div>
 </div>
+
+<!-- 省略原有的反馈悬浮窗和脚本 -->
+
 
 <!-- 以下是你原先的反馈悬浮窗及样式和脚本，保持不变 -->
 

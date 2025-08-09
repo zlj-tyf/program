@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["load_by_id"])) {
     <input type="hidden" name="cid" value="<?= $loaded_course["cid"] ?>">
     <div class="clickbox clearfloat"><input type="submit" value="删除项目" style="background: red;"></div>
 </form>
-<form action="./fun/updateCourse.php" method="post" style="margin-top:30px;">
+<form action="./fun/editCourse.php" method="post" style="margin-top:30px;">
     <input type="hidden" name="cid" value="<?= $loaded_course["cid"] ?>">
     <div class="clickbox clearfloat"><input type="submit" value="保存修改"></div>
 

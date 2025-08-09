@@ -55,20 +55,24 @@ function submitForm() {
     <label>用户名: <input type="text" name="adminName" required autocomplete="username" /></label>
     <label>密码: <input type="password" name="pwd" required autocomplete="current-password" /></label>
     <fieldset class="permissions">
-        <legend>访问权限（勾选允许访问的功能）</legend>
-        <label><input type="checkbox" name="permissions[]" value="addStudent" /> 新增学生</label>
-        <label><input type="checkbox" name="permissions[]" value="queueStudent" /> 学生列表</label>
-        <label><input type="checkbox" name="permissions[]" value="editStudent" /> 编辑学生</label>
-        <label><input type="checkbox" name="permissions[]" value="queueCourse" /> 课程列表</label>
-        <label><input type="checkbox" name="permissions[]" value="addCourse" /> 新增课程</label>
-        <label><input type="checkbox" name="permissions[]" value="modifyCourse" /> 编辑课程</label>
-        <label><input type="checkbox" name="permissions[]" value="queueChoose" /> 选课列表</label>
-        <label><input type="checkbox" name="permissions[]" value="editStudentCourse" /> 编辑学生课程</label>
-        <label><input type="checkbox" name="permissions[]" value="queryLog" /> 日志查询</label>
-        <label><input type="checkbox" name="permissions[]" value="userManage" /> 管理员管理</label>
-        <label><input type="checkbox" name="permissions[]" value="changePassword" /> 修改密码</label>
-        <label><input type="checkbox" name="permissions[]" value="createAdmin" /> 创建管理员</label>
-    </fieldset>
+    <legend>访问权限（勾选允许访问的功能）</legend>
+    <label><input type="checkbox" name="permissions[]" value="addStudent" /> 新增学生</label>
+    <label><input type="checkbox" name="permissions[]" value="queueStudent" /> 学生列表</label>
+    <label><input type="checkbox" name="permissions[]" value="editStudent" /> 编辑学生</label>
+    <label><input type="checkbox" name="permissions[]" value="queueCourse" /> 课程列表</label>
+    <label><input type="checkbox" name="permissions[]" value="addCourse" /> 新增课程</label>
+    <label><input type="checkbox" name="permissions[]" value="modifyCourse" /> 编辑课程</label>
+    <label><input type="checkbox" name="permissions[]" value="queueChoose" /> 选课列表</label>
+    <label><input type="checkbox" name="permissions[]" value="editStudentCourse" /> 编辑学生课程</label>
+    <label><input type="checkbox" name="permissions[]" value="queryLog" /> 日志查询</label>
+    <!-- 新增卡片管理权限 -->
+    <label><input type="checkbox" name="permissions[]" value="createCard" /> 创建卡片</label>
+    <label><input type="checkbox" name="permissions[]" value="modifyCard" /> 修改卡片</label>
+    <label><input type="checkbox" name="permissions[]" value="userManage" /> 管理员管理</label>
+    <label><input type="checkbox" name="permissions[]" value="changePassword" /> 修改密码</label>
+    <!-- <label><input type="checkbox" name="permissions[]" value="createAdmin" /> 创建管理员</label> -->
+
+</fieldset>
     <button type="submit" class="btn">创建</button>
 </form>
 </body>
