@@ -1,12 +1,35 @@
 <?php
 session_start();
+
 $wrong = '';
-if(isset($_GET["retry"])){
+if (isset($_GET["retry"])) {
     $wrong = '<div class="inputbox">
                 <span style="color:#df3a01;font-size:10px;margin:10px;display:block">用户名或密码错误</span>
               </div>';
 }
+
+// 获取之前的选择，优先 POST，然后 GET，默认 student/id
+$role = 'student';
+if (isset($_POST['role'])) {
+    $role = $_POST['role'] === 'admin' ? 'admin' : 'student';
+} elseif (isset($_GET['role'])) {
+    $role = $_GET['role'] === 'admin' ? 'admin' : 'student';
+}
+
+$login_type = 'id';
+if (isset($_POST['login_type'])) {
+    $login_type = $_POST['login_type'] === 'name' ? 'name' : 'id';
+} elseif (isset($_GET['login_type'])) {
+    $login_type = $_GET['login_type'] === 'name' ? 'name' : 'id';
+}
+
 if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
+    $tabStudentClass = $role === 'student' ? 'active' : '';
+    $tabAdminClass = $role === 'admin' ? 'active' : '';
+
+    $checkedId = $login_type === 'id' ? 'checked' : '';
+    $checkedName = $login_type === 'name' ? 'checked' : '';
+
     print <<<END
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -56,17 +79,17 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
         <div class="subtitle">用户登录</div>
 
         <div class="tab">
-            <div id="tab-student" class="active" onclick="showForm('student')">学生登录</div>
-            <div id="tab-admin" onclick="showForm('admin')">管理员登录</div>
+            <div id="tab-student" class="$tabStudentClass" onclick="showForm('student')">学生登录</div>
+            <div id="tab-admin" class="$tabAdminClass" onclick="showForm('admin')">管理员登录</div>
         </div>
 
         <div class="form-section">
             <form id="login-form" action="./login.php" method="post">
-                <input type="hidden" name="role" id="role" value="student" />
+                <input type="hidden" name="role" id="role" value="$role" />
 
                 <div class="radio-group">
-                    <label><input type="radio" name="login_type" value="id" checked> 用ID登录</label>
-                    <label style="margin-left:20px;"><input type="radio" name="login_type" value="name"> 用用户名登录</label>
+                    <label><input type="radio" name="login_type" value="id" $checkedId> 用ID登录</label>
+                    <label style="margin-left:20px;"><input type="radio" name="login_type" value="name" $checkedName> 用用户名登录</label>
                 </div>
 
                 <div class="inputbox">
@@ -89,12 +112,6 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
 <script>
 function showForm(role) {
     document.getElementById('role').value = role;
-    // 切换后重置单选，默认用ID登录
-    const radios = document.getElementsByName('login_type');
-    for(let r of radios) {
-        r.checked = false;
-    }
-    radios[0].checked = true; // 默认用ID登录
 
     if(role === 'student') {
         document.getElementById('tab-student').classList.add('active');
@@ -103,15 +120,16 @@ function showForm(role) {
         document.getElementById('tab-admin').classList.add('active');
         document.getElementById('tab-student').classList.remove('active');
     }
+    // 保持登录方式单选状态，不重置
 }
 </script>
 </body>
 </html>
 END;
 
-exit();
+    exit();
 } else {
-    if(isset($_SESSION["admin"])) {
+    if (isset($_SESSION["admin"])) {
         header("Location: ./admin/");
         exit();
     } else {

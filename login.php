@@ -14,8 +14,14 @@ $pwd = md5($pass);
 
 require_once('./config/database.php');
 
+// 封装跳转失败函数，方便传参
+function redirect_retry($role, $login_type) {
+    $url = "./?retry=1&role=" . urlencode($role) . "&login_type=" . urlencode($login_type);
+    header("Location: $url");
+    exit();
+}
+
 if ($role === 'student') {
-    // 如果用用户名登录，先找 student 表拿 sid
     if ($login_type === 'name') {
         $stmt = $db->prepare("SELECT sid FROM student WHERE name = ?");
         $stmt->bind_param("s", $user_input);
@@ -25,16 +31,13 @@ if ($role === 'student') {
             $row = $res->fetch_assoc();
             $sid = $row['sid'];
         } else {
-            // 找不到用户名
-            header("Location: ./?retry=1");
-            exit();
+            redirect_retry($role, $login_type);
         }
         $stmt->close();
     } else {
-        // 直接用输入当 sid
         $sid = $user_input;
     }
-    // 用 sid + pwd 去 user_student 表查找
+
     $stmt = $db->prepare("SELECT sid FROM user_student WHERE sid = ? AND pwd = ?");
     $stmt->bind_param("ss", $sid, $pwd);
     $stmt->execute();
@@ -45,11 +48,9 @@ if ($role === 'student') {
         header("Location: ./user/");
         exit();
     } else {
-        header("Location: ./?retry=1");
-        exit();
+        redirect_retry($role, $login_type);
     }
 } else if ($role === 'admin') {
-    // 管理员登录，先尝试用ID查，再用用户名查
     if ($login_type === 'id') {
         $stmt = $db->prepare("SELECT adminID FROM user_admin WHERE adminID = ? AND pwd = ?");
         $stmt->bind_param("ss", $user_input, $pwd);
@@ -61,11 +62,9 @@ if ($role === 'student') {
             header("Location: ./admin/");
             exit();
         } else {
-            header("Location: ./?retry=1");
-            exit();
+            redirect_retry($role, $login_type);
         }
     } else if ($login_type === 'name') {
-        // 用用户名登录，查 adminName 字段
         $stmt = $db->prepare("SELECT adminID FROM user_admin WHERE adminName = ? AND pwd = ?");
         $stmt->bind_param("ss", $user_input, $pwd);
         $stmt->execute();
@@ -73,21 +72,16 @@ if ($role === 'student') {
         if ($res && $res->num_rows > 0) {
             $row = $res->fetch_assoc();
             $_SESSION["login"] = true;
-            $_SESSION["admin"] = $row['adminID'];  // 记录 adminID 做session
+            $_SESSION["admin"] = $row['adminID'];
             header("Location: ./admin/");
             exit();
         } else {
-            header("Location: ./?retry=1");
-            exit();
+            redirect_retry($role, $login_type);
         }
     } else {
-        // 未知登录类型
-        header("Location: ./?retry=1");
-        exit();
+        redirect_retry($role, $login_type);
     }
 } else {
-    // 未知身份
-    header("Location: ./?retry=1");
-    exit();
+    redirect_retry($role, $login_type);
 }
 ?>
