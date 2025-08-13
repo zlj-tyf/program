@@ -29,7 +29,7 @@ if ($adminID == 999) {
 $permissions = [];
 if($adminID == 999){
     $permissions = [
-        "addStudent","queueStudent","editStudent",
+        "addStudent","queueStudent","editStudent","editStudentCard",
         "queueCourse","addCourse","modifyCourse",
         "queueChoose","editStudentCourse",
         "queryLog","userManage","changePassword",
@@ -83,6 +83,9 @@ function hasPermission($perm, $permissions){
         <?php endif; ?>
         <?php if(hasPermission("editStudent",$permissions)): ?>
         <div class="item"><a href="./editStudent.php" target="frame">编辑学生</a></div>
+        <?php endif; ?>
+        <?php if(hasPermission("editStudentCard",$permissions)): ?>
+        <div class="item"><a href="./editStudentCard.php" target="frame">编辑学生卡片</a></div>
         <?php endif; ?>
         <?php endif; ?>
 

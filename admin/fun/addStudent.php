@@ -1,5 +1,4 @@
 <?php
-// 业务数据库连接（你的应用数据库）
 require_once("../../config/database.php");
 
 // 额外连接 WordPress 数据库
@@ -9,11 +8,10 @@ $wpdb_pass = "123456";
 $wpdb_name = "wordpress";
 
 $wpdb_new  = new mysqli($wpdb_host, $wpdb_user, $wpdb_pass, $wpdb_name);
-if ($wpdb_new ->connect_error) {
-    die("连接 WordPress 数据库失败: " . $wpdb_new ->connect_error);
+if ($wpdb_new->connect_error) {
+    die("连接 WordPress 数据库失败: " . $wpdb_new->connect_error);
 }
 
-// 引入 WordPress 环境，路径根据实际调整
 require_once("../../../wp-load.php");
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -22,21 +20,25 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 $name = $_POST["name"] ?? '';
-$card_type = $_POST["card_type"] ?? '';
+$cards = $_POST["cards"] ?? []; // 格式： [ ["card_id"=>1,"count"=>2], ... ]
 
-if (empty($name) || !is_numeric($card_type)) {
-    echo "姓名或卡类型不能为空，且卡类型需为数字。";
+if (empty($name)) {
+    echo "姓名不能为空。";
+    exit;
+}
+if (empty($cards) || !is_array($cards)) {
+    echo "必须至少选择一张卡。";
     exit;
 }
 
-// 开启业务库事务
+// 开启事务
 mysqli_begin_transaction($db);
 
 try {
-    // 1. 插入业务数据库 student 表
-    $sql1 = "INSERT INTO student (name, card_type) VALUES (?, ?)";
+    // 1. 插入 student 表（不再存 card_type）
+    $sql1 = "INSERT INTO student (name) VALUES (?)";
     $stmt1 = mysqli_prepare($db, $sql1);
-    mysqli_stmt_bind_param($stmt1, "si", $name, $card_type);
+    mysqli_stmt_bind_param($stmt1, "s", $name);
     if (!mysqli_stmt_execute($stmt1)) {
         throw new Exception("插入学生表失败：" . mysqli_error($db));
     }
@@ -44,7 +46,7 @@ try {
     $sid = mysqli_insert_id($db);
     $pwd_plain = '123456';
 
-    // 2. 插入业务库用户账户表
+    // 2. 插入 user_student
     $pwd_md5 = md5($pwd_plain);
     $sql2 = "INSERT INTO user_student (sid, pwd) VALUES (?, ?)";
     $stmt2 = mysqli_prepare($db, $sql2);
@@ -53,17 +55,27 @@ try {
         throw new Exception("插入学生账户失败：" . mysqli_error($db));
     }
 
-    // 3. WordPress 用户信息
+    // 3. 插入 student_card
+    $sql_card = "INSERT INTO student_card (sid, card_id, card_count) VALUES (?, ?, ?)";
+    $stmt_card = mysqli_prepare($db, $sql_card);
+    foreach ($cards as $card) {
+        $card_id = intval($card["card_id"]);
+        $count   = intval($card["count"]);
+        if ($count <= 0) continue;
+        mysqli_stmt_bind_param($stmt_card, "iii", $sid, $card_id, $count);
+        if (!mysqli_stmt_execute($stmt_card)) {
+            throw new Exception("插入学生卡片失败：" . mysqli_error($db));
+        }
+    }
+
+    // 4. WordPress 用户信息
     $wp_username = (string)$sid;
     $wp_password = $pwd_plain;
     $wp_email = "user{$sid}@example.com";
 
-    // 4. 检查 WP 用户是否存在
-    $query = $wpdb_new ->prepare("SELECT ID FROM wp_users WHERE user_login = ?");
+    // 5. 检查 WP 用户是否存在
     $wp_user_id = null;
-    $stmt = $wpdb_new ->prepare($query);
-    $stmt = $wpdb_new ->stmt_init();
-    if ($stmt = $wpdb_new ->prepare("SELECT ID FROM wp_users WHERE user_login = ?")) {
+    if ($stmt = $wpdb_new->prepare("SELECT ID FROM wp_users WHERE user_login = ?")) {
         $stmt->bind_param("s", $wp_username);
         $stmt->execute();
         $stmt->bind_result($user_id);
@@ -73,22 +85,18 @@ try {
         $stmt->close();
     }
 
-    // 5. 若不存在则创建 WordPress 用户
+    // 6. 若不存在则创建 WordPress 用户
     if (!$wp_user_id) {
         $wp_user_id = wp_create_user($wp_username, $wp_password, $wp_email);
         if (is_wp_error($wp_user_id)) {
             throw new Exception("WordPress 用户创建失败：" . $wp_user_id->get_error_message());
         }
-
-        // 设置角色为 author
         $user = new WP_User($wp_user_id);
         $user->set_role('author');
     }
 
-    // 6. 确认 wp_user_id 是整数
+    // 7. 更新 student 表存储 wp_user_id
     $wp_user_id_int = intval($wp_user_id);
-
-    // 7. 更新业务数据库 student 表，存储 wp_user_id
     $sql3 = "UPDATE student SET wp_user_id = ? WHERE sid = ?";
     $stmt3 = mysqli_prepare($db, $sql3);
     mysqli_stmt_bind_param($stmt3, "ii", $wp_user_id_int, $sid);
@@ -96,7 +104,7 @@ try {
         throw new Exception("更新学生表 WordPress 用户 ID 失败：" . mysqli_error($db));
     }
 
-    // 提交业务库事务
+    // 提交事务
     mysqli_commit($db);
 
     echo "✅ 添加成功，学号为 <strong>$sid</strong>，默认密码为 <strong>$pwd_plain</strong><br>WordPress 用户 ID 已关联。";
@@ -106,7 +114,7 @@ try {
     echo "❌ 操作失败，原因：" . $e->getMessage();
 }
 
-$wpdb_new ->close();
+$wpdb_new->close();
 mysqli_close($db);
 ?>
 <div style="width: 90%;height: 55px;margin: 50px">

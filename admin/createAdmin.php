@@ -59,6 +59,7 @@ function submitForm() {
     <label><input type="checkbox" name="permissions[]" value="addStudent" /> 新增学生</label>
     <label><input type="checkbox" name="permissions[]" value="queueStudent" /> 学生列表</label>
     <label><input type="checkbox" name="permissions[]" value="editStudent" /> 编辑学生</label>
+    <label><input type="checkbox" name="permissions[]" value="editStudentCard" /> 编辑学生卡片</label>
     <label><input type="checkbox" name="permissions[]" value="queueCourse" /> 课程列表</label>
     <label><input type="checkbox" name="permissions[]" value="addCourse" /> 新增课程</label>
     <label><input type="checkbox" name="permissions[]" value="modifyCourse" /> 编辑课程</label>

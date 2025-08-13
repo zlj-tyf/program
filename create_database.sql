@@ -153,7 +153,7 @@ CREATE TABLE student_card (
   id INT AUTO_INCREMENT PRIMARY KEY,
   sid INT NOT NULL,
   card_id INT NOT NULL,
-  quantity INT NOT NULL DEFAULT 0,
+  card_count INT NOT NULL DEFAULT 0,
   INDEX (sid),
   INDEX (card_id),
   CONSTRAINT fk_student_card_card FOREIGN KEY (card_id) REFERENCES card(id) ON DELETE CASCADE ON UPDATE CASCADE,
