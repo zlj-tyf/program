@@ -45,7 +45,7 @@ $sid = $_SESSION["user"];
         <th>申报时间</th>
         <th>申报要求</th>
         <th>学生提交材料</th>
-        <th>卡种类要求</th>
+        <!-- <th>卡种类要求</th> -->
         <th>操作</th>
     </tr>
     <?php
@@ -63,7 +63,7 @@ $sid = $_SESSION["user"];
             echo '<td>' . htmlspecialchars($row->submit_time) . '</td>';
             echo '<td>' . htmlspecialchars($row->submit_requirements) . '</td>';
             echo '<td>' . htmlspecialchars($row->student_requirements) . '</td>';
-            echo '<td>' . htmlspecialchars($row->card_requirement) . '</td>';
+            // echo '<td>' . htmlspecialchars($row->card_requirement) . '</td>';
             echo '<td><button onclick="chooseCourse(\'' . addslashes($row->cid) . '\')">选课</button></td>';
             echo '</tr>';
         }
