@@ -1,0 +1,471 @@
+[2025-08-13 15:31:41] [User: guest] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:31:41] [User: guest] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:31:41] [User: guest] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 15:32:40] [User: guest] [Page: /program/user/queueClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:32:40] [User: guest] [Page: /program/user/queueClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:34:03] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:34:03] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:34:03] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 15:38:06] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:38:06] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:38:06] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 15:38:24] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:38:24] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:38:24] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 15:41:35] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:41:35] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:41:35] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 15:41:37] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:41:37] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:41:37] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 15:41:38] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:41:38] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:41:38] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 15:43:20] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:43:20] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:43:20] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 15:43:20] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] EXEC SUCCESS: SELECT permissions FROM user_admin WHERE adminID=? | Params: [1000]
+[2025-08-13 15:43:20] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] EXEC SUCCESS: UPDATE user_admin SET permissions=? WHERE adminID=? | Params: ["addStudent,editStudent,editStudentCard,queueStudent",1000]
+[2025-08-13 15:43:22] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:43:22] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:43:22] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 15:43:22] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] EXEC SUCCESS: SELECT permissions FROM user_admin WHERE adminID=? | Params: [1000]
+[2025-08-13 15:43:22] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] EXEC SUCCESS: UPDATE user_admin SET permissions=? WHERE adminID=? | Params: ["addStudent,editStudent,editStudentCard,queryLog,queueStudent",1000]
+[2025-08-13 15:43:34] [User: 2] [Page: /program/user/chooseClass.php?id=2] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:43:34] [User: 2] [Page: /program/user/chooseClass.php?id=2] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:43:35] [User: 2] [Page: /program/user/chooseClass.php?id=1] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:43:35] [User: 2] [Page: /program/user/chooseClass.php?id=1] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:43:36] [User: 2] [Page: /program/user/chooseClass.php?id=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:43:36] [User: 2] [Page: /program/user/chooseClass.php?id=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:43:41] [User: 2] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:43:41] [User: 2] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:43:45] [User: 2] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:43:45] [User: 2] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:43:48] [User: 2] [Page: /program/user/queueClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:43:48] [User: 2] [Page: /program/user/queueClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:44:17] [User: 2] [Page: /program/user/editInfo.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:44:17] [User: 2] [Page: /program/user/editInfo.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:44:19] [User: 2] [Page: /program/user/editInfo.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:44:19] [User: 2] [Page: /program/user/editInfo.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:47:06] [User: 2] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:47:06] [User: 2] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:47:28] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:47:28] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:47:28] [User: guest] [Page: /program/login.php] EXEC SUCCESS: SELECT sid FROM user_student WHERE sid = ? AND pwd = ? | Params: ["4","e10adc3949ba59abbe56e057f20f883e"]
+[2025-08-13 15:47:29] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:47:29] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:56:25] [User: CardA] [Page: /program/user/delCourse.php?cid=2&sid=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:56:25] [User: CardA] [Page: /program/user/delCourse.php?cid=2&sid=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:56:28] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:56:28] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:56:29] [User: CardA] [Page: /program/user/delCourse.php?cid=4&sid=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:56:29] [User: CardA] [Page: /program/user/delCourse.php?cid=4&sid=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 15:56:31] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 15:56:31] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:00:27] [User: CardA] [Page: /program/user/delCourse.php?cid=3&sid=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:00:27] [User: CardA] [Page: /program/user/delCourse.php?cid=3&sid=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:00:28] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:00:28] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:00:53] [User: CardA] [Page: /program/user/delCourse.php?cid=2&sid=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:00:53] [User: CardA] [Page: /program/user/delCourse.php?cid=2&sid=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:00:55] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:00:55] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:02:07] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:02:07] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:02:09] [User: CardA] [Page: /program/user/delCourse.php?cid=2&sid=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:02:09] [User: CardA] [Page: /program/user/delCourse.php?cid=2&sid=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:02:13] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:02:13] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:02:40] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:02:40] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:02:40] [User: guest] [Page: /program/login.php] EXEC SUCCESS: SELECT sid FROM user_student WHERE sid = ? AND pwd = ? | Params: ["2","e10adc3949ba59abbe56e057f20f883e"]
+[2025-08-13 16:02:44] [User: 2] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:02:44] [User: 2] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:02:50] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:02:50] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:02:50] [User: guest] [Page: /program/login.php] EXEC SUCCESS: SELECT sid FROM user_student WHERE sid = ? AND pwd = ? | Params: ["4","e10adc3949ba59abbe56e057f20f883e"]
+[2025-08-13 16:03:00] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:03:00] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:03:01] [User: CardA] [Page: /program/user/delCourse.php?cid=2&sid=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:03:01] [User: CardA] [Page: /program/user/delCourse.php?cid=2&sid=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:03:02] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:03:02] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:03:51] [User: CardA] [Page: /program/user/delCourse.php?cid=2&sid=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:03:51] [User: CardA] [Page: /program/user/delCourse.php?cid=2&sid=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:06:11] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:06:11] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:06:12] [User: CardA] [Page: /program/user/delCourse.php?cid=3&sid=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:06:12] [User: CardA] [Page: /program/user/delCourse.php?cid=3&sid=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:07:12] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:07:12] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:07:13] [User: CardA] [Page: /program/user/delCourse.php?cid=2&sid=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:07:13] [User: CardA] [Page: /program/user/delCourse.php?cid=2&sid=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:07:17] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:07:17] [User: CardA] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:08:18] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:08:18] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:12:21] [User: Admin] [Page: /program/admin/addStudent.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:12:21] [User: Admin] [Page: /program/admin/addStudent.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:12:48] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:12:48] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:12:51] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:12:51] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:12:51] [User: Admin] [Page: /program/admin/editStudent.php?sid=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:12:51] [User: Admin] [Page: /program/admin/editStudent.php?sid=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:12:54] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:12:54] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:12:57] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:12:57] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:12:57] [User: Admin] [Page: /program/admin/editStudentCard.php] EXEC SUCCESS: SELECT sid, name FROM student WHERE sid = ? | Params: [4]
+[2025-08-13 16:12:57] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT card_id, card_count, used_count FROM student_card WHERE sid = 4
+[2025-08-13 16:13:39] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:13:39] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:13:41] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:13:41] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:13:41] [User: Admin] [Page: /program/admin/editStudent.php?sid=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:13:41] [User: Admin] [Page: /program/admin/editStudent.php?sid=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:13:47] [User: Admin] [Page: /program/admin/editStudent.php?sid=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:13:47] [User: Admin] [Page: /program/admin/editStudent.php?sid=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:13:49] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:13:49] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:13:50] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:13:50] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:13:50] [User: Admin] [Page: /program/admin/editStudent.php?sid=4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:13:50] [User: Admin] [Page: /program/admin/editStudent.php?sid=4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:13:52] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:13:52] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:13:54] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:13:54] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:13:54] [User: Admin] [Page: /program/admin/editStudentCard.php] EXEC SUCCESS: SELECT sid, name FROM student WHERE sid = ? | Params: [4]
+[2025-08-13 16:13:54] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT card_id, card_count, used_count FROM student_card WHERE sid = 4
+[2025-08-13 16:14:32] [User: Admin] [Page: /program/admin/fun/editStudent.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:14:32] [User: Admin] [Page: /program/admin/fun/editStudent.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:14:34] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:14:34] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:14:36] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:14:36] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:14:36] [User: Admin] [Page: /program/admin/editStudentCard.php] EXEC SUCCESS: SELECT sid, name FROM student WHERE sid = ? | Params: [4]
+[2025-08-13 16:14:36] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT card_id, card_count, used_count FROM student_card WHERE sid = 4
+[2025-08-13 16:14:39] [User: Admin] [Page: /program/admin/fun/editStudent.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:14:39] [User: Admin] [Page: /program/admin/fun/editStudent.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:14:59] [User: Admin] [Page: /program/admin/fun/getCourse.php?card_requirement=&submit=%E6%8F%90%E4%BA%A4] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:14:59] [User: Admin] [Page: /program/admin/fun/getCourse.php?card_requirement=&submit=%E6%8F%90%E4%BA%A4] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:15:11] [User: Admin] [Page: /program/admin/createCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:15:11] [User: Admin] [Page: /program/admin/createCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:15:52] [User: Admin] [Page: /program/admin/modifyCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:15:52] [User: Admin] [Page: /program/admin/modifyCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:15:55] [User: Admin] [Page: /program/admin/modifyCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:15:55] [User: Admin] [Page: /program/admin/modifyCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:16:34] [User: Admin] [Page: /program/admin/editAdminAccess.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:16:34] [User: Admin] [Page: /program/admin/editAdminAccess.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:16:34] [User: Admin] [Page: /program/admin/editAdminAccess.php] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 16:16:34] [User: Admin] [Page: /program/admin/editAdminAccess.php] SQL SUCCESS: SELECT sid, name FROM student ORDER BY sid
+[2025-08-13 16:16:36] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=1000] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:16:36] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=1000] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:16:36] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=1000] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 16:16:36] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=1000] SQL SUCCESS: SELECT sid, name FROM student ORDER BY sid
+[2025-08-13 16:16:36] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=1000] EXEC SUCCESS: SELECT access_student FROM user_admin WHERE adminID=? | Params: [1000]
+[2025-08-13 16:17:06] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:17:06] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:17:06] [User: guest] [Page: /program/login.php] EXEC SUCCESS: SELECT adminID FROM user_admin WHERE adminID = ? AND pwd = ? | Params: ["1000","e10adc3949ba59abbe56e057f20f883e"]
+[2025-08-13 16:17:12] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:17:12] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:17:12] [User: guest] [Page: /program/login.php] EXEC SUCCESS: SELECT adminID FROM user_admin WHERE adminID = ? AND pwd = ? | Params: ["1000","202cb962ac59075b964b07152d234b70"]
+[2025-08-13 16:17:12] [User: StudentAdmin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:17:12] [User: StudentAdmin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:17:12] [User: StudentAdmin] [Page: /program/admin/] EXEC SUCCESS: SELECT adminName FROM user_admin WHERE adminID = ? | Params: ["1000"]
+[2025-08-13 16:17:12] [User: StudentAdmin] [Page: /program/admin/] EXEC SUCCESS: SELECT permissions FROM user_admin WHERE adminID = ? | Params: ["1000"]
+[2025-08-13 16:17:39] [User: StudentAdmin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:17:39] [User: StudentAdmin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:17:39] [User: StudentAdmin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] SQL SUCCESS: SELECT access_student FROM user_admin WHERE adminID = '1000' LIMIT 1
+[2025-08-13 16:17:39] [User: StudentAdmin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] SQL SUCCESS: SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid IN ('2','4') ORDER BY l.addtime DESC
+[2025-08-13 16:17:44] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:17:44] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:17:44] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] SQL SUCCESS: SELECT access_student FROM user_admin WHERE adminID = '999' LIMIT 1
+[2025-08-13 16:17:48] [User: Admin] [Page: /program/admin/editAdminAccess.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:17:48] [User: Admin] [Page: /program/admin/editAdminAccess.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:17:48] [User: Admin] [Page: /program/admin/editAdminAccess.php] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 16:17:48] [User: Admin] [Page: /program/admin/editAdminAccess.php] SQL SUCCESS: SELECT sid, name FROM student ORDER BY sid
+[2025-08-13 16:17:49] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:17:49] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:17:49] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 16:17:49] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] SQL SUCCESS: SELECT sid, name FROM student ORDER BY sid
+[2025-08-13 16:17:49] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] EXEC SUCCESS: SELECT access_student FROM user_admin WHERE adminID=? | Params: [999]
+[2025-08-13 16:17:51] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:17:51] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:17:51] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] SQL SUCCESS: SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-13 16:17:51] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] SQL SUCCESS: SELECT sid, name FROM student ORDER BY sid
+[2025-08-13 16:17:51] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] EXEC SUCCESS: SELECT access_student FROM user_admin WHERE adminID=? | Params: [999]
+[2025-08-13 16:17:51] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] EXEC SUCCESS: UPDATE user_admin SET access_student=? WHERE adminID=? | Params: ["[\"1\",\"2\",\"4\"]",999]
+[2025-08-13 16:17:54] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:17:54] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:17:54] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] SQL SUCCESS: SELECT access_student FROM user_admin WHERE adminID = '999' LIMIT 1
+[2025-08-13 16:17:54] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] SQL SUCCESS: SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid IN ('1','2','4') ORDER BY l.addtime DESC
+[2025-08-13 16:18:44] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:18:44] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:18:44] [User: guest] [Page: /program/login.php] EXEC SUCCESS: SELECT sid FROM user_student WHERE sid = ? AND pwd = ? | Params: ["2","fcea920f7412b5da7be0cf42b8c93759"]
+[2025-08-13 16:18:46] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:18:46] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:18:46] [User: guest] [Page: /program/login.php] EXEC SUCCESS: SELECT sid FROM user_student WHERE sid = ? AND pwd = ? | Params: ["2","d41d8cd98f00b204e9800998ecf8427e"]
+[2025-08-13 16:18:48] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:18:48] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:18:48] [User: guest] [Page: /program/login.php] EXEC SUCCESS: SELECT sid FROM user_student WHERE sid = ? AND pwd = ? | Params: ["2","202cb962ac59075b964b07152d234b70"]
+[2025-08-13 16:18:51] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:18:51] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:18:51] [User: guest] [Page: /program/login.php] EXEC SUCCESS: SELECT sid FROM user_student WHERE sid = ? AND pwd = ? | Params: ["2","e10adc3949ba59abbe56e057f20f883e"]
+[2025-08-13 16:18:56] [User: 2] [Page: /program/user/queueClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:18:56] [User: 2] [Page: /program/user/queueClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:19:05] [User: 2] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:19:05] [User: 2] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:19:25] [User: Admin] [Page: /program/admin/modifyCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:19:25] [User: Admin] [Page: /program/admin/modifyCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:20:11] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:20:11] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:21:07] [User: 2] [Page: /program/user/queueClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:21:07] [User: 2] [Page: /program/user/queueClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:21:13] [User: 2] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:21:13] [User: 2] [Page: /program/user/myClass.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:21:27] [User: 2] [Page: /program/user/addLog.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:21:27] [User: 2] [Page: /program/user/addLog.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:21:27] [User: 2] [Page: /program/user/addLog.php] EXEC SUCCESS: SELECT sc.cid, c.competition_name
+        FROM student_course sc
+        JOIN course c ON sc.cid = c.cid
+        WHERE sc.sid = ? | Params: ["2"]
+[2025-08-13 16:21:32] [User: 2] [Page: /program/user/addLog.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:21:32] [User: 2] [Page: /program/user/addLog.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:21:32] [User: 2] [Page: /program/user/addLog.php] EXEC SUCCESS: SELECT sc.cid, c.competition_name
+        FROM student_course sc
+        JOIN course c ON sc.cid = c.cid
+        WHERE sc.sid = ? | Params: ["2"]
+[2025-08-13 16:21:32] [User: 2] [Page: /program/user/myLog.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:21:32] [User: 2] [Page: /program/user/myLog.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:21:35] [User: 2] [Page: /program/user/addLog.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:21:35] [User: 2] [Page: /program/user/addLog.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:21:35] [User: 2] [Page: /program/user/addLog.php] EXEC SUCCESS: SELECT sc.cid, c.competition_name
+        FROM student_course sc
+        JOIN course c ON sc.cid = c.cid
+        WHERE sc.sid = ? | Params: ["2"]
+[2025-08-13 16:21:39] [User: 2] [Page: /program/user/addLogFunc.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:21:39] [User: 2] [Page: /program/user/addLogFunc.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:21:39] [User: 2] [Page: /program/user/addLogFunc.php] EXEC SUCCESS: SELECT s.name as student_name, c.competition_name, c.default_content
+        FROM student s
+        JOIN student_course sc ON s.sid = sc.sid
+        JOIN course c ON c.cid = sc.cid
+        WHERE s.sid = ? AND c.cid = ? | Params: ["2","22"]
+[2025-08-13 16:21:39] [User: 2] [Page: /program/user/addLogFunc.php] EXEC SUCCESS: INSERT INTO student_log (sid, cid, type, reason, logdate, addtime, url) VALUES (?, ?, ?, ?, ?, ?, ?) | Params: ["2","22","1","11111","2025-08-13","2025-08-13 16:21:39","http:\/\/106.15.139.140\/2025\/08\/13\/2-%e8%b5%9b%e5%a4%8d%e5%88%9b%e6%99%ba%e6%9d%af%e4%b8%8a%e6%b5%b7%e5%b8%82%e9%9d%92%e5%b0%91%e5%b9%b4%e7%a7%91%e6%8a%80%e5%88%9b%e6%84%8f%e8%ae%be%e8%ae%a1%e8%af%84%e9%80%89%e6%b4%bb%e5%8a%a8-4\/"]
+[2025-08-13 16:21:39] [User: 2] [Page: /program/user/addLog.php?url=http%3A%2F%2F106.15.139.140%2F2025%2F08%2F13%2F2-%25e8%25b5%259b%25e5%25a4%258d%25e5%2588%259b%25e6%2599%25ba%25e6%259d%25af%25e4%25b8%258a%25e6%25b5%25b7%25e5%25b8%2582%25e9%259d%2592%25e5%25b0%2591%25e5%25b9%25b4%25e7%25a7%2591%25e6%258a%2580%25e5%2588%259b%25e6%2584%258f%25e8%25ae%25be%25e8%25ae%25a1%25e8%25af%2584%25e9%2580%2589%25e6%25b4%25bb%25e5%258a%25a8-4%2F&edit_url=http%3A%2F%2F106.15.139.140%2Fwp-admin%2Fpost.php%3Fpost%3D16%26action%3Dedit] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:21:39] [User: 2] [Page: /program/user/addLog.php?url=http%3A%2F%2F106.15.139.140%2F2025%2F08%2F13%2F2-%25e8%25b5%259b%25e5%25a4%258d%25e5%2588%259b%25e6%2599%25ba%25e6%259d%25af%25e4%25b8%258a%25e6%25b5%25b7%25e5%25b8%2582%25e9%259d%2592%25e5%25b0%2591%25e5%25b9%25b4%25e7%25a7%2591%25e6%258a%2580%25e5%2588%259b%25e6%2584%258f%25e8%25ae%25be%25e8%25ae%25a1%25e8%25af%2584%25e9%2580%2589%25e6%25b4%25bb%25e5%258a%25a8-4%2F&edit_url=http%3A%2F%2F106.15.139.140%2Fwp-admin%2Fpost.php%3Fpost%3D16%26action%3Dedit] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:21:39] [User: 2] [Page: /program/user/addLog.php?url=http%3A%2F%2F106.15.139.140%2F2025%2F08%2F13%2F2-%25e8%25b5%259b%25e5%25a4%258d%25e5%2588%259b%25e6%2599%25ba%25e6%259d%25af%25e4%25b8%258a%25e6%25b5%25b7%25e5%25b8%2582%25e9%259d%2592%25e5%25b0%2591%25e5%25b9%25b4%25e7%25a7%2591%25e6%258a%2580%25e5%2588%259b%25e6%2584%258f%25e8%25ae%25be%25e8%25ae%25a1%25e8%25af%2584%25e9%2580%2589%25e6%25b4%25bb%25e5%258a%25a8-4%2F&edit_url=http%3A%2F%2F106.15.139.140%2Fwp-admin%2Fpost.php%3Fpost%3D16%26action%3Dedit] EXEC SUCCESS: SELECT sc.cid, c.competition_name
+        FROM student_course sc
+        JOIN course c ON sc.cid = c.cid
+        WHERE sc.sid = ? | Params: ["2"]
+[2025-08-13 16:26:22] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:26:22] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:26:24] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:26:24] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:26:24] [User: Admin] [Page: /program/admin/editStudentCard.php] EXEC SUCCESS: SELECT sid, name FROM student WHERE sid = ? | Params: [4]
+[2025-08-13 16:26:24] [User: Admin] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT card_id, card_count, used_count FROM student_card WHERE sid = 4
+[2025-08-13 16:26:27] [User: Admin] [Page: /program/admin/fun/editStudent.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:26:27] [User: Admin] [Page: /program/admin/fun/editStudent.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:29:37] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:29:37] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:29:40] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:29:40] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:29:41] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:29:41] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:29:43] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:29:43] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:29:54] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:29:54] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:29:55] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:29:55] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:30:39] [User: CardA-Student] [Page: /program/user/addLog.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:30:39] [User: CardA-Student] [Page: /program/user/addLog.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:30:44] [User: CardA-Student] [Page: /program/user/addLogFunc.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:30:44] [User: CardA-Student] [Page: /program/user/addLogFunc.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:30:45] [User: CardA-Student] [Page: /program/user/addLog.php?url=http%3A%2F%2F106.15.139.140%2F2025%2F08%2F13%2Fcarda-student-%25e4%25b8%258a%25e6%25b5%25b7%25e5%25b8%2582%25e5%25b0%2591%25e5%25b9%25b4%25e5%2584%25bf%25e7%25ab%25a5%25e4%25b9%2590%25e5%2588%259b%25e6%258c%2591%25e6%2588%2598%25e7%25b3%25bb%25e5%2588%2597%25e6%25b4%25bb%25e5%258a%25a8-%25e7%2594%25b3%25e6%258a%25a5%25e6%259d%2590%25e6%2596%2599%2F&edit_url=http%3A%2F%2F106.15.139.140%2Fwp-admin%2Fpost.php%3Fpost%3D17%26action%3Dedit] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:30:45] [User: CardA-Student] [Page: /program/user/addLog.php?url=http%3A%2F%2F106.15.139.140%2F2025%2F08%2F13%2Fcarda-student-%25e4%25b8%258a%25e6%25b5%25b7%25e5%25b8%2582%25e5%25b0%2591%25e5%25b9%25b4%25e5%2584%25bf%25e7%25ab%25a5%25e4%25b9%2590%25e5%2588%259b%25e6%258c%2591%25e6%2588%2598%25e7%25b3%25bb%25e5%2588%2597%25e6%25b4%25bb%25e5%258a%25a8-%25e7%2594%25b3%25e6%258a%25a5%25e6%259d%2590%25e6%2596%2599%2F&edit_url=http%3A%2F%2F106.15.139.140%2Fwp-admin%2Fpost.php%3Fpost%3D17%26action%3Dedit] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:31:04] [User: CardA-Student] [Page: /program/user/addLogFunc.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:31:04] [User: CardA-Student] [Page: /program/user/addLogFunc.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:31:05] [User: CardA-Student] [Page: /program/user/addLogFunc.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:31:05] [User: CardA-Student] [Page: /program/user/addLogFunc.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:31:06] [User: CardA-Student] [Page: /program/user/addLog.php?url=http%3A%2F%2F106.15.139.140%2F2025%2F08%2F13%2Fcarda-student-%25e4%25b8%258a%25e6%25b5%25b7%25e5%25b8%2582%25e9%259d%2592%25e5%25b0%2591%25e5%25b9%25b4%25e5%2588%259b%25e6%2596%25b0%25e6%2588%2590%25e6%259e%259c%25e5%25b1%2595-%25e7%2594%25b3%25e6%258a%25a5%25e6%259d%2590%25e6%2596%2599-2%2F&edit_url=http%3A%2F%2F106.15.139.140%2Fwp-admin%2Fpost.php%3Fpost%3D19%26action%3Dedit] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:31:06] [User: CardA-Student] [Page: /program/user/addLog.php?url=http%3A%2F%2F106.15.139.140%2F2025%2F08%2F13%2Fcarda-student-%25e4%25b8%258a%25e6%25b5%25b7%25e5%25b8%2582%25e9%259d%2592%25e5%25b0%2591%25e5%25b9%25b4%25e5%2588%259b%25e6%2596%25b0%25e6%2588%2590%25e6%259e%259c%25e5%25b1%2595-%25e7%2594%25b3%25e6%258a%25a5%25e6%259d%2590%25e6%2596%2599-2%2F&edit_url=http%3A%2F%2F106.15.139.140%2Fwp-admin%2Fpost.php%3Fpost%3D19%26action%3Dedit] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:39:28] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:39:28] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:39:29] [User: guest] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:39:29] [User: guest] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:39:29] [User: guest] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT sid, name FROM student
+[2025-08-13 16:39:29] [User: guest] [Page: /program/admin/editStudentCourse.php] SQL FAIL: SELECT cid, course_name FROM course | Error: Unknown column 'course_name' in 'field list'
+[2025-08-13 16:42:24] [User: guest] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:42:24] [User: guest] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:42:24] [User: guest] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT sid, name FROM student
+[2025-08-13 16:42:24] [User: guest] [Page: /program/admin/editStudentCourse.php] SQL FAIL: SELECT cid, course_name FROM course | Error: Unknown column 'course_name' in 'field list'
+[2025-08-13 16:42:27] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:42:27] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:42:40] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:42:40] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:42:43] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:42:43] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:48:00] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:48:00] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:48:06] [User: Admin] [Page: /program/admin/toggleEnroll.php?sid=4&cid=3] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:48:06] [User: Admin] [Page: /program/admin/toggleEnroll.php?sid=4&cid=3] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:48:06] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:48:06] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:48:07] [User: Admin] [Page: /program/admin/toggleEnroll.php?sid=4&cid=3] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:48:07] [User: Admin] [Page: /program/admin/toggleEnroll.php?sid=4&cid=3] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:48:07] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:48:07] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:49:02] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:49:02] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:49:04] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:49:04] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:51:37] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:51:37] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:51:39] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:51:39] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:53:38] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:53:38] [User: Admin] [Page: /program/admin/] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:53:39] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:53:39] [User: Admin] [Page: /program/admin/editStudentCourse.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:54:37] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:54:37] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:54:39] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:54:39] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 16:54:39] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT card_id, card_count, used_count FROM student_card WHERE sid = 4
+[2025-08-13 16:54:41] [User: guest] [Page: /program/admin/fun/editStudent.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 16:54:41] [User: guest] [Page: /program/admin/fun/editStudent.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:01:29] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:01:29] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:01:31] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:01:31] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:01:31] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student WHERE sid=4
+[2025-08-13 17:01:31] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT cid, competition_name FROM course
+[2025-08-13 17:01:31] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT id, name, allowed_courses, max_courses FROM card ORDER BY id ASC
+[2025-08-13 17:01:31] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student_card WHERE sid=4
+[2025-08-13 17:01:40] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:01:40] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:03:40] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:03:40] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:03:40] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT cid, competition_name FROM course
+[2025-08-13 17:03:40] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT id, name, allowed_courses, max_courses FROM card ORDER BY id ASC
+[2025-08-13 17:03:41] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:03:41] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:03:41] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT cid, competition_name FROM course
+[2025-08-13 17:03:41] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT id, name, allowed_courses, max_courses FROM card ORDER BY id ASC
+[2025-08-13 17:04:53] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:04:53] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:04:55] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:04:55] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:06:06] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:06:06] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:06:08] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:06:08] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:06:26] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:06:26] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:06:26] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT cid, competition_name FROM course
+[2025-08-13 17:06:26] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT id, name, allowed_courses, max_courses FROM card ORDER BY id ASC
+[2025-08-13 17:06:38] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:06:38] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:06:38] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT cid, competition_name FROM course
+[2025-08-13 17:06:38] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT id, name, allowed_courses, max_courses FROM card ORDER BY id ASC
+[2025-08-13 17:06:39] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:06:39] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:06:39] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT cid, competition_name FROM course
+[2025-08-13 17:06:39] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT id, name, allowed_courses, max_courses FROM card ORDER BY id ASC
+[2025-08-13 17:06:43] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:06:43] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:06:45] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:06:45] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:06:45] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student WHERE sid=4
+[2025-08-13 17:06:45] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT cid, competition_name FROM course
+[2025-08-13 17:06:45] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT id, name, allowed_courses, max_courses FROM card ORDER BY id ASC
+[2025-08-13 17:06:45] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student_card WHERE sid=4
+[2025-08-13 17:08:48] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:08:48] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:08:52] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:08:52] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:08:52] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student_card WHERE sid=0
+[2025-08-13 17:09:43] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:09:43] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:09:44] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:09:44] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:09:44] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student WHERE sid=4
+[2025-08-13 17:09:44] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT cid, competition_name FROM course
+[2025-08-13 17:09:44] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT id, name, allowed_courses, max_courses FROM card ORDER BY id ASC
+[2025-08-13 17:09:44] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student_card WHERE sid=4
+[2025-08-13 17:09:50] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:09:50] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:09:56] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:09:56] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:09:56] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student WHERE sid=4
+[2025-08-13 17:09:56] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT cid, competition_name FROM course
+[2025-08-13 17:09:56] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT id, name, allowed_courses, max_courses FROM card ORDER BY id ASC
+[2025-08-13 17:09:56] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student_card WHERE sid=4
+[2025-08-13 17:09:58] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:09:58] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:11:40] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:11:40] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:14:46] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:14:46] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:14:47] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:14:47] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:17:18] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:17:18] [User: Admin] [Page: /program/admin/editStudent.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:17:19] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:17:19] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:17:20] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:17:20] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:31:50] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:31:50] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:31:51] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:31:51] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:33:39] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:33:39] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:33:41] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:33:41] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:34:32] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:34:32] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:34:33] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:34:33] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:36:06] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:36:06] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:36:08] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:36:08] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:38:14] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:38:14] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:38:16] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:38:16] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:38:20] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:38:20] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:38:22] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:38:22] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:39:15] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:39:15] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:39:16] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:39:16] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:39:18] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:39:18] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:39:35] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:39:35] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:39:37] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:39:37] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:41:50] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:41:50] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:41:52] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:41:52] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-13 17:41:55] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-13 17:41:55] [User: guest] [Page: /program/admin/editStudentCard.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-14 14:28:03] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-14 14:28:03] [User: guest] [Page: /program/login.php] SQL SUCCESS: SELECT * FROM wp_users
+[2025-08-14 14:28:05] [User: CardA-Student] [Page: /program/user/myInfo.php] SQL SUCCESS: SELECT * FROM student
+[2025-08-14 14:28:05] [User: CardA-Student] [Page: /program/user/myInfo.php] SQL SUCCESS: SELECT * FROM wp_users

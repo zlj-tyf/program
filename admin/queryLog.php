@@ -8,6 +8,7 @@
 <body>
 <form action="./fun/getLog.php" method="get" target="resultbox">
     <h3 class="subtitle">学生管理 >> 管理</h3>
+    <p> 如需修改学生页面，请先<a target=blank href="/wp-login.php?redirect=/program/admin/queryLog.php">登录</a></p>
     <div class="inputbox"><span>学号：</span><input name="sid" type="text"></div>
     <div class="inputbox"><span>姓名：</span><input name="name" type="text"></div>
     <div class="clickbox clearfloat">

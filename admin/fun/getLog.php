@@ -18,16 +18,38 @@
         <th>操作</th>
     </tr>
 <?php
+session_start();
 require_once("../../config/database.php");
+
+$adminID = $_SESSION["admin"] ?? '';
+
+if (!$adminID) {
+    die("<tr><td colspan='8'>未登录或权限不足</td></tr>");
+}
+
+// 获取当前管理员可访问的学生 sid 列表
+$accessSids = [];
+$adminRes = $db->query("SELECT access_student FROM user_admin WHERE adminID = '" . $db->real_escape_string($adminID) . "' LIMIT 1");
+if ($adminRes && $row = $adminRes->fetch_assoc()) {
+    $accessSids = json_decode($row['access_student'], true);
+}
+
+// 如果 accessSids 为空或者解析失败，直接返回无权限
+if (empty($accessSids) || !is_array($accessSids)) {
+    echo "<tr><td colspan='8'>无权限访问任何学生日志</td></tr>";
+    $db->close();
+    exit;
+}
 
 $sid = $_GET['sid'] ?? '';
 $name = $_GET['name'] ?? '';
 
+// 基本 SQL，限制可访问学生
 $sql = "SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
         FROM student_log l
         JOIN student s ON l.sid = s.sid 
         JOIN course c ON l.cid = c.cid 
-        WHERE 1 = 1";
+        WHERE s.sid IN ('" . implode("','", array_map([$db, 'real_escape_string'], $accessSids)) . "')";
 
 if (!empty($sid)) {
     $sql .= " AND s.sid LIKE '%" . $db->real_escape_string($sid) . "%'";
@@ -56,6 +78,7 @@ if ($result) {
         echo "</tr>";
     }
 }
+
 $db->close();
 ?>
 </table>

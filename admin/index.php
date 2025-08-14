@@ -135,6 +135,8 @@ function hasPermission($perm, $permissions){
         <?php endif; ?>
         <?php if($_SESSION["admin"] == 999): ?>
         <div class="item"><a href="./createAdmin.php" target="frame">创建管理员</a></div>
+        <div class="item"><a href="./editAdmin.php" target="frame">编辑管理员功能权限</a></div>
+        <div class="item"><a href="./editAdminAccess.php" target="frame">编辑管理员学生权限</a></div>
         <?php endif; ?>
     </div>
 

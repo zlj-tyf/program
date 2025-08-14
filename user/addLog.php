@@ -75,13 +75,18 @@ if (!empty($_GET['url'])) {
     echo "<p>文章链接：{$url}</p>";
 
     echo "<button onclick=\"openInIframe('{$url}')\">📄 打开 (嵌入)</button>";
-    echo "<button onclick=\"window.open('{$url}', '_blank')\">📄 打开 (新标签)</button>";
-
+    
     if ($edit_url) {
         echo "<button onclick=\"openInIframe('{$edit_url}')\">✏️ 编辑 (嵌入)</button>";
+        // echo "<button onclick=\"window.open('{$edit_url}', '_blank')\">✏️ 编辑 (新标签)</button>";
+    }
+    
+    echo "<button onclick=\"window.open('{$url}', '_blank')\">📄 打开 (新标签)</button>";
+
+     if ($edit_url) {
+        // echo "<button onclick=\"openInIframe('{$edit_url}')\">✏️ 编辑 (嵌入)</button>";
         echo "<button onclick=\"window.open('{$edit_url}', '_blank')\">✏️ 编辑 (新标签)</button>";
     }
-
     echo '<div id="iframeContainer"><iframe id="wpIframe" src="" width="100%" height="600" style="border:1px solid #ccc;"></iframe></div>';
     echo '<script>
     function openInIframe(url) {
