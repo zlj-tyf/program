@@ -14,6 +14,9 @@ if(!isset($_SESSION["login"]) || !isset($_SESSION["admin"]) || $_SESSION["admin"
 
 require_once '../../config/database.php';
 
+// WordPress 环境加载
+require_once '../../../wp-load.php'; // 根据实际路径调整
+
 function respond($success, $message, $debug=null) {
     $ret = ["success" => $success, "message" => $message];
     if ($debug !== null) {
@@ -80,6 +83,22 @@ if (!$stmt->execute()) {
     respond(false, "数据库错误（插入execute失败）", $error);
 }
 $stmt->close();
+
+// ---------------------------
+// 创建 WordPress 用户
+// ---------------------------
+$wp_user_id = username_exists($adminName);
+if (!$wp_user_id) {
+    $wp_email = $adminName . "@example.com"; // 可改成实际邮箱规则
+    $wp_user_id = wp_create_user($adminName, $pwd, $wp_email);
+    if (!is_wp_error($wp_user_id)) {
+        $wp_user = new WP_User($wp_user_id);
+        $wp_user->set_role('editor'); // 固定 editor 角色
+    } else {
+        // 如果 WP 创建失败也返回提示，但不影响原业务用户
+        respond(true, "创建成功，但 WordPress 用户创建失败：" . $wp_user_id->get_error_message());
+    }
+}
 
 respond(true, "创建成功");
 
