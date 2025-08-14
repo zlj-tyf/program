@@ -1,50 +1,27 @@
 <?php
 session_start();
-require_once("../config/database.php");
+require_once '../config/database.php';
 
-// 如果没有传sid，显示输入学号的表单
-if (!isset($_GET['sid'])) {
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $sid = trim($_POST['sid'] ?? '');
-        if ($sid !== '') {
-            header("Location: editStudent.php?sid=" . urlencode($sid));
-            exit;
-        } else {
-            $error = "请输入学号";
-        }
-    }
-    ?>
-    <!DOCTYPE html>
-    <html lang="zh">
-    <head>
-        <meta charset="UTF-8">
-        <title>编辑学生 - 输入学号</title>
-        <style>
-            body { font-family: Arial, sans-serif; padding: 20px; }
-            label { font-weight: bold; }
-            input[type="text"] { padding: 5px; width: 200px; }
-            input[type="submit"] { padding: 5px 10px; }
-            .error { color: red; margin-top: 10px; }
-        </style>
-    </head>
-    <body>
-    <h3>请输入要编辑的学生学号</h3>
-    <?php if (!empty($error)) echo '<p class="error">' . htmlspecialchars($error) . '</p>'; ?>
-    <form method="post" action="">
-        <label>学号：<input type="text" name="sid" required></label>
-        <input type="submit" value="编辑">
-    </form>
-    </body>
-    </html>
-    <?php
-    exit;
+// 状态提示
+$statusMsg = '';
+$selectedSID = '';
+$students = [];
+
+// 获取所有学生
+$result = $db->query("SELECT sid, name FROM student ORDER BY sid");
+while ($row = $result->fetch_assoc()) {
+    $students[] = $row;
 }
 
-$sid = $_GET['sid'];
+// 处理GET或POST选择的学生
+if (isset($_GET['sid'])) {
+    $selectedSID = $_GET['sid'];
+} elseif (isset($_POST['sid'])) {
+    $selectedSID = $_POST['sid'];
+}
 
-// 处理POST，更新学生信息
+// 处理提交修改
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-    // 读取并过滤POST数据，注意字段名需要和数据库一致
     $fields = [
         'name', 'sex', 'birth', 'age', 'edu_primary_start', 'edu_primary_end', 'edu_primary_school',
         'edu_junior_start', 'edu_junior_end', 'edu_junior_school', 'edu_senior_start', 'edu_senior_end',
@@ -63,114 +40,114 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         if ($value === null) {
             $updates[] = "$field = NULL";
         } elseif (is_numeric($value) && in_array($field, ['age', 'current_grade', 'has_researcher', 'card_type'])) {
-            // 数字字段不加引号
             $updates[] = "$field = $value";
         } else {
             $updates[] = "$field = '$value'";
         }
     }
 
-    $sql_update = "UPDATE student SET " . implode(", ", $updates) . " WHERE sid = '" . mysqli_real_escape_string($db, $sid) . "'";
-    $result_update = mysqli_query($db, $sql_update);
-
-    if ($result_update) {
-        $message = "信息更新成功！";
+    $sql_update = "UPDATE student SET " . implode(", ", $updates) . " WHERE sid = '" . mysqli_real_escape_string($db, $selectedSID) . "'";
+    if (mysqli_query($db, $sql_update)) {
+        $statusMsg = "信息更新成功！";
     } else {
-        $message = "更新失败：" . mysqli_error($db);
+        $statusMsg = "更新失败：" . mysqli_error($db);
     }
 }
 
 // 查询学生信息用于显示
-$sql_select = "SELECT * FROM student WHERE sid = '" . mysqli_real_escape_string($db, $sid) . "'";
-$result_select = mysqli_query($db, $sql_select);
-
-if (!$result_select || mysqli_num_rows($result_select) === 0) {
-    echo "<p>未找到学号为 " . htmlspecialchars($sid) . " 的学生信息。</p>";
-    exit;
+$studentInfo = [];
+if ($selectedSID) {
+    $sql_select = "SELECT * FROM student WHERE sid = '" . mysqli_real_escape_string($db, $selectedSID) . "'";
+    $result_select = mysqli_query($db, $sql_select);
+    if ($result_select && mysqli_num_rows($result_select) > 0) {
+        $studentInfo = mysqli_fetch_assoc($result_select);
+    }
 }
-
-$row = mysqli_fetch_assoc($result_select);
 ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <title>编辑学生信息 - <?php echo htmlspecialchars($sid); ?></title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; max-width: 900px; margin: auto; }
-        form div { margin-bottom: 12px; }
-        label { display: inline-block; width: 140px; font-weight: bold; vertical-align: top; }
-        input[type="text"], input[type="number"], input[type="date"], select {
-            width: 250px; padding: 5px;
-        }
-        input[type="checkbox"] {
-            transform: scale(1.3);
-            vertical-align: middle;
-            margin-left: 4px;
-        }
-        .message { margin: 15px 0; color: green; font-weight: bold; }
-        .error { color: red; }
-        .btn-group { margin-top: 20px; }
-        input[type="submit"] { padding: 8px 20px; font-size: 16px; cursor: pointer; }
-    </style>
+<meta charset="UTF-8">
+<title>编辑学生信息</title>
+<style>
+body { font-family: Arial, sans-serif; margin:0; padding:0; }
+.container { display:flex; min-height:100vh; }
+.sidebar { width:220px; padding:10px; border-right:1px solid #ccc; background:#f9f9f9; }
+.sidebar h3 { margin-top:0; }
+.sidebar a { display:block; margin:3px 0; text-decoration:none; color:#333; }
+.main { flex:1; padding:20px; }
+form div { margin-bottom:12px; }
+label { display:inline-block; width:160px; font-weight:bold; vertical-align:top; }
+input[type="text"], input[type="number"], input[type="date"], select { width:200px; padding:5px; }
+input[type="checkbox"] { transform: scale(1.3); vertical-align:middle; margin-left:4px; }
+.message { margin:15px 0; color:green; font-weight:bold; }
+input[type="submit"] { padding:8px 20px; font-size:16px; cursor:pointer; }
+</style>
 </head>
 <body>
-<h2>编辑学生信息 - 学号：<?php echo htmlspecialchars($sid); ?></h2>
-
-<?php if (!empty($message)) echo '<div class="message">' . htmlspecialchars($message) . '</div>'; ?>
-
-<form method="post" action="">
-    <div><label>姓名：</label><input name="name" type="text" value="<?php echo htmlspecialchars($row['name']); ?>"></div>
-
-    <div><label>性别：</label>
-        <select name="sex">
-            <option value="男" <?php if ($row['sex'] === '男') echo 'selected'; ?>>男</option>
-            <option value="女" <?php if ($row['sex'] === '女') echo 'selected'; ?>>女</option>
-        </select>
+<div class="container">
+    <div class="sidebar">
+        <h3>选择学生</h3>
+        <form method="POST">
+            <label>输入学号:</label><br>
+            <input type="text" name="sid" required value="<?php echo htmlspecialchars($selectedSID); ?>"><br><br>
+            <button type="submit">确认</button>
+        </form>
+        <hr>
+        <h4>所有学生</h4>
+        <?php foreach($students as $stu): ?>
+            <a href="?sid=<?php echo urlencode($stu['sid']); ?>">
+                <?php echo htmlspecialchars($stu['sid']) . " - " . htmlspecialchars($stu['name']); ?>
+            </a>
+        <?php endforeach; ?>
     </div>
-
-    <div><label>出生日期：</label><input name="birth" type="date" value="<?php echo htmlspecialchars($row['birth']); ?>"></div>
-    <div><label>年龄：</label><input name="age" type="number" min="0" value="<?php echo htmlspecialchars($row['age']); ?>"></div>
-
-    <h3>教育经历</h3>
-    <div><label>小学起始：</label><input name="edu_primary_start" type="date" value="<?php echo htmlspecialchars($row['edu_primary_start']); ?>"></div>
-    <div><label>小学结束：</label><input name="edu_primary_end" type="date" value="<?php echo htmlspecialchars($row['edu_primary_end']); ?>"></div>
-    <div><label>小学学校：</label><input name="edu_primary_school" type="text" value="<?php echo htmlspecialchars($row['edu_primary_school']); ?>"></div>
-
-    <div><label>初中起始：</label><input name="edu_junior_start" type="date" value="<?php echo htmlspecialchars($row['edu_junior_start']); ?>"></div>
-    <div><label>初中结束：</label><input name="edu_junior_end" type="date" value="<?php echo htmlspecialchars($row['edu_junior_end']); ?>"></div>
-    <div><label>初中学校：</label><input name="edu_junior_school" type="text" value="<?php echo htmlspecialchars($row['edu_junior_school']); ?>"></div>
-
-    <div><label>高中起始：</label><input name="edu_senior_start" type="date" value="<?php echo htmlspecialchars($row['edu_senior_start']); ?>"></div>
-    <div><label>高中结束：</label><input name="edu_senior_end" type="date" value="<?php echo htmlspecialchars($row['edu_senior_end']); ?>"></div>
-    <div><label>高中学校：</label><input name="edu_senior_school" type="text" value="<?php echo htmlspecialchars($row['edu_senior_school']); ?>"></div>
-
-    <div><label>当前年级：</label><input name="current_grade" type="number" min="0" value="<?php echo htmlspecialchars($row['current_grade']); ?>"></div>
-    <div><label>当前学校：</label><input name="current_school" type="text" value="<?php echo htmlspecialchars($row['current_school']); ?>"></div>
-
-    <h3>家长信息</h3>
-    <div><label>父亲姓名：</label><input name="father_name" type="text" value="<?php echo htmlspecialchars($row['father_name']); ?>"></div>
-    <div><label>父亲电话：</label><input name="father_tel" type="text" value="<?php echo htmlspecialchars($row['father_tel']); ?>"></div>
-    <div><label>父亲单位：</label><input name="father_workplace" type="text" value="<?php echo htmlspecialchars($row['father_workplace']); ?>"></div>
-    <div><label>父亲职务：</label><input name="father_position" type="text" value="<?php echo htmlspecialchars($row['father_position']); ?>"></div>
-
-    <div><label>母亲姓名：</label><input name="mother_name" type="text" value="<?php echo htmlspecialchars($row['mother_name']); ?>"></div>
-    <div><label>母亲电话：</label><input name="mother_tel" type="text" value="<?php echo htmlspecialchars($row['mother_tel']); ?>"></div>
-    <div><label>母亲单位：</label><input name="mother_workplace" type="text" value="<?php echo htmlspecialchars($row['mother_workplace']); ?>"></div>
-    <div><label>母亲职务：</label><input name="mother_position" type="text" value="<?php echo htmlspecialchars($row['mother_position']); ?>"></div>
-
-    <div><label>家中是否有科研人员：</label>
-        <input name="has_researcher" type="checkbox" value="1" <?php if ($row['has_researcher']) echo 'checked'; ?>>
+    <div class="main">
+        <?php if($selectedSID && $studentInfo): ?>
+            <h3>编辑学生信息 - 学号：<?php echo htmlspecialchars($selectedSID); ?></h3>
+            <h3>对于所有日期的编辑，必须遵循yyyy-mm-dd的格式！否则将无法解析进而导致数据库异常。</h3>
+            <?php if($statusMsg): ?>
+                <div class="message"><?php echo $statusMsg; ?></div>
+            <?php endif; ?>
+            <form method="POST">
+                <input type="hidden" name="sid" value="<?php echo htmlspecialchars($selectedSID); ?>">
+                <?php
+                $fields = [
+                    'name'=>'姓名', 'sex'=>'性别', 'birth'=>'出生日期', 'age'=>'年龄',
+                    'edu_primary_start'=>'小学入学', 'edu_primary_end'=>'小学毕业', 'edu_primary_school'=>'小学学校',
+                    'edu_junior_start'=>'初中入学', 'edu_junior_end'=>'初中毕业', 'edu_junior_school'=>'初中学校',
+                    'edu_senior_start'=>'高中入学', 'edu_senior_end'=>'高中毕业', 'edu_senior_school'=>'高中学校',
+                    'current_grade'=>'当前年级', 'current_school'=>'当前学校', 'father_name'=>'父亲姓名', 'father_tel'=>'父亲电话',
+                    'father_workplace'=>'父亲单位', 'father_position'=>'父亲职务', 'mother_name'=>'母亲姓名', 'mother_tel'=>'母亲电话',
+                    'mother_workplace'=>'母亲单位', 'mother_position'=>'母亲职务', 'has_researcher'=>'科研经历', 'card_type'=>'卡类型'
+                ];
+                foreach($fields as $key=>$label):
+                    $value = isset($studentInfo[$key]) ? htmlspecialchars($studentInfo[$key]) : '';
+                    if($key === 'sex'):
+                ?>
+                    <div>
+                        <label><?php echo $label; ?>:</label>
+                        <select name="<?php echo $key; ?>">
+                            <option value="男" <?php echo $value==='男'?'selected':''; ?>>男</option>
+                            <option value="女" <?php echo $value==='女'?'selected':''; ?>>女</option>
+                        </select>
+                    </div>
+                <?php elseif($key==='has_researcher'): ?>
+                    <div>
+                        <label><?php echo $label; ?>:</label>
+                        <input type="checkbox" name="<?php echo $key; ?>" <?php echo $value==1?'checked':''; ?>>
+                    </div>
+                <?php else: ?>
+                    <div>
+                        <label><?php echo $label; ?>:</label>
+                        <input type="text" name="<?php echo $key; ?>" value="<?php echo $value; ?>">
+                    </div>
+                <?php endif; endforeach; ?>
+                <input type="submit" name="submit" value="保存修改">
+            </form>
+        <?php elseif($selectedSID): ?>
+            <p>未找到学号为 <?php echo htmlspecialchars($selectedSID); ?> 的学生信息。</p>
+        <?php endif; ?>
     </div>
-
-    <div><label>卡种类：</label>
-        <input name="card_type" type="number" min="0" value="<?php echo htmlspecialchars($row['card_type']); ?>">
-    </div>
-
-    <div class="btn-group">
-        <input type="submit" name="submit" value="保存修改">
-    </div>
-</form>
+</div>
 </body>
 </html>
-          

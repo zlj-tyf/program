@@ -134,18 +134,29 @@ if ($type == '1') {
         $stmt_link->close();
 
         $post_id = get_post_id_from_url($url, $wordpress_url);
-        if ($post_id) {
-            $edit_url = "http://106.15.139.140/wp-admin/post.php?post={$post_id}&action=edit";
-            header("Location: addLog.php?url=" . urlencode($url) . "&edit_url=" . urlencode($edit_url));
-            exit;
-        } else {
-            header("Location: addLog.php?url=" . urlencode($url));
-            exit;
+        $edit_url = $post_id ? "http://106.15.139.140/wp-admin/post.php?post={$post_id}&action=edit" : '';
+
+        // ----------- 写入日志 -----------
+        $stmt_log = $db->prepare("INSERT INTO student_log (sid, cid, type, reason, logdate, addtime, url) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        if (!$stmt_log) {
+            die("日志插入准备失败：" . $db->error);
         }
+        $stmt_log->bind_param("ssissss", $sid, $cid, $type, $reason, $logdate, $addtime, $url);
+        if (!$stmt_log->execute()) {
+            die("日志插入失败：" . $stmt_log->error);
+        } else {
+            echo "✅ 修改日志已写入数据库<br>";
+            echo "调试信息:<br>";
+            echo "SID: $sid<br>CID: $cid<br>Type: $type<br>Reason: $reason<br>Logdate: $logdate<br>Addtime: $addtime<br>URL: $url<br>Edit URL: $edit_url<br>";
+        }
+        $stmt_log->close();
+
+        header("Location: addLog.php?url=" . urlencode($url) . "&edit_url=" . urlencode($edit_url));
+        exit;
     } else {
-        $stmt_link->close();
-        die("⚠️ 未找到对应的文章链接，请先创建项目。");
+        die("未找到已创建的文章 URL");
     }
-} else {
+}
+ else {
     die("无效操作类型");
 }

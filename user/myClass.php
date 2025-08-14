@@ -16,7 +16,8 @@ require_once("../config/database.php");
 </head>
 <body>
 <h3>我的选课</h3>
-<table border="1">
+<p style="color:red">本页面删除选课后，请及时联系教务老师确认恢复次卡额度状态。</p>
+<table class="table-longtext" border="1">
     <tr>
         <th>课程编号</th>
         <th>比赛名称</th>

@@ -35,18 +35,32 @@ $sid = $_SESSION["user"];
 <h2>课程列表</h2>
 
 <!-- 选课结果显示区域 -->
-<div id="resultBox" style="margin-top:20px; padding:10px; border:1px solid #ccc; min-height:30px;"></div>
+<div id="resultBox" style="
+    margin: 20px;
+    padding: 12px 15px;
+    min-height: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+    color: #333;
+    transition: box-shadow 0.3s, border-color 0.3s, background-color 0.3s;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+">
+</div>
 
-<table border="1">
+<table class="table-longtext" border="1">
     <tr>
         <th>课程编号</th>
+        <th>操作</th>
         <th>比赛名称</th>
         <th>比赛级别</th>
         <th>申报时间</th>
         <th>申报要求</th>
         <th>学生提交材料</th>
         <!-- <th>卡种类要求</th> -->
-        <th>操作</th>
     </tr>
     <?php
     require_once("../config/database.php");
@@ -58,13 +72,13 @@ $sid = $_SESSION["user"];
         while ($row = mysqli_fetch_object($result)) {
             echo '<tr>';
             echo '<td>' . htmlspecialchars($row->cid) . '</td>';
+            echo '<td><button onclick="chooseCourse(\'' . addslashes($row->cid) . '\')">选课</button></td>';
             echo '<td>' . htmlspecialchars($row->competition_name) . '</td>';
             echo '<td>' . htmlspecialchars($row->competition_level) . '</td>';
             echo '<td>' . htmlspecialchars($row->submit_time) . '</td>';
             echo '<td>' . htmlspecialchars($row->submit_requirements) . '</td>';
             echo '<td>' . htmlspecialchars($row->student_requirements) . '</td>';
             // echo '<td>' . htmlspecialchars($row->card_requirement) . '</td>';
-            echo '<td><button onclick="chooseCourse(\'' . addslashes($row->cid) . '\')">选课</button></td>';
             echo '</tr>';
         }
     } else {

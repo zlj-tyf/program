@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="./user.css">
 </head>
 <body>
-<table>
+<table class="table-longtext">
     <tr>
         <th>课程号</th>
         <th>课程名</th>

@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
 }
 body{
@@ -100,4 +100,250 @@ a{
 iframe{
     margin: 25px;
     height: 950px;
+} */
+
+
+/* *{
+    margin: 0;
+}
+body{
+    background-color: #f2f2f2;
+}
+.topnav{
+    background-color: #70a0d0;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+}
+.logo{
+    font-size: 20px;
+    padding-left: 15px;
+    color: #f2f2f2;
+    vertical-align: middle;
+    float: left;
+
+}
+.userbox{
+    color: #eee;
+    height: inherit;
+    font-size: 14px;
+    float: right;
+    margin-right: 20px;
+}
+.userbox a:visited{
+    color: #eee;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    width: 100%;
+    min-width:1000px;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+.main{
+    height: 800px;
+}
+.homepage a{
+    color: #dbdbdb;
+}
+
+.leftnav{
+    width:20% ;
+    height: 800px;
+    float: left;
+    background-color: #DDDDDD;
+}
+.leftnav a{
+    text-decoration: none;
+}
+.homepage{
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #0e84b5;
+    font-size: large;
+    padding: 11px;
+}
+.item{
+    font-family: sans-serif;
+    background-color: #ecf0f3;
+    text-align: center;
+    padding: 11px;
+}
+.item a{
+    color: blue;
+    text-decoration: none;
+    padding: 10px 50px;
+}
+.item a:visited{
+    color: blue;
+}
+.item a:hover{
+    color: #eee;
+}
+.item:hover{
+    background-color: #70a0d0;
+}
+.subtitle{
+    font-family: sans-serif;
+    text-align: center;
+    background-color: #D0DCE0;
+    font-size: large;
+    padding: 12px;
+}
+.content{
+    width: 80%;
+    float: left;
+    overflow: hidden;
+}
+.footer{
+    line-height: 60px;
+    background-color: #e4e4e4;
+    text-align: center;
+}
+iframe{
+    margin: 25px;
+    height: 750px;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #f6f9fc, #eef2f7);
+    color: #333;
+}
+
+/* 顶部导航栏 */
+.topnav {
+    background: linear-gradient(90deg, #5dade2, #48c9b0);
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo 样式 */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+/* 用户区域 */
+.userbox {
+    font-size: 14px;
+    color: #f0f0f0;
+}
+.userbox a {
+    color: #f0f0f0;
+    transition: color 0.3s;
+}
+.userbox a:hover {
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 页面容器 */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 主体部分 */
+.main {
+    display: flex;
+    min-height: 800px;
+}
+
+/* 左侧导航栏 */
+.leftnav {
+    width: 22%;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-right: 2%;
+    overflow: hidden;
+}
+
+.homepage {
+    text-align: center;
+    background: #3498db;
+    color: #fff;
+    font-size: 18px;
+    padding: 15px;
+    font-weight: 600;
+}
+
+.item {
+    background: #f9f9f9;
+    text-align: center;
+    padding: 14px 0;
+    transition: all 0.3s ease;
+}
+.item a {
+    color: #3498db;
+    padding: 10px 30px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+.item:hover {
+    background-color: #d6eaf8;
+}
+.item a:hover {
+    color: #fff;
+    background-color: #5dade2;
+}
+
+/* 子标题块 */
+.subtitle {
+    text-align: center;
+    background: #d0e6ff;
+    font-size: 18px;
+    padding: 14px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+/* 主内容区域 */
+.content {
+    width: 76%;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 页脚 */
+.footer {
+    margin-top: 20px;
+    line-height: 60px;
+    background: #ecf0f1;
+    color: #555;
+    text-align: center;
+    border-radius: 8px;
+}
+
+/* iframe 美化 */
+iframe {
+    width: 100%;
+    margin-top: 20px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    height: 750px;
 }

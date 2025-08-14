@@ -110,72 +110,72 @@ if ($result && $row = mysqli_fetch_object($result)) {
 <body>
 <h3>编辑学籍信息</h3>
 <form method="post" action="">
-    <div><label>姓名：<input name="name" value="<?php echo htmlspecialchars($row->name) ?>"></label></div>
+    <div><label>姓名：<input class="input-new" name="name" value="<?php echo htmlspecialchars($row->name) ?>"></label></div>
     <div><label>性别：
-        <select name="sex">
+        <select class="selectbox"  name="sex">
             <option value="男" <?php if($row->sex=='男') echo 'selected'; ?>>男</option>
             <option value="女" <?php if($row->sex=='女') echo 'selected'; ?>>女</option>
         </select>
     </label></div>
-    <div><label>出生年月：<input type="date" name="birth" value="<?php echo $row->birth ?>"></label></div>
-    <div><label>年龄：<input name="age" value="<?php echo htmlspecialchars($row->age) ?>"></label></div>
+    <div><label>出生年月：<input class="input-new" type="date" name="birth" value="<?php echo $row->birth ?>"></label></div>
+    <div><label>年龄：<input class="input-new" name="age" value="<?php echo htmlspecialchars($row->age) ?>"></label></div>
 
     <h4>教育经历</h4>
     <table border="1" cellpadding="5" cellspacing="0">
         <tr><th>阶段</th><th>起始年月</th><th>结束年月</th><th>学校名称</th></tr>
         <tr>
             <td>小学</td>
-            <td><input type="date" name="primary_start_year" value="<?php echo $row->edu_primary_start ?>"></td>
-            <td><input type="date" name="primary_end_year" value="<?php echo $row->edu_primary_end ?>"></td>
-            <td><input type="text" name="primary_school_name" value="<?php echo htmlspecialchars($row->edu_primary_school) ?>"></td>
+            <td><input class="input-new" type="date" name="primary_start_year" value="<?php echo $row->edu_primary_start ?>"></td>
+            <td><input class="input-new" type="date" name="primary_end_year" value="<?php echo $row->edu_primary_end ?>"></td>
+            <td><input class="input-new" type="text" name="primary_school_name" value="<?php echo htmlspecialchars($row->edu_primary_school) ?>"></td>
         </tr>
         <tr>
             <td>初中</td>
-            <td><input type="date" name="junior_start_year" value="<?php echo $row->edu_junior_start ?>"></td>
-            <td><input type="date" name="junior_end_year" value="<?php echo $row->edu_junior_end ?>"></td>
-            <td><input type="text" name="junior_school_name" value="<?php echo htmlspecialchars($row->edu_junior_school) ?>"></td>
+            <td><input class="input-new" type="date" name="junior_start_year" value="<?php echo $row->edu_junior_start ?>"></td>
+            <td><input class="input-new" type="date" name="junior_end_year" value="<?php echo $row->edu_junior_end ?>"></td>
+            <td><input class="input-new" type="text" name="junior_school_name" value="<?php echo htmlspecialchars($row->edu_junior_school) ?>"></td>
         </tr>
         <tr>
             <td>高中</td>
-            <td><input type="date" name="senior_start_year" value="<?php echo $row->edu_senior_start ?>"></td>
-            <td><input type="date" name="senior_end_year" value="<?php echo $row->edu_senior_end ?>"></td>
-            <td><input type="text" name="senior_school_name" value="<?php echo htmlspecialchars($row->edu_senior_school) ?>"></td>
+            <td><input class="input-new" type="date" name="senior_start_year" value="<?php echo $row->edu_senior_start ?>"></td>
+            <td><input class="input-new" type="date" name="senior_end_year" value="<?php echo $row->edu_senior_end ?>"></td>
+            <td><input class="input-new" type="text" name="senior_school_name" value="<?php echo htmlspecialchars($row->edu_senior_school) ?>"></td>
         </tr>
     </table>
 
     <div><label>当前年级：
-        <select name="current_grade">
+        <select class="selectbox" name="current_grade">
             <?php for ($i=1; $i<=12; $i++): ?>
                 <option value="<?php echo $i ?>" <?php if ($row->current_grade == $i) echo 'selected'; ?>><?php echo $i ?> 年级</option>
             <?php endfor; ?>
         </select>
     </label></div>
-    <div><label>当前学校：<input name="current_school" value="<?php echo htmlspecialchars($row->current_school) ?>"></label></div>
+    <div><label>当前学校：<input class="input-new" name="current_school" value="<?php echo htmlspecialchars($row->current_school) ?>"></label></div>
 
     <h4>家长信息</h4>
     <table border="1" cellpadding="5" cellspacing="0">
         <tr><th></th><th>姓名</th><th>联系方式</th><th>工作单位</th><th>职务职称</th></tr>
         <tr>
             <td>父亲</td>
-            <td><input name="father_name" value="<?php echo htmlspecialchars($row->father_name) ?>"></td>
-            <td><input name="father_tel" value="<?php echo htmlspecialchars($row->father_tel) ?>"></td>
-            <td><input name="father_work_unit" value="<?php echo htmlspecialchars($row->father_workplace) ?>"></td>
-            <td><input name="father_title" value="<?php echo htmlspecialchars($row->father_position) ?>"></td>
+            <td><input class="input-new" name="father_name" value="<?php echo htmlspecialchars($row->father_name) ?>"></td>
+            <td><input class="input-new" name="father_tel" value="<?php echo htmlspecialchars($row->father_tel) ?>"></td>
+            <td><input class="input-new" name="father_work_unit" value="<?php echo htmlspecialchars($row->father_workplace) ?>"></td>
+            <td><input class="input-new" name="father_title" value="<?php echo htmlspecialchars($row->father_position) ?>"></td>
         </tr>
         <tr>
             <td>母亲</td>
-            <td><input name="mother_name" value="<?php echo htmlspecialchars($row->mother_name) ?>"></td>
-            <td><input name="mother_tel" value="<?php echo htmlspecialchars($row->mother_tel) ?>"></td>
-            <td><input name="mother_work_unit" value="<?php echo htmlspecialchars($row->mother_workplace) ?>"></td>
-            <td><input name="mother_title" value="<?php echo htmlspecialchars($row->mother_position) ?>"></td>
+            <td><input class="input-new" name="mother_name" value="<?php echo htmlspecialchars($row->mother_name) ?>"></td>
+            <td><input class="input-new" name="mother_tel" value="<?php echo htmlspecialchars($row->mother_tel) ?>"></td>
+            <td><input class="input-new" name="mother_work_unit" value="<?php echo htmlspecialchars($row->mother_workplace) ?>"></td>
+            <td><input class="input-new" name="mother_title" value="<?php echo htmlspecialchars($row->mother_position) ?>"></td>
         </tr>
     </table>
 
     <div><label>家中是否有科研人员：
-        <input type="checkbox" name="has_researcher" value="1" <?php if($row->has_researcher) echo 'checked'; ?>>
+        <input class="input-new" type="checkbox" name="has_researcher" value="1" <?php if($row->has_researcher) echo 'checked'; ?>>
     </label></div>
 
-    <div class="clickbox clearfloat"><input name="submit" type="submit" value="修改信息"></div>
+    <div class="clickbox clearfloat"><input class="input-new" name="submit" type="submit" value="修改信息"></div>
 </form>
 </body>
 </html>

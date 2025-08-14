@@ -9,6 +9,16 @@ if(!isset($_SESSION["user"])||!$_SESSION["login"]==true){
 <!DOCTYPE html>
 <html>
 <head>
+        <script>
+        // 判断是否为移动设备
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        if(isMobile()){
+            alert("检测到您正在使用移动设备访问，建议在电脑上打开以获得更好的使用体验。");
+        }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="index.css">
     <title>Project Log System - User Page</title>

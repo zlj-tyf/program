@@ -1,15 +1,9 @@
-body{
+/* body{
     margin: 30px;
-}
-.clearfloat{
-    clear: left;
-}
-.subtitle{
-    margin: 40px 20px;
 }
 .inputbox{
     display: block;
-    width: 265px;
+    width: 250px;
     height: 30px;
     margin: 20px;
     float: left;
@@ -21,70 +15,283 @@ body{
     width: 80px;
     height: 25px;
     background: green;
-    margin: 10px auto;
+    margin: 20px auto;
+} */
+ body {
+    margin: 30px;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    background: linear-gradient(to right, #f6f9fc, #eef2f7);
+    color: #333;
+}
+.inputbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px; /* 行距 */
 }
 
-.inputbox span{
-    text-align: center;
-    display: block;
-    width: 85px;
-    float: left;
+.inputbox span {
+    width: 80px; /* 固定宽度 */
+    text-align: right;
+    margin-right: 8px;
 }
+
 .inputbox input {
-    width: 150px;
-    height: 25px;
-    float: left;
-}
-.inputbox select{
-    float: left;
-    height: 25px;
-    width: 154px;
-    display: block;
-}
-.smallfont {
-    
-    font-size: 10px;
-}
-.clickbox{
-    float: left;
-    width: 46%;
+    flex: 1; /* 输入框自动填满剩余空间 */
+    min-width: 100px;
+    height: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    outline: none;
+    transition: background-color 0.3s, box-shadow 0.3s, background-size 0.3s ease-out;
+
+    background-image: linear-gradient(#3498db, #3498db);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 0% 3px;
 }
 
-.redbox input{
-    background-color: #C83838;
+.inputbox input:focus {
+    background-color: #e6f3ff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-size: 100% 3px;
 }
-iframe{
-    margin: 0px;
+
+
+/* 提交按钮区域 */
+.clickbox input {
+    color: #fff;
+    display: block;
+    clear: both;
+    width: 120px;
+    height: 40px;
+    background: linear-gradient(135deg, #48c9b0, #5dade2);
+    margin: 30px auto;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
 }
-form span{
-    margin: 0;
+.clickbox input:hover {
+    background: linear-gradient(135deg, #5dade2, #48c9b0);
+    transform: scale(1.05);
+}
+.clickbox input:active {
+    transform: scale(0.98);
+}
+/* 通用 body 样式 */
+body {
+    margin: 30px;
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    background: linear-gradient(to right, #f6f9fc, #eef2f7);
+    color: #333;
+}
+
+
+/* 表格通用样式 */
+table {
+    width: 100%;             /* 表格总宽度撑满父容器 */
+    table-layout: auto;      /* 列宽按内容自适应 */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* 表头 */
+table th {
+    background-color: #3498db;
+    color: #fff;
+    font-weight: 600;
+    text-align: left;
+    padding: 10px;
+    white-space: nowrap;
+    min-width: 80px; /* 设置表头最小宽度，防止过窄 */
+}
+
+/* 单元格样式 */
+table td {
+    padding: 10px;
+    border-bottom: 1px solid #eef2f7;
+    font-size: 14px;
+    white-space: nowrap;   /* 避免内容换行影响列宽 */
+    min-width: 80px;       /* 列最小宽度，可根据内容调整 */
+}
+
+/* 隔行灰色 */
+table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* 悬停高亮 */
+table tbody tr:hover {
+    background-color: #e6f3ff;
+    transition: background-color 0.3s;
+}
+
+/* 最后一行去掉底边 */
+table tr:last-child td {
+    border-bottom: none;
+}
+
+/* 对 input 和 select 进行美化 */
+table input, table select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
+
+
+/* 输入框区域 */
+.input-new {
+    display: inline-block;       /* 保持和 label 同行 */
+    min-width: 10px;             /* 最小宽度 */
+    max-width: 100%;             /* 允许撑满父容器 */
+    height: auto;                /* 高度自适应内容 */
+    margin: 5px;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    outline: none;
+
+    /* 下边框动画初始化 */
+    background-image: linear-gradient(#3498db, #3498db);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-size: 0% 3px;
+
+    white-space: normal;         /* 允许换行 */
+    word-break: break-all;      /* 长单词或连续字符换行 */
+}
+
+.input-new:focus {
+    background-color: #e6f3ff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-size: 100% 3px;
+    transition: background-color 0.3s, box-shadow 0.3s, background-size 0.3s ease-out;
+}
+
+.selectbox {
     display: inline-block;
-    width: 60px;
+    min-width: 200px;
+    height: 40px;
+    margin: 5px;
+    padding: 0 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    appearance: none; /* 移除默认箭头 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    cursor: pointer;
+    background-image: linear-gradient(45deg, transparent 50%, #3498db 50%), 
+                      linear-gradient(135deg, #3498db 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(50% - 2px), calc(100% - 15px) calc(50% - 2px);
+    background-size: 5px 5px;
+    background-repeat: no-repeat;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.selectbox:focus {
+    background-color: #e6f3ff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.input-new[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    appearance: none; /* 去掉默认样式 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    position: relative;
+    transition: all 0.3s ease;
+    vertical-align: middle; /* 与文字垂直居中 */
+    margin-right: 10px; /* label 文本与 checkbox 间距 */
+}
+
+.input-new[type="checkbox"]:checked {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.input-new[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+
+label {
+    display: inline-block;   /* 保持在同一行 */
+
+    text-align: right;       /* 文字右对齐 */
+    white-space: nowrap;     /* 不换行 */
+    vertical-align: middle;  /* 尝试垂直居中 input 的部分高度 */
+}
+
+
+/* 表格整体样式 */
+.table-longtext {
+    width: 100%;           /* 撑满容器宽度 */
+    border-collapse: collapse;
+    table-layout: auto;    /* 根据内容自动调整列宽 */
+    background-color: #fff; /* 保留原有背景颜色 */
+    color: #333;           /* 保留原有文字颜色 */
+}
+
+/* 表头样式 */
+.table-longtext th {
+    background-color: #3498db;
     text-align: center;
+    font-weight: 600;
+    padding: 10px;
+    /* text-align: left; */
+    border-bottom: 2px solid #ddd;
 }
-.boxwidth{
-    width:300px;
+
+/* 单元格样式 */
+.table-longtext td {
+    text-align: center;
+    padding: 10px;
+    min-width: 10px;
+    border-bottom: 1px solid #eee;
+    word-wrap: break-word;       /* 强制长单词换行 */
+    word-break: break-word;      /* 强制换行 */
+    white-space: normal;         /* 允许多行显示 */
+    vertical-align: top;         /* 保持内容顶部对齐 */
+    background-color: inherit;   /* 保留原背景 */
+    color: inherit;              /* 保留原文字颜色 */
 }
-.deptbox{
-    display: block;
-    width: 350px;
-    float: left;
-}
-.deptbox span{
-    width: 100px;
-}
-.input_mid{
-    display: block;
-    width: 265px;
-    height: 30px;
-    margin: 20px;
-    float: left;
-}
-.firstbox{
-    clear: left;
-}
-table{
-    width:80%;
-    margin: 0 auto;
-    font-size: 15px;
+
+/* 鼠标悬停高亮保持不变 */
+.table-longtext tr:hover {
+    background-color: #f5faff; /* 可根据原先高亮颜色调整 */
 }

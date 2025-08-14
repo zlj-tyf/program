@@ -147,9 +147,7 @@ body {
     color: #fff;
 }
 
-a {
-    text-decoration: none;
-}
+/*  */
 
 /* 页面容器 */
 .container {
@@ -176,6 +174,15 @@ a {
 }
 
 .homepage {
+    text-align: center;
+    background: #3498db;
+    color: #fff;
+    font-size: 18px;
+    padding: 15px;
+    font-weight: 600;
+}
+
+.homepage a{
     text-align: center;
     background: #3498db;
     color: #fff;
