@@ -85,7 +85,7 @@ if ($type == '1') {
         die("❌ 获取 JWT Token 失败，请确认用户名密码及JWT插件");
     }
 
-    $post_content = $default_content ?: "请在此填写你的申报内容……";
+    $post_content = $default_content ?: "<p>请在此处填充申报信息（粘帖申报表）<br/></p><!-- wp:shortcode -->[shared_files file_upload=1 only_uploaded_files=1]<!-- /wp:shortcode -->";
 
     $post_data = [
         'title' => $post_title,
