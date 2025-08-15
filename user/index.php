@@ -9,6 +9,8 @@ if(!isset($_SESSION["user"])||!$_SESSION["login"]==true){
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <script>
         // 判断是否为移动设备
         function isMobile() {
@@ -98,7 +100,7 @@ if(!isset($_SESSION["user"])||!$_SESSION["login"]==true){
     background-color: #007bff;
     color: white;
     padding: 12px 18px;
-    border-radius: 50%;
+    border-radius: 20px;
     font-size: 24px;
     cursor: pointer;
     z-index: 9999;
@@ -150,9 +152,17 @@ if(!isset($_SESSION["user"])||!$_SESSION["login"]==true){
     font-size: 13px;
     margin-bottom: 10px;
 }
+
+#feedbackBtn:focus {
+    outline: none; /* 去掉默认蓝色边框 */
+    border: 2px solid #007bff; /* 蓝色边框 */
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.6); /* 蓝色外阴影 */
+    transition: all 0.2s ease-in-out; /* 平滑过渡 */
+}
+
 </style>
 
-<div id="feedbackBtn" title="反馈问题">💬</div>
+<div id="feedbackBtn" title="反馈问题">问题反馈</div>
 <div id="feedbackForm">
     <form id="formFeedback">
         <div id="errorMsg" style="color:red;"></div>

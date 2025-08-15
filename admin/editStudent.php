@@ -146,6 +146,8 @@ input[type="submit"] { padding:8px 20px; font-size:16px; cursor:pointer; }
             </form>
         <?php elseif($selectedSID): ?>
             <p>未找到学号为 <?php echo htmlspecialchars($selectedSID); ?> 的学生信息。</p>
+        <?php else: ?>
+            <p>请在左侧输入学号或选择学生。</p>
         <?php endif; ?>
     </div>
 </div>

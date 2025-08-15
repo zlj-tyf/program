@@ -112,7 +112,7 @@ table th {
     font-weight: 600;
     text-align: left;
     padding: 10px;
-    white-space: nowrap;
+    white-space: wrap;
     min-width: 80px; /* 设置表头最小宽度，防止过窄 */
 }
 

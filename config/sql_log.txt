@@ -1,0 +1,185 @@
+[2025-08-15 16:08:58] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:08:58] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:11:23] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC
+[2025-08-15 16:14:38] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC
+[2025-08-15 16:14:44] [User: Admin] [Page: /program/admin/modifyCourse.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 16:14:45] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC
+[2025-08-15 16:15:07] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:15:08] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:15:10] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:15:10] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:17:22] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:17:24] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:17:27] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:17:35] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:17:50] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:17:54] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:17:55] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:17:55] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:17:56] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:17:57] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:18:08] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:18:09] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:18:21] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:18:22] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:18:22] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:18:23] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:18:23] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:18:41] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:18:41] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:18:42] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:18:42] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:18:43] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:18:50] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:19:05] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:19:32] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:19:32] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:19:33] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:19:34] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:19:38] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:19:38] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:19:39] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:19:40] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:19:41] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:20:08] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:20:09] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:20:10] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:20:30] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:20:30] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:20:31] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:20:32] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:20:32] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:20:33] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:20:33] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:20:34] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:20:34] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:20:35] [User: guest] [Page: /program/admin/editStudentCard.php?sid=5] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 16:20:37] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:20:37] [User: Admin] [Page: /program/admin/editStudent.php?sid=5] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:40:18] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 16:40:21] [User: Admin] [Page: /program/admin/editStudent.php?sid=5] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 17:21:05] [User: 周小杰] [Page: /program/user/myLog.php] [SUCCESS] SELECT l.*, c.competition_name, l.url
+                FROM student_log l
+                LEFT JOIN course c ON l.cid = c.cid
+                WHERE l.sid = '6'
+                ORDER BY l.addtime DESC
+[2025-08-15 17:22:18] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:22:20] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 17:22:21] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:22:21] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 17:22:22] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 17:22:25] [User: Admin] [Page: /program/admin/editStudent.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 17:22:28] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:22:29] [User: guest] [Page: /program/admin/editStudentCard.php?sid=5] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:22:30] [User: guest] [Page: /program/admin/editStudentCard.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:22:31] [User: guest] [Page: /program/admin/editStudentCard.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:22:33] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 17:22:34] [User: Admin] [Page: /program/admin/editStudent.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 17:24:19] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:24:20] [User: guest] [Page: /program/admin/editStudentCard.php?sid=5] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:24:21] [User: guest] [Page: /program/admin/editStudentCard.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:24:32] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:24:36] [User: guest] [Page: /program/admin/editStudentCard.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:24:47] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 17:25:26] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 17:25:32] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 17:25:32] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:25:33] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 17:25:34] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:25:35] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:25:37] [User: guest] [Page: /program/admin/editStudentCard.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:25:40] [User: guest] [Page: /program/admin/editStudentCard.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:25:41] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 17:25:42] [User: Admin] [Page: /program/admin/editStudent.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 17:26:03] [User: Admin] [Page: /program/admin/modifyCourse.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 17:26:07] [User: Admin] [Page: /program/admin/modifyCourse.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 17:26:26] [User: Admin] [Page: /program/admin/modifyCourse.php?cid=16] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 17:31:22] [User: Admin] [Page: /program/admin/modifyCourse.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 17:32:01] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC
+[2025-08-15 17:32:03] [User: guest] [Page: /program/admin/queueChoose.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC
+[2025-08-15 17:36:06] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:37:27] [User: guest] [Page: /program/admin/editStudentCard.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:38:19] [User: Admin] [Page: /program/admin/modifyCourse.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 17:38:29] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:38:30] [User: guest] [Page: /program/admin/editStudentCard.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:38:34] [User: guest] [Page: /program/admin/editStudentCard.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:38:35] [User: guest] [Page: /program/admin/editStudentCard.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 17:55:08] [User: Admin] [Page: /program/admin/modifyCourse.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 17:55:11] [User: Admin] [Page: /program/admin/modifyCourse.php?cid=16] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 17:59:58] [User: 周小杰] [Page: /program/user/myLog.php] [SUCCESS] SELECT l.*, c.competition_name, l.url
+                FROM student_log l
+                LEFT JOIN course c ON l.cid = c.cid
+                WHERE l.sid = '6'
+                ORDER BY l.addtime DESC
+[2025-08-15 18:00:35] [User: 周小杰] [Page: /program/user/myLog.php] [SUCCESS] SELECT l.*, c.competition_name, l.url
+                FROM student_log l
+                LEFT JOIN course c ON l.cid = c.cid
+                WHERE l.sid = '6'
+                ORDER BY l.addtime DESC
+[2025-08-15 18:00:48] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID = '999' LIMIT 1
+[2025-08-15 18:00:50] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID = '999' LIMIT 1
+[2025-08-15 18:00:51] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID = '999' LIMIT 1
+[2025-08-15 10:01:41] [User: Admin] [Page: /program/admin/fun/create_admin.php] [SUCCESS] SELECT MAX(CAST(adminID AS UNSIGNED)) AS max_id FROM user_admin
+[2025-08-15 10:03:12] [User: Admin] [Page: /program/admin/fun/create_admin.php] [SUCCESS] SELECT MAX(CAST(adminID AS UNSIGNED)) AS max_id FROM user_admin
+[2025-08-15 18:03:22] [User: Admin] [Page: /program/admin/editAdmin.php] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 18:03:24] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 18:03:26] [User: Admin] [Page: /program/admin/editAdminAccess.php] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 18:03:26] [User: Admin] [Page: /program/admin/editAdminAccess.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 18:03:28] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=1000] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 18:03:28] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=1000] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 18:03:32] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=1000] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 18:03:32] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=1000] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 18:03:35] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 18:03:35] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 18:03:38] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 18:03:38] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 18:03:49] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID = '999' LIMIT 1
+[2025-08-15 18:03:49] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid IN ('5','6') ORDER BY l.addtime DESC
+[2025-08-15 18:07:36] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID = '999' LIMIT 1
+[2025-08-15 18:07:36] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid IN ('5','6') ORDER BY l.addtime DESC
+[2025-08-15 18:07:53] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID = '999' LIMIT 1
+[2025-08-15 18:07:53] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid IN ('5','6') ORDER BY l.addtime DESC
+[2025-08-15 18:08:32] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID = '999' LIMIT 1
+[2025-08-15 18:08:32] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid IN ('5','6') ORDER BY l.addtime DESC
+[2025-08-15 18:11:26] [User: chenxiaoquan] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID = '1000' LIMIT 1
+[2025-08-15 18:11:26] [User: chenxiaoquan] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid IN ('6') ORDER BY l.addtime DESC
+[2025-08-15 18:11:57] [User: chenxiaoquan] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID = '1000' LIMIT 1
+[2025-08-15 18:11:57] [User: chenxiaoquan] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid IN ('6') ORDER BY l.addtime DESC
+[2025-08-15 18:14:12] [User: Admin] [Page: /program/admin/editAdmin.php] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 18:14:14] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 18:14:22] [User: Admin] [Page: /program/admin/editAdmin.php?adminID=1000] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 18:14:30] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC
+[2025-08-15 18:14:34] [User: guest] [Page: /program/admin/queueChoose.php?sid=5] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC
+[2025-08-15 18:14:49] [User: guest] [Page: /program/admin/queueChoose.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC
+[2025-08-15 18:14:55] [User: guest] [Page: /program/admin/queueChoose.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC
+[2025-08-15 18:16:05] [User: 周小杰] [Page: /program/user/myLog.php] [SUCCESS] SELECT l.*, c.competition_name, l.url
+                FROM student_log l
+                LEFT JOIN course c ON l.cid = c.cid
+                WHERE l.sid = '6'
+                ORDER BY l.addtime DESC
+[2025-08-15 18:24:57] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC
+[2025-08-15 18:24:58] [User: guest] [Page: /program/admin/queueChoose.php?sid=5] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC

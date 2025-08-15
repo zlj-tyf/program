@@ -2,25 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>课程查询</title>
-    <link rel="stylesheet" type="text/css" href="./css/fun.css">
+    <title>课程查询结果</title>
+    <link rel="stylesheet" type="text/css" href="css/fun.css">
 </head>
 <body>
     <div class="subtitle">
-        <h3>课程查询</h3>
+        <h3>课程列表</h3>
     </div>
-    <form action="./fun/getCourse.php" method="get" target="resultbox">
-        <div class="inputbox">
-            <span>套餐级别</span>
-            <input name="card_requirement" type="text" placeholder="模糊匹配 0 或 1">
-        </div>
-        <div class="clickbox clearfloat">
-            <span></span><input name="submit" type="submit" value="提交">
-        </div>
-        <div class="redbox clickbox">
-            <span></span><input name="reset" type="reset" value="清除">
-        </div>
-    </form>
-    <iframe name="resultbox" frameborder="0" width="100%" height="550px"></iframe>
+
+    <table class="table-longtext">
+        <tr>
+            <th>课程ID</th>
+            <th>比赛名称</th>
+            <th>简称</th>
+            <th>比赛级别</th>
+            <th>申报时间</th>
+            <th>申报要求</th>
+            <th>学生材料要求</th>
+            <th>是否录入默认页面</th>
+            <!-- <th>是否需要卡</th> -->
+        </tr>
+        <?php
+        require_once("../config/database.php");
+
+        // 查询所有课程
+        $com = "SELECT * FROM course";
+        $result = mysqli_query($db, $com);
+
+        if ($result) {
+            while ($row = mysqli_fetch_object($result)) {
+                ?>
+                <tr>
+                    <td><?php echo $row->cid ?></td>
+                    <td><?php echo $row->competition_name ?></td>
+                    <td><?php echo $row->competition_short_name ?? '——'; ?></td>
+                    <td><?php echo $row->competition_level ?></td>
+                    <td><?php echo $row->submit_time ?></td>
+                    <td><?php echo $row->submit_requirements ?></td>
+                    <td><?php echo $row->student_requirements ?></td>
+                    <td style="text-align:center;">
+                        <?php 
+                        echo !empty($row->default_content) ? '✅' : '❌'; 
+                        ?>
+                    </td>
+                    <!-- <td><?php echo $row->card_requirement ?></td> -->
+                </tr>
+                <?php
+            }
+        } else {
+            echo "<tr><td colspan='8'>查询失败: " . mysqli_error($db) . "</td></tr>";
+        }
+
+        mysqli_close($db);
+        ?>
+    </table>
 </body>
 </html>

@@ -70,15 +70,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['save_cards'])) {
 <title>学生卡片管理</title>
 <style>
 body { font-family: Arial, sans-serif; margin:0; padding:0; }
-.container { display: flex; }
-.sidebar { width: 250px; padding: 10px; border-right: 1px solid #ccc; background:#f9f9f9; }
-.sidebar a { display:block; padding:2px 0; text-decoration:none; color:#333; }
-.sidebar a:hover { text-decoration:underline; }
-.content { flex:1; padding:10px; }
-table { width:100%; border-collapse: collapse; }
-th, td { border:1px solid #ccc; padding:5px; text-align:center; }
-input[type=number] { width:60px; }
-.negative { color:red; font-weight:bold; }
+.container { display:flex; min-height:100vh; }
+.sidebar { width:220px; padding:10px; border-right:1px solid #ccc; background:#f9f9f9; }
+.sidebar h3 { margin-top:0; }
+.sidebar a { display:block; margin:3px 0; text-decoration:none; color:#333; }
+.main { flex:1; padding:20px; }
+content { flex:1;padding:10px;} 
+form div { margin-bottom:12px; }
+label { display:inline-block; width:160px; font-weight:bold; vertical-align:top; }
+input[type="text"], input[type="number"], input[type="date"], select { width:200px; padding:5px; }
+input[type="checkbox"] { transform: scale(1.3); vertical-align:middle; margin-left:4px; }
+.message { margin:15px 0; color:green; font-weight:bold; }
+input[type="submit"] { padding:8px 20px; font-size:16px; cursor:pointer; }
 </style>
 <script>
 function updateRemaining() {
@@ -119,7 +122,7 @@ function updateRemaining() {
     </div>
 
     <!-- 右侧卡片展示 -->
-    <div class="content">
+    <div class="main">
         <?php if ($selectedSID && $cards): ?>
         <form method="POST">
             <input type="hidden" name="save_cards" value="1">

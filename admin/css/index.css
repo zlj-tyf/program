@@ -259,7 +259,7 @@ a {
 /* 页面容器 */
 .container {
     width: 100%;
-    max-width: 1400px;
+    /* max-width: 1400px; */
     margin: 0 auto;
     padding: 20px;
 }
@@ -272,7 +272,7 @@ a {
 
 /* 左侧导航栏 */
 .leftnav {
-    width: 22%;
+    width: 15%;
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
@@ -321,7 +321,7 @@ a {
 
 /* 主内容区域 */
 .content {
-    width: 76%;
+    width: 85%;
     background: #fff;
     border-radius: 12px;
     padding: 20px;

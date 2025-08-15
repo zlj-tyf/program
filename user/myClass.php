@@ -25,7 +25,6 @@ require_once("../config/database.php");
         <th>申报时间</th>
         <th>申报要求</th>
         <th>学生提交材料</th>
-        <th>卡种类要求</th>
         <th>操作</th>
     </tr>
     <?php
@@ -50,7 +49,6 @@ require_once("../config/database.php");
             echo "<td>" . htmlspecialchars($row->submit_time) . "</td>";
             echo "<td>" . htmlspecialchars($row->submit_requirements) . "</td>";
             echo "<td>" . htmlspecialchars($row->student_requirements) . "</td>";
-            echo "<td>" . htmlspecialchars($row->card_requirement) . "</td>";
             echo "<td><a href='delCourse.php?cid=" . urlencode($row->cid) . "&sid=" . urlencode($sid) . "'>退选</a></td>";
             echo "</tr>";
         }

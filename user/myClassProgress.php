@@ -33,16 +33,10 @@ function getStatusIcon($current, $step) {
     <tr>
         <th>课程编号</th>
         <th>比赛名称</th>
-        <th>比赛级别</th>
-        <th>申报时间</th>
-        <th>申报要求</th>
-        <th>学生提交材料</th>
-        <th>卡种类要求</th>
         <th>文书提交</th>
         <th>文书修改</th>
         <th>文书定稿</th>
         <th>项目提交</th>
-        <th>操作</th>
     </tr>
     <?php
     $sql = "
@@ -57,15 +51,9 @@ function getStatusIcon($current, $step) {
             echo "<tr>";
             echo "<td>" . htmlspecialchars($row->cid) . "</td>";
             echo "<td>" . htmlspecialchars($row->competition_name) . "</td>";
-            echo "<td>" . htmlspecialchars($row->competition_level) . "</td>";
-            echo "<td>" . htmlspecialchars($row->submit_time) . "</td>";
-            echo "<td>" . htmlspecialchars($row->submit_requirements) . "</td>";
-            echo "<td>" . htmlspecialchars($row->student_requirements) . "</td>";
-            echo "<td>" . htmlspecialchars($row->card_requirement) . "</td>";
             for ($i = 1; $i <= 4; $i++) {
                 echo "<td style='text-align:center'>" . getStatusIcon($row->status, $i) . "</td>";
             }
-            echo "<td><a href='delCourse.php?cid=" . urlencode($row->cid) . "&sid=" . urlencode($sid) . "'>退选</a></td>";
             echo "</tr>";
         }
     } else {

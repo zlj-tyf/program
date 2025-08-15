@@ -56,7 +56,16 @@ function hasPermission($perm, $permissions){
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>Project Log System - Admin Page</title>
+    <title>Project Log System - Admin Page</title><script>
+        // 判断是否为移动设备
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        if(isMobile()){
+            alert("检测到您正在使用移动设备访问，建议在电脑上打开以获得更好的使用体验。");
+        }
+    </script>
 </head>
 <body>
 <div class="container topnav">
@@ -158,11 +167,18 @@ function hasPermission($perm, $permissions){
     background-color: #007bff;
     color: white;
     padding: 12px 18px;
-    border-radius: 50%;
+    border-radius:  20px;
     font-size: 24px;
     cursor: pointer;
     z-index: 9999;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#feedbackBtn input:focus {
+    outline: none; /* 去掉默认蓝色边框 */
+    border: 2px solid #007bff; /* 蓝色边框 */
+    box-shadow: 0 0 6px rgba(0, 123, 255, 0.6); /* 蓝色外阴影 */
+    transition: all 0.2s ease-in-out; /* 平滑过渡 */
 }
 
 #feedbackForm {
@@ -212,7 +228,7 @@ function hasPermission($perm, $permissions){
 }
 </style>
 
-<div id="feedbackBtn" title="反馈问题">💬</div>
+<div id="feedbackBtn" title="反馈问题">问题反馈</div>
 <div id="feedbackForm">
     <form id="formFeedback">
         <div id="errorMsg" style="color:red;"></div>

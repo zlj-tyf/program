@@ -1,70 +1,54 @@
-<?php
-
-require_once("../../config/database.php");
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>课程查询结果</title>
     <link rel="stylesheet" type="text/css" href="../css/fun.css">
-    <script>
-    function addScore(sid,cid){
-        var score = prompt("请输入成绩","");
-        window.location.href="./addScore.php?sid="+sid+"&cid="+cid+"&score="+score;
-    }
-</script>
 </head>
 <body>
-<table>
-    <tr>
-        <th>学号</th>
-        <th>姓名</th>
-        <th>课程号</th>
-        <th>课程名</th>
-        <th>教师</th>
-        <th>学分</th>
-        
-        <th>备注</th>
-    </tr>
-    <?php
-    $com="select * from student natural join student_course as v1 left join course on v1.cid=course.cid where score is null  " ;
+    <div class="subtitle">
+        <h3>课程列表</h3>
+    </div>
 
-    
-    if($_GET['sid']){
-        $com=$com." and sid like '%".$_GET['sid']."%'";
-    }
-    if($_GET['name']){
-        $com=$com." and name like '%".$_GET['name']."%'";
-    }
-    if($_GET['cname']){
-        $com=$com." and cname like '%".$_GET['cname']."%'";
-    }
-    if($_GET['cid']){
-        $com=$com." and v1.cid like '%".$_GET['cid']."%'";
-    }
+    <table>
+        <tr>
+            <th>课程ID</th>
+            <th>比赛名称</th>
+            <th>简称</th>
+            <th>比赛级别</th>
+            <th>申报时间</th>
+            <th>申报要求</th>
+            <th>学生材料要求</th>
+            <th>是否需要卡</th>
+        </tr>
+        <?php
+        require_once("../../config/database.php");
 
-    $result=mysqli_query($db,$com);
-    if($result){
-        while($row=mysqli_fetch_object($result)){
-            ?>
-            <tr>
-                <td><?php echo $row->sid ?></td>
-                <td><?php echo $row->name ?></td>
-                <td><?php echo $row->cid ?></td>
-                <td><?php echo $row->cname ?></td>
-                <td><?php echo $row->tname ?></td>
-                <td><?php echo $row->credit ?></td>
-                <td><?php if($row->statius==0) echo("首次"); else echo("重修")?> / 
-                <a onclick="addScore(<?php echo $row->sid.",".$row->cid; ?>);" href="#">登记成绩</a></td>
-            </tr>
-            <?php
+        // 查询所有课程
+        $com = "SELECT * FROM course";
+        $result = mysqli_query($db, $com);
+
+        if ($result) {
+            while ($row = mysqli_fetch_object($result)) {
+                ?>
+                <tr>
+                    <td><?php echo $row->cid ?></td>
+                    <td><?php echo $row->competition_name ?></td>
+                    <td><?php echo $row->competition_short_name ?? '——'; ?></td>
+                    <td><?php echo $row->competition_level ?></td>
+                    <td><?php echo $row->submit_time ?></td>
+                    <td><?php echo $row->submit_requirements ?></td>
+                    <td><?php echo $row->student_requirements ?></td>
+                    <td><?php echo $row->card_requirement ?></td>
+                </tr>
+                <?php
+            }
+        } else {
+            echo "<tr><td colspan='8'>查询失败: " . mysqli_error($db) . "</td></tr>";
         }
-    }
 
-    mysqli_close($db);
-    ?>
-</table>
+        mysqli_close($db);
+        ?>
+    </table>
 </body>
-
 </html>
