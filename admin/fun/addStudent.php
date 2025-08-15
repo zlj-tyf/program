@@ -1,7 +1,8 @@
 <?php
-require_once("../../config/database.php");
+require_once("../../../wp-load.php"); // 先加载 WordPress 环境
+require_once("../../config/database.php"); // 业务数据库
 
-// 额外连接 WordPress 数据库
+// 额外连接 WordPress 数据库（可选，仅用于查询）
 $wpdb_host = "localhost";
 $wpdb_user = "root";
 $wpdb_pass = "123456";
@@ -12,18 +13,21 @@ if ($wpdb_new->connect_error) {
     die("连接 WordPress 数据库失败: " . $wpdb_new->connect_error);
 }
 
-require_once("../../../wp-load.php");
-
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo "无效请求。";
     exit;
 }
 
 $name = $_POST["name"] ?? '';
-$cards = $_POST["cards"] ?? []; // 格式： [ ["card_id"=>1,"count"=>2], ... ]
+$pinyin = $_POST["pinyin"] ?? '';
+$cards = $_POST["cards"] ?? [];
 
 if (empty($name)) {
     echo "姓名不能为空。";
+    exit;
+}
+if (empty($pinyin)) {
+    echo "拼音不能为空。";
     exit;
 }
 if (empty($cards) || !is_array($cards)) {
@@ -35,7 +39,7 @@ if (empty($cards) || !is_array($cards)) {
 mysqli_begin_transaction($db);
 
 try {
-    // 1. 插入 student 表（不再存 card_type）
+    // 1. 插入 student 表
     $sql1 = "INSERT INTO student (name) VALUES (?)";
     $stmt1 = mysqli_prepare($db, $sql1);
     mysqli_stmt_bind_param($stmt1, "s", $name);
@@ -69,33 +73,30 @@ try {
     }
 
     // 4. WordPress 用户信息
-    $wp_username = (string)$sid;
+    $wp_username = $pinyin;
     $wp_password = $pwd_plain;
-    $wp_email = "user{$sid}@example.com";
+    $wp_email = "{$pinyin}@example.com";
 
     // 5. 检查 WP 用户是否存在
-    $wp_user_id = null;
-    if ($stmt = $wpdb_new->prepare("SELECT ID FROM wp_users WHERE user_login = ?")) {
-        $stmt->bind_param("s", $wp_username);
-        $stmt->execute();
-        $stmt->bind_result($user_id);
-        if ($stmt->fetch()) {
-            $wp_user_id = $user_id;
-        }
-        $stmt->close();
-    }
+    $wp_user_id = username_exists($wp_username);
 
-    // 6. 若不存在则创建 WordPress 用户
+    // 6. 若不存在则创建 WP 用户
     if (!$wp_user_id) {
         $wp_user_id = wp_create_user($wp_username, $wp_password, $wp_email);
         if (is_wp_error($wp_user_id)) {
             throw new Exception("WordPress 用户创建失败：" . $wp_user_id->get_error_message());
         }
-        $user = new WP_User($wp_user_id);
-        $user->set_role('author');
     }
 
-    // 7. 更新 student 表存储 wp_user_id
+    // 7. 设置角色为 author
+    $user = new WP_User($wp_user_id);
+    $user->set_role('author');
+    wp_update_user([
+        'ID' => $wp_user_id,
+        'role' => 'author'
+    ]);
+
+    // 8. 更新 student 表存储 wp_user_id
     $wp_user_id_int = intval($wp_user_id);
     $sql3 = "UPDATE student SET wp_user_id = ? WHERE sid = ?";
     $stmt3 = mysqli_prepare($db, $sql3);
@@ -107,7 +108,7 @@ try {
     // 提交事务
     mysqli_commit($db);
 
-    echo "✅ 添加成功，学号为 <strong>$sid</strong>，默认密码为 <strong>$pwd_plain</strong><br>WordPress 用户 ID 已关联。";
+    echo "✅ 添加成功，学号为 <strong>$sid</strong>，默认密码为 <strong>$pwd_plain</strong><br>WordPress 用户名为 <strong>$wp_username</strong>，已关联 WordPress 用户，并设置为 author。";
 
 } catch (Exception $e) {
     mysqli_rollback($db);

@@ -6,14 +6,27 @@ require_once '../config/database.php';
 $statusMsg = '';
 $selectedSID = '';
 $students = [];
+$searchName = '';
 
-// 获取所有学生
-$result = $db->query("SELECT sid, name FROM student ORDER BY sid");
+// 处理搜索输入
+if (isset($_POST['search_name'])) {
+    $searchName = trim($_POST['search_name']);
+}
+
+// 获取学生列表（支持按姓名模糊搜索）
+$sql_students = "SELECT sid, name FROM student";
+if ($searchName !== '') {
+    $searchEscaped = mysqli_real_escape_string($db, $searchName);
+    $sql_students .= " WHERE name LIKE '%$searchEscaped%'";
+}
+$sql_students .= " ORDER BY sid";
+
+$result = $db->query($sql_students);
 while ($row = $result->fetch_assoc()) {
     $students[] = $row;
 }
 
-// 处理GET或POST选择的学生
+// 处理选择学生
 if (isset($_GET['sid'])) {
     $selectedSID = $_GET['sid'];
 } elseif (isset($_POST['sid'])) {
@@ -72,7 +85,7 @@ if ($selectedSID) {
 <style>
 body { font-family: Arial, sans-serif; margin:0; padding:0; }
 .container { display:flex; min-height:100vh; }
-.sidebar { width:220px; padding:10px; border-right:1px solid #ccc; background:#f9f9f9; }
+.sidebar { width:250px; padding:10px; border-right:1px solid #ccc; background:#f9f9f9; }
 .sidebar h3 { margin-top:0; }
 .sidebar a { display:block; margin:3px 0; text-decoration:none; color:#333; }
 .main { flex:1; padding:20px; }
@@ -81,7 +94,7 @@ label { display:inline-block; width:160px; font-weight:bold; vertical-align:top;
 input[type="text"], input[type="number"], input[type="date"], select { width:200px; padding:5px; }
 input[type="checkbox"] { transform: scale(1.3); vertical-align:middle; margin-left:4px; }
 .message { margin:15px 0; color:green; font-weight:bold; }
-input[type="submit"] { padding:8px 20px; font-size:16px; cursor:pointer; }
+input[type="submit"], button { padding:8px 20px; font-size:16px; cursor:pointer; margin-top:5px; }
 </style>
 </head>
 <body>
@@ -90,21 +103,33 @@ input[type="submit"] { padding:8px 20px; font-size:16px; cursor:pointer; }
         <h3>选择学生</h3>
         <form method="POST">
             <label>输入学号:</label><br>
-            <input type="text" name="sid" required value="<?php echo htmlspecialchars($selectedSID); ?>"><br><br>
+            <input type="text" name="sid" value="<?php echo htmlspecialchars($selectedSID); ?>" required><br><br>
             <button type="submit">确认</button>
         </form>
+
+        <!-- 搜索姓名 -->
+        <form method="POST" style="margin-top:15px;">
+            <label>按姓名搜索:</label><br>
+            <input type="text" name="search_name" value="<?php echo htmlspecialchars($searchName); ?>" placeholder="输入姓名关键字">
+            <input type="submit" value="搜索">
+        </form>
+
         <hr>
-        <h4>所有学生</h4>
-        <?php foreach($students as $stu): ?>
-            <a href="?sid=<?php echo urlencode($stu['sid']); ?>">
-                <?php echo htmlspecialchars($stu['sid']) . " - " . htmlspecialchars($stu['name']); ?>
-            </a>
-        <?php endforeach; ?>
+        <h4>学生列表</h4>
+        <?php if($students): ?>
+            <?php foreach($students as $stu): ?>
+                <a href="?sid=<?php echo urlencode($stu['sid']); ?>">
+                    <?php echo htmlspecialchars($stu['sid']) . " - " . htmlspecialchars($stu['name']); ?>
+                </a>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>没有找到匹配的学生</p>
+        <?php endif; ?>
     </div>
     <div class="main">
         <?php if($selectedSID && $studentInfo): ?>
             <h3>编辑学生信息 - 学号：<?php echo htmlspecialchars($selectedSID); ?></h3>
-            <h3>对于所有日期的编辑，必须遵循yyyy-mm-dd的格式！否则将无法解析进而导致数据库异常。</h3>
+            <h3>日期必须遵循 yyyy-mm-dd 格式，否则可能导致数据库异常。<br>年龄和学校数据不会自动计算。</h3>
             <?php if($statusMsg): ?>
                 <div class="message"><?php echo $statusMsg; ?></div>
             <?php endif; ?>

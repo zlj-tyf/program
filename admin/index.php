@@ -131,8 +131,11 @@ function hasPermission($perm, $permissions){
         <div class="item"><a href="./createCard.php" target="frame">创建卡片</a></div>
         <?php endif; ?>
         <?php if(hasPermission("modifyCard",$permissions)): ?>
-        <div class="item"><a href="./modifyCard.php" target="frame">修改卡片</a></div>
-        <?php endif; ?>
+        <div class="item"><a href="./modifyCard.php" target="frame">修改卡片</a></div>        <?php endif; ?>
+
+        <?php if($_SESSION["admin"] == 999): ?>
+                    <div class="item"><a href="./listCardSales.php" target="frame">销量统计</a></div>        <?php endif; ?>
+
         <?php endif; ?>
 
         <div class="subtitle">系统设置</div>

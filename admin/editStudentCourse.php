@@ -43,7 +43,7 @@ while ($row = mysqli_fetch_assoc($enrollRes)) {
         th, td {border: 1px solid #999; padding: 5px; text-align: center; cursor: pointer;}
         th {background-color: #eee;}
         .disabled {color: gray;}
-        .enrolled {color: green;}
+        .enrolled {color: blue;}
         .not-enrolled {color: red;}
     </style>
 </head>

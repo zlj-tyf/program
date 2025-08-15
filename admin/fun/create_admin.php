@@ -13,8 +13,6 @@ if(!isset($_SESSION["login"]) || !isset($_SESSION["admin"]) || $_SESSION["admin"
 }
 
 require_once '../../config/database.php';
-
-// WordPress 环境加载
 require_once '../../../wp-load.php'; // 根据实际路径调整
 
 function respond($success, $message, $debug=null) {
@@ -71,35 +69,45 @@ if ($new_id == 999) $new_id = 1000;
 $pwd_md5 = md5($pwd);
 $permissions_str = implode(',', $permissions);
 
-$stmt = $db->prepare("INSERT INTO user_admin (adminID, adminName, pwd, permissions) VALUES (?, ?, ?, ?)");
-if (!$stmt) {
-    respond(false, "数据库错误（插入prepare失败）", $db->error);
-}
+// 开启事务
+$db->begin_transaction();
 
-$stmt->bind_param("isss", $new_id, $adminName, $pwd_md5, $permissions_str);
-if (!$stmt->execute()) {
-    $error = $stmt->error;
-    $stmt->close();
-    respond(false, "数据库错误（插入execute失败）", $error);
-}
-$stmt->close();
-
-// ---------------------------
-// 创建 WordPress 用户
-// ---------------------------
-$wp_user_id = username_exists($adminName);
-if (!$wp_user_id) {
-    $wp_email = $adminName . "@example.com"; // 可改成实际邮箱规则
-    $wp_user_id = wp_create_user($adminName, $pwd, $wp_email);
-    if (!is_wp_error($wp_user_id)) {
-        $wp_user = new WP_User($wp_user_id);
-        $wp_user->set_role('editor'); // 固定 editor 角色
-    } else {
-        // 如果 WP 创建失败也返回提示，但不影响原业务用户
-        respond(true, "创建成功，但 WordPress 用户创建失败：" . $wp_user_id->get_error_message());
+try {
+    // 插入系统用户
+    $stmt = $db->prepare("INSERT INTO user_admin (adminID, adminName, pwd, permissions) VALUES (?, ?, ?, ?)");
+    if (!$stmt) {
+        throw new Exception("数据库错误（插入prepare失败）: " . $db->error);
     }
-}
+    $stmt->bind_param("isss", $new_id, $adminName, $pwd_md5, $permissions_str);
+    if (!$stmt->execute()) {
+        $stmt->close();
+        throw new Exception("数据库错误（插入execute失败）: " . $stmt->error);
+    }
+    $stmt->close();
 
-respond(true, "创建成功");
+    // ---------------------------
+    // 创建 WordPress 用户
+    // ---------------------------
+    $wp_user_id = username_exists($adminName);
+    if (!$wp_user_id) {
+        $wp_email = $adminName . "@example.com"; // 可改成实际邮箱规则
+        $wp_user_id = wp_create_user($adminName, $pwd, $wp_email);
+        if (is_wp_error($wp_user_id)) {
+            throw new Exception("WordPress 用户创建失败：" . $wp_user_id->get_error_message());
+        } else {
+            $wp_user = new WP_User($wp_user_id);
+            $wp_user->set_role('editor'); // 固定 editor 角色
+        }
+    }
+
+    // 提交事务
+    $db->commit();
+    respond(true, "创建成功");
+
+} catch (Exception $e) {
+    // 回滚事务
+    $db->rollback();
+    respond(false, $e->getMessage());
+}
 
 $db->close();

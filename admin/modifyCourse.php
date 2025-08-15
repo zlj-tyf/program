@@ -20,6 +20,23 @@ if(isset($_GET['cid'])){
     $selectedCID = intval($_POST['cid']);
 }
 
+// 搜索处理
+$searchResults = [];
+$searchQuery = '';
+if(isset($_POST['search_query']) && !empty(trim($_POST['search_query']))){
+    $searchQuery = trim($_POST['search_query']);
+    $stmt = $db->prepare("SELECT cid, competition_name FROM course WHERE competition_name LIKE ?");
+    $likeQuery = "%$searchQuery%";
+    $stmt->bind_param("s", $likeQuery);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    while($row = $res->fetch_assoc()){
+        $searchResults[] = $row;
+    }
+    $stmt->close();
+}
+
+// 加载选中课程
 if($selectedCID > 0){
     $stmt = $db->prepare("SELECT * FROM course WHERE cid=?");
     $stmt->bind_param("i", $selectedCID);
@@ -50,7 +67,7 @@ if($selectedCID > 0){
             min-height: 100vh;
         }
         .sidebar {
-            width: 240px;
+            width: 260px;
             background: #fff;
             border-right: 1px solid #ddd;
             padding: 20px;
@@ -61,6 +78,7 @@ if($selectedCID > 0){
             margin-bottom: 10px;
         }
         .sidebar form input[type="number"],
+        .sidebar form input[type="text"],
         .sidebar form button {
             width: 100%;
             padding: 8px;
@@ -141,9 +159,19 @@ if($selectedCID > 0){
             <input type="number" name="cid" min="1" required value="<?php echo $selectedCID; ?>">
             <button type="submit" class="btn">确认</button>
         </form>
+
+        <!-- 搜索功能 -->
+        <form method="POST">
+            <label>搜索课程名称:</label>
+            <input type="text" name="search_query" value="<?php echo htmlspecialchars($searchQuery); ?>">
+            <button type="submit" class="btn">搜索</button>
+        </form>
+
         <hr>
         <h4>所有课程</h4>
-        <?php foreach($courses as $course): ?>
+        <?php
+        $displayCourses = !empty($searchResults) ? $searchResults : $courses;
+        foreach($displayCourses as $course): ?>
             <a href="?cid=<?php echo $course['cid']; ?>">
                 <?php echo $course['cid']." - ".htmlspecialchars($course['competition_name']); ?>
             </a>

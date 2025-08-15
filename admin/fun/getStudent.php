@@ -7,10 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $where = [];
     if ($sid !== '') {
-        $where[] = "sid LIKE '%$sid%'";
+        $where[] = "s.sid LIKE '%$sid%'";
     }
     if ($name !== '') {
-        $where[] = "name LIKE '%$name%'";
+        $where[] = "s.name LIKE '%$name%'";
     }
     $where_sql = '';
     if (count($where) > 0) {
@@ -52,30 +52,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         mysqli_free_result($res);
     } else {
-        // 多条结果，只显示学号 姓名 当前年级 卡种类 和 修改按钮
-        $sql = "SELECT sid, name, current_grade, card_type FROM student $where_sql ORDER BY sid ASC";
+        // 多条结果，一次性查询学生和卡片信息
+        $sql = "
+            SELECT 
+                s.sid, 
+                s.name, 
+                s.current_grade,
+                GROUP_CONCAT(CONCAT(c.name, ' + ', sc.card_count, ' 张') SEPARATOR '<br>') AS cards
+            FROM student s
+            LEFT JOIN student_card sc ON s.sid = sc.sid
+            LEFT JOIN card c ON sc.card_id = c.id
+            $where_sql
+            GROUP BY s.sid, s.name, s.current_grade
+            ORDER BY s.sid ASC
+        ";
         $res = mysqli_query($db, $sql);
         if (!$res) {
             echo "查询失败：" . mysqli_error($db);
             exit;
         }
+        echo '<link rel="stylesheet" type="text/css" href="../css/fun.css">';
         echo '<h3>查询结果（' . $count . '条）</h3>';
-        echo '<table border="1" cellpadding="5" cellspacing="0">';
+        echo '<table class="table-longtext" >';
         echo '<tr><th>学号</th><th>姓名</th><th>当前年级</th><th>卡种类</th></tr>';
+
         while ($row = mysqli_fetch_assoc($res)) {
             echo '<tr>';
             echo '<td>' . htmlspecialchars($row['sid']) . '</td>';
             echo '<td>' . htmlspecialchars($row['name']) . '</td>';
             echo '<td>' . htmlspecialchars($row['current_grade']) . '</td>';
-            echo '<td>' . htmlspecialchars($row['card_type']) . '</td>';
+            echo '<td>' . ($row['cards'] ? $row['cards'] : '-') . '</td>';
             echo '</tr>';
         }
+
         echo '</table>';
         mysqli_free_result($res);
     }
 
     mysqli_close($db);
 } else {
-    echo "无效请求。";
-}
+    echo "无效请求。";}
 ?>

@@ -183,3 +183,268 @@
                 ORDER BY l.addtime DESC
 [2025-08-15 18:24:57] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC
 [2025-08-15 18:24:58] [User: guest] [Page: /program/admin/queueChoose.php?sid=5] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC
+[2025-08-15 19:21:10] [User: Admin] [Page: /program/admin/modifyCourse.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 19:26:27] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 19:26:28] [User: Admin] [Page: /program/admin/editStudent.php?sid=5] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 19:27:20] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 19:27:21] [User: Admin] [Page: /program/admin/editStudent.php?sid=5] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 19:44:40] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 19:44:42] [User: guest] [Page: /program/admin/editStudentCard.php?sid=6] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 19:44:43] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 19:55:47] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT * FROM card
+[2025-08-15 19:55:47] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '2'
+[2025-08-15 19:55:47] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '4'
+[2025-08-15 19:56:47] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT * FROM card
+[2025-08-15 19:56:47] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '2'
+[2025-08-15 19:56:47] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '4'
+[2025-08-15 19:56:52] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 19:58:36] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT * FROM card
+[2025-08-15 19:58:36] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '2'
+[2025-08-15 19:58:36] [User: guest] [Page: /program/admin/listCardSales.php] [FAIL | Error: Table 'school.card_allowed_courses' doesn't exist] 
+                    SELECT c.competition_name 
+                    FROM course c 
+                    JOIN card_allowed_courses cac ON c.cid = cac.cid 
+                    WHERE cac.card_id = '2'
+                
+[2025-08-15 19:58:50] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT * FROM card
+[2025-08-15 19:58:50] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '2'
+[2025-08-15 19:58:50] [User: guest] [Page: /program/admin/listCardSales.php] [FAIL | Error: Table 'school.card_allowed_courses' doesn't exist] 
+                    SELECT c.competition_name 
+                    FROM course c 
+                    JOIN card_allowed_courses cac ON c.cid = cac.cid 
+                    WHERE cac.card_id = '2'
+                
+[2025-08-15 19:58:51] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT * FROM card
+[2025-08-15 19:58:51] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '2'
+[2025-08-15 19:58:51] [User: guest] [Page: /program/admin/listCardSales.php] [FAIL | Error: Table 'school.card_allowed_courses' doesn't exist] 
+                    SELECT c.competition_name 
+                    FROM course c 
+                    JOIN card_allowed_courses cac ON c.cid = cac.cid 
+                    WHERE cac.card_id = '2'
+                
+[2025-08-15 19:58:51] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT * FROM card
+[2025-08-15 19:58:51] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '2'
+[2025-08-15 19:58:51] [User: guest] [Page: /program/admin/listCardSales.php] [FAIL | Error: Table 'school.card_allowed_courses' doesn't exist] 
+                    SELECT c.competition_name 
+                    FROM course c 
+                    JOIN card_allowed_courses cac ON c.cid = cac.cid 
+                    WHERE cac.card_id = '2'
+                
+[2025-08-15 19:58:51] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT * FROM card
+[2025-08-15 19:58:51] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '2'
+[2025-08-15 19:58:51] [User: guest] [Page: /program/admin/listCardSales.php] [FAIL | Error: Table 'school.card_allowed_courses' doesn't exist] 
+                    SELECT c.competition_name 
+                    FROM course c 
+                    JOIN card_allowed_courses cac ON c.cid = cac.cid 
+                    WHERE cac.card_id = '2'
+                
+[2025-08-15 20:00:18] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT * FROM card
+[2025-08-15 20:00:18] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '2'
+[2025-08-15 20:00:18] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT competition_name FROM course WHERE cid IN (2,3,4,5,6,7,8,9,10,11)
+[2025-08-15 20:00:18] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '4'
+[2025-08-15 20:00:18] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT competition_name FROM course WHERE cid IN (5,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28)
+[2025-08-15 20:00:37] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT * FROM card
+[2025-08-15 20:00:37] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '2'
+[2025-08-15 20:00:37] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT competition_name FROM course WHERE cid IN (2,3,4,5,6,7,8,9,10,11)
+[2025-08-15 20:00:37] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '4'
+[2025-08-15 20:00:37] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT competition_name FROM course WHERE cid IN (5,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28)
+[2025-08-15 20:01:16] [User: guest] [Page: /program/admin/getCardStudents.php?card_id=2] [SUCCESS] SELECT s.sid, s.name FROM student_card sc 
+                   JOIN student s ON sc.sid = s.sid 
+                   WHERE sc.card_id = '2'
+[2025-08-15 20:01:18] [User: guest] [Page: /program/admin/getCardStudents.php?card_id=4] [SUCCESS] SELECT s.sid, s.name FROM student_card sc 
+                   JOIN student s ON sc.sid = s.sid 
+                   WHERE sc.card_id = '4'
+[2025-08-15 20:01:48] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT * FROM card
+[2025-08-15 20:01:48] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '2'
+[2025-08-15 20:01:48] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT competition_name FROM course WHERE cid IN (2,3,4,5,6,7,8,9,10,11)
+[2025-08-15 20:01:48] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '4'
+[2025-08-15 20:01:48] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT competition_name FROM course WHERE cid IN (5,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28)
+[2025-08-15 20:01:50] [User: guest] [Page: /program/admin/getCardStudents.php?card_id=2] [SUCCESS] 
+    SELECT s.sid, s.name, COUNT(sc.card_id) AS quantity
+    FROM student_card sc
+    JOIN student s ON sc.sid = s.sid
+    WHERE sc.card_id = '2'
+    GROUP BY sc.sid, s.name
+    ORDER BY s.name
+
+[2025-08-15 20:02:42] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT * FROM card
+[2025-08-15 20:02:42] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '2'
+[2025-08-15 20:02:42] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT competition_name FROM course WHERE cid IN (2,3,4,5,6,7,8,9,10,11)
+[2025-08-15 20:02:42] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '4'
+[2025-08-15 20:02:42] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT competition_name FROM course WHERE cid IN (5,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28)
+[2025-08-15 20:05:36] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT * FROM card
+[2025-08-15 20:05:36] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '2'
+[2025-08-15 20:05:36] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT competition_name FROM course WHERE cid IN (2,3,4,5,6,7,8,9,10,11)
+[2025-08-15 20:05:36] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT COUNT(*) AS sold_count FROM student_card WHERE card_id = '4'
+[2025-08-15 20:05:36] [User: guest] [Page: /program/admin/listCardSales.php] [SUCCESS] SELECT competition_name FROM course WHERE cid IN (5,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28)
+[2025-08-15 20:15:41] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 20:17:14] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 20:17:18] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student WHERE name LIKE '%a%' ORDER BY sid
+[2025-08-15 20:17:22] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 20:18:41] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 20:18:43] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 20:18:46] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 20:18:46] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 20:18:48] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 20:18:49] [User: guest] [Page: /program/admin/editStudentCard.php?name_search=a] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 20:18:50] [User: guest] [Page: /program/admin/editStudentCard.php?name_search=a] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 20:18:51] [User: guest] [Page: /program/admin/editStudentCard.php?name_search=a%5C] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 20:18:53] [User: guest] [Page: /program/admin/editStudentCard.php?name_search=] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 20:19:19] [User: guest] [Page: /program/admin/editStudentCard.php?name_search=111] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 20:21:30] [User: Admin] [Page: /program/admin/editStudent.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 20:21:30] [User: guest] [Page: /program/admin/editStudentCard.php] [SUCCESS] SELECT sid, name FROM student ORDER BY name
+[2025-08-15 20:21:33] [User: Admin] [Page: /program/admin/modifyCourse.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 20:21:34] [User: Admin] [Page: /program/admin/modifyCourse.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 20:22:54] [User: Admin] [Page: /program/admin/modifyCourse.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 20:25:29] [User: Admin] [Page: /program/admin/modifyCourse.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 20:25:36] [User: Admin] [Page: /program/admin/modifyCourse.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 20:27:35] [User: Admin] [Page: /program/admin/modifyCard.php] [SUCCESS] SELECT id, name FROM card ORDER BY id
+[2025-08-15 20:27:35] [User: Admin] [Page: /program/admin/modifyCard.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 20:27:38] [User: Admin] [Page: /program/admin/modifyCard.php?id=2] [SUCCESS] SELECT id, name FROM card ORDER BY id
+[2025-08-15 20:27:38] [User: Admin] [Page: /program/admin/modifyCard.php?id=2] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 20:27:39] [User: Admin] [Page: /program/admin/modifyCard.php?id=4] [SUCCESS] SELECT id, name FROM card ORDER BY id
+[2025-08-15 20:27:39] [User: Admin] [Page: /program/admin/modifyCard.php?id=4] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 20:33:01] [User: Admin] [Page: /program/admin/modifyCard.php] [SUCCESS] SELECT id, name FROM card ORDER BY id
+[2025-08-15 20:33:01] [User: Admin] [Page: /program/admin/modifyCard.php] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 20:33:03] [User: Admin] [Page: /program/admin/modifyCard.php?id=2] [SUCCESS] SELECT id, name FROM card ORDER BY id
+[2025-08-15 20:33:03] [User: Admin] [Page: /program/admin/modifyCard.php?id=2] [SUCCESS] SELECT cid, competition_name FROM course ORDER BY cid
+[2025-08-15 13:11:55] [User: Admin] [Page: /program/admin/fun/create_admin.php] [SUCCESS] SELECT MAX(CAST(adminID AS UNSIGNED)) AS max_id FROM user_admin
+[2025-08-15 21:12:07] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID = '999' LIMIT 1
+[2025-08-15 21:12:07] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid IN ('5','6') ORDER BY l.addtime DESC
+[2025-08-15 21:13:23] [User: guest] [Page: /program/user/myLog.php] [SUCCESS] SELECT l.*, c.competition_name, l.url
+                FROM student_log l
+                LEFT JOIN course c ON l.cid = c.cid
+                WHERE l.sid = ''
+                ORDER BY l.addtime DESC
+[2025-08-15 21:16:25] [User: guest] [Page: /program/user/myLog.php] [SUCCESS] SELECT l.*, c.competition_name, l.url
+                FROM student_log l
+                LEFT JOIN course c ON l.cid = c.cid
+                WHERE l.sid = ''
+                ORDER BY l.addtime DESC
+[2025-08-15 21:16:48] [User: guest] [Page: /program/user/myLog.php] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid = ''
+        ORDER BY l.addtime DESC
+[2025-08-15 21:16:49] [User: guest] [Page: /program/user/myLog.php] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid = ''
+        ORDER BY l.addtime DESC
+[2025-08-15 21:16:49] [User: guest] [Page: /program/user/myLog.php] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid = ''
+        ORDER BY l.addtime DESC
+[2025-08-15 21:17:02] [User: 周小杰] [Page: /program/user/myLog.php] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid = '6'
+        ORDER BY l.addtime DESC
+[2025-08-15 21:18:45] [User: 周小杰] [Page: /program/user/myLog.php] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid = '6'
+        ORDER BY l.addtime DESC
+[2025-08-15 21:19:10] [User: 周小杰] [Page: /program/user/myLog.php] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid = '6'
+        ORDER BY l.addtime DESC
+[2025-08-15 21:19:12] [User: 周小杰] [Page: /program/user/myLog.php] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid = '6'
+        ORDER BY l.addtime DESC
+[2025-08-15 21:19:14] [User: 周小杰] [Page: /program/user/myLog.php] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid = '6'
+        ORDER BY l.addtime DESC
+[2025-08-15 21:20:13] [User: 周小杰] [Page: /program/user/myLog.php] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid = '6'
+        ORDER BY l.addtime DESC
+[2025-08-15 21:20:17] [User: 周小杰] [Page: /program/user/myLog.php] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid = '6'
+        ORDER BY l.addtime DESC
+[2025-08-15 21:20:44] [User: 周小杰] [Page: /program/user/myLog.php] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid = '6'
+        ORDER BY l.addtime DESC
+[2025-08-15 21:21:08] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID = '999' LIMIT 1
+[2025-08-15 21:21:08] [User: Admin] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid IN ('5','6') ORDER BY l.addtime DESC
+[2025-08-15 21:21:59] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid ASC
+[2025-08-15 21:24:45] [User: Admin] [Page: /program/admin/editAdminAccess.php] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 21:24:45] [User: Admin] [Page: /program/admin/editAdminAccess.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 21:24:47] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 21:24:47] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 21:24:50] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 21:24:50] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 21:25:04] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID='999'
+[2025-08-15 21:25:04] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student WHERE sid IN (0,0,0,0,0) ORDER BY sid ASC
+[2025-08-15 21:26:18] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID='999'
+[2025-08-15 21:26:18] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student WHERE sid IN (0,0,0,0,0) ORDER BY sid ASC
+[2025-08-15 21:26:18] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID='999'
+[2025-08-15 21:26:18] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student WHERE sid IN (0,0,0,0,0) ORDER BY sid ASC
+[2025-08-15 21:26:18] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID='999'
+[2025-08-15 21:26:18] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student WHERE sid IN (0,0,0,0,0) ORDER BY sid ASC
+[2025-08-15 21:26:18] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID='999'
+[2025-08-15 21:26:18] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student WHERE sid IN (0,0,0,0,0) ORDER BY sid ASC
+[2025-08-15 21:26:18] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID='999'
+[2025-08-15 21:26:18] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student WHERE sid IN (0,0,0,0,0) ORDER BY sid ASC
+[2025-08-15 21:26:18] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID='999'
+[2025-08-15 21:26:18] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student WHERE sid IN (0,0,0,0,0) ORDER BY sid ASC
+[2025-08-15 21:26:19] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID='999'
+[2025-08-15 21:26:19] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student WHERE sid IN (0,0,0,0,0) ORDER BY sid ASC
+[2025-08-15 21:26:19] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID='999'
+[2025-08-15 21:26:19] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student WHERE sid IN (0,0,0,0,0) ORDER BY sid ASC
+[2025-08-15 21:26:19] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID='999'
+[2025-08-15 21:26:19] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student WHERE sid IN (0,0,0,0,0) ORDER BY sid ASC
+[2025-08-15 21:26:19] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID='999'
+[2025-08-15 21:26:19] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student WHERE sid IN (0,0,0,0,0) ORDER BY sid ASC
+[2025-08-15 21:26:19] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID='999'
+[2025-08-15 21:26:19] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student WHERE sid IN (0,0,0,0,0) ORDER BY sid ASC
+[2025-08-15 21:26:19] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID='999'
+[2025-08-15 21:26:19] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student WHERE sid IN (0,0,0,0,0) ORDER BY sid ASC
+[2025-08-15 21:33:16] [User: Admin] [Page: /program/admin/editAdminAccess.php] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 21:33:16] [User: Admin] [Page: /program/admin/editAdminAccess.php] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 21:33:18] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] [SUCCESS] SELECT adminID, adminName FROM user_admin ORDER BY adminID
+[2025-08-15 21:33:18] [User: Admin] [Page: /program/admin/editAdminAccess.php?adminID=999] [SUCCESS] SELECT sid, name FROM student ORDER BY sid
+[2025-08-15 21:36:56] [User: chenxiaoquan] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID = '1000' LIMIT 1
+[2025-08-15 21:36:56] [User: chenxiaoquan] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid IN ('6') ORDER BY l.addtime DESC
+[2025-08-15 21:37:38] [User: chenxiaoquan] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT access_student FROM user_admin WHERE adminID = '1000' LIMIT 1
+[2025-08-15 21:37:38] [User: chenxiaoquan] [Page: /program/admin/fun/getLog.php?sid=&name=&submit=%E6%9F%A5%E8%AF%A2] [SUCCESS] SELECT s.sid, s.name, c.competition_name, l.type, l.logdate, l.reason, l.url, l.addtime 
+        FROM student_log l
+        JOIN student s ON l.sid = s.sid 
+        JOIN course c ON l.cid = c.cid 
+        WHERE s.sid IN ('6') ORDER BY l.addtime DESC
+[2025-08-15 21:50:52] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student
+[2025-08-15 21:50:52] [User: guest] [Page: /program/admin/queueChoose.php] [SUCCESS] SELECT sid, name FROM student

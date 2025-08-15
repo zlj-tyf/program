@@ -9,7 +9,6 @@
 <h3 class="subtitle">学生管理 >> 新增学生</h3>
 
 <?php
-// 需要读取卡片与课程列表以在表格中展示
 require_once("../config/database.php");
 
 // 读取所有课程 -> 映射表 cid => competition_name
@@ -23,7 +22,6 @@ while ($r = mysqli_fetch_assoc($crs)) {
 $cards = [];
 $res = mysqli_query($db, "SELECT id, name, allowed_courses, max_courses FROM card ORDER BY id ASC");
 while ($row = mysqli_fetch_assoc($res)) {
-    // 解析 allowed_courses（逗号分隔的 cid）
     $allowed_ids = array_filter(array_map('intval', explode(',', (string)$row['allowed_courses'])));
     $allowed_names = [];
     foreach ($allowed_ids as $cid) {
@@ -31,7 +29,7 @@ while ($row = mysqli_fetch_assoc($res)) {
             $allowed_names[] = $courseMap[$cid];
         }
     }
-    $row['allowed_names'] = $allowed_names;   // 仅显示这些允许的比赛
+    $row['allowed_names'] = $allowed_names;
     $row['max_courses']  = (int)$row['max_courses'];
     $cards[] = $row;
 }
@@ -39,8 +37,8 @@ while ($row = mysqli_fetch_assoc($res)) {
 
 <form id="addStudentForm" action="./fun/addStudent.php" method="post" target="resultbox" onsubmit="return buildCardsPayload();">
     <div class="inputbox"><span>姓名：</span><input name="name" required type="text"></div>
+    <div class="inputbox"><span>拼音：</span><input name="pinyin" required type="text"></div>
 
-    <!-- 卡片表格：第一列卡名，第二列允许的比赛，第三列拥有数量，第四列剩余(剩余/总共) -->
     <table>
         <thead>
             <tr>
@@ -104,15 +102,11 @@ function resetRemaining() {
     document.querySelectorAll('.remaining').forEach(function (td) {
         td.textContent = "0/0";
     });
-    // 同时清空之前构建的隐藏字段
     document.querySelectorAll('.card-hidden').forEach(function (n) { n.remove(); });
 }
 
-// 为了兼容后端（接收 cards[][card_id] / cards[][count]），在提交前把 card_qty 转换成 cards 数组隐藏字段
 function buildCardsPayload() {
     var form = document.getElementById('addStudentForm');
-
-    // 清理旧的隐藏字段
     Array.from(form.querySelectorAll('.card-hidden')).forEach(function (n) { n.remove(); });
 
     var qtyInputs = form.querySelectorAll('input[name^="card_qty["]');
@@ -141,7 +135,7 @@ function buildCardsPayload() {
         }
     });
 
-    return true; // 继续提交
+    return true;
 }
 </script>
 

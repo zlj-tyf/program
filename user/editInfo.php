@@ -3,7 +3,7 @@ session_start();
 $sid = $_SESSION["user"];
 require_once("../config/database.php");
 
-// 辅助函数：如果POST存在且非空，返回转义后的带单引号字符串，否则返回SQL NULL
+// 辅助函数
 function getPostValue($db, $key) {
     if (isset($_POST[$key]) && $_POST[$key] !== '') {
         return "'" . mysqli_real_escape_string($db, $_POST[$key]) . "'";
@@ -12,7 +12,6 @@ function getPostValue($db, $key) {
     }
 }
 
-// 复选框处理，选中返回1，否则0
 function getCheckboxValue($key) {
     return isset($_POST[$key]) ? "1" : "0";
 }
@@ -22,8 +21,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = getPostValue($db, 'name');
     $sex = getPostValue($db, 'sex');
     $birth = getPostValue($db, 'birth');
-    $age = getPostValue($db, 'age');
-    $current_grade = getPostValue($db, 'current_grade');
+
+    // 自动计算年龄和当前年级
+    $age = "NULL";
+    $current_grade = "NULL";
+    if (isset($_POST['birth']) && $_POST['birth'] !== '') {
+        $birthDate = new DateTime($_POST['birth']);
+        $today = new DateTime();
+        $ageYears = $today->diff($birthDate)->y;
+        $age = intval($ageYears);
+        $grade = max(1, $ageYears - 5);
+        $current_grade = intval($grade);
+    }
+
+    $age = $age !== "NULL" ? "'" . mysqli_real_escape_string($db, $age) . "'" : "NULL";
+    $current_grade = $current_grade !== "NULL" ? "'" . mysqli_real_escape_string($db, $current_grade) . "'" : "NULL";
+
     $current_school = getPostValue($db, 'current_school');
 
     $father_name = getPostValue($db, 'father_name');
@@ -106,6 +119,35 @@ if ($result && $row = mysqli_fetch_object($result)) {
 <meta charset="UTF-8">
 <title>编辑信息</title>
 <link rel="stylesheet" href="./user.css">
+<script>
+// 实时计算年龄和年级
+function updateAgeAndGrade() {
+    const birthInput = document.querySelector('input[name="birth"]');
+    const ageInput = document.querySelector('input[name="age"]');
+    const gradeSelect = document.querySelector('select[name="current_grade"]');
+
+    if (!birthInput.value) {
+        ageInput.value = '';
+        gradeSelect.value = '';
+        return;
+    }
+
+    const birthDate = new Date(birthInput.value);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    ageInput.value = age;
+
+    let grade = age - 5;
+    if (grade < 1) grade = 1;
+    if (grade > 12) grade = 12;
+    gradeSelect.value = grade;
+}
+</script>
 </head>
 <body>
 <h3>编辑学籍信息</h3>
@@ -117,8 +159,8 @@ if ($result && $row = mysqli_fetch_object($result)) {
             <option value="女" <?php if($row->sex=='女') echo 'selected'; ?>>女</option>
         </select>
     </label></div>
-    <div><label>出生年月：<input class="input-new" type="date" name="birth" value="<?php echo $row->birth ?>"></label></div>
-    <div><label>年龄：<input class="input-new" name="age" value="<?php echo htmlspecialchars($row->age) ?>"></label></div>
+    <div><label>出生年月：<input class="input-new" type="date" name="birth" value="<?php echo $row->birth ?>" onchange="updateAgeAndGrade()"></label></div>
+    <div><label>年龄：<input class="input-new" name="age" value="<?php echo htmlspecialchars($row->age) ?>" readonly></label></div>
 
     <h4>教育经历</h4>
     <table border="1" cellpadding="5" cellspacing="0">
@@ -143,13 +185,11 @@ if ($result && $row = mysqli_fetch_object($result)) {
         </tr>
     </table>
 
-    <div><label>当前年级：
-        <select class="selectbox" name="current_grade">
-            <?php for ($i=1; $i<=12; $i++): ?>
-                <option value="<?php echo $i ?>" <?php if ($row->current_grade == $i) echo 'selected'; ?>><?php echo $i ?> 年级</option>
-            <?php endfor; ?>
-        </select>
-    </label></div>
+<div>
+    <label>当前年级：
+        <input class="input-new" type="text" name="current_grade" value="<?php echo htmlspecialchars($row->current_grade) ?> 年级" readonly>
+    </label>
+</div>
     <div><label>当前学校：<input class="input-new" name="current_school" value="<?php echo htmlspecialchars($row->current_school) ?>"></label></div>
 
     <h4>家长信息</h4>
@@ -177,6 +217,11 @@ if ($result && $row = mysqli_fetch_object($result)) {
 
     <div class="clickbox clearfloat"><input class="input-new" name="submit" type="submit" value="修改信息"></div>
 </form>
+
+<script>
+// 页面加载时初始化一次
+updateAgeAndGrade();
+</script>
 </body>
 </html>
 <?php mysqli_close($db); } ?>

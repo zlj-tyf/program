@@ -14,9 +14,9 @@
     <div class="clickbox clearfloat">
         <input name="submit" type="submit" value="查询">
     </div>
-    <div class="clickbox">
+    <!-- <div class="clickbox">
         <a href="./addLog.php">新增</a>
-    </div>
+    </div> -->
 </form>
 
 <iframe name="resultbox" frameborder="0" width="100%" height="690px"></iframe>

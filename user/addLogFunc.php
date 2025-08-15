@@ -116,6 +116,12 @@ if ($type == '1') {
         }
         $stmt_log->close();
 
+        // 更新 student_course.lastedit
+        $update_lastedit = $db->prepare("UPDATE student_course SET lastedit = CURRENT_TIMESTAMP WHERE sid = ? AND cid = ?");
+        $update_lastedit->bind_param("ss", $sid, $cid);
+        $update_lastedit->execute();
+        $update_lastedit->close();
+
         // 创建成功后重定向并带上 edit_url
         $edit_url = "http://106.15.139.140/wp-admin/post.php?post={$response['id']}&action=edit";
         header("Location: addLog.php?url=" . urlencode($post_link) . "&edit_url=" . urlencode($edit_url));
@@ -144,12 +150,14 @@ if ($type == '1') {
         $stmt_log->bind_param("ssissss", $sid, $cid, $type, $reason, $logdate, $addtime, $url);
         if (!$stmt_log->execute()) {
             die("日志插入失败：" . $stmt_log->error);
-        } else {
-            echo "✅ 修改日志已写入数据库<br>";
-            echo "调试信息:<br>";
-            echo "SID: $sid<br>CID: $cid<br>Type: $type<br>Reason: $reason<br>Logdate: $logdate<br>Addtime: $addtime<br>URL: $url<br>Edit URL: $edit_url<br>";
         }
         $stmt_log->close();
+
+        // 更新 student_course.lastedit
+        $update_lastedit = $db->prepare("UPDATE student_course SET lastedit = CURRENT_TIMESTAMP WHERE sid = ? AND cid = ?");
+        $update_lastedit->bind_param("ss", $sid, $cid);
+        $update_lastedit->execute();
+        $update_lastedit->close();
 
         header("Location: addLog.php?url=" . urlencode($url) . "&edit_url=" . urlencode($edit_url));
         exit;

@@ -136,6 +136,7 @@ html, body {
     ?>
         <div class="right-header">
             <h2>最近文章</h2>
+            <p>点击编辑以修改文章内容<br/>点击打开页面以上传文件</p>
             <div class="button-group">
                 <button onclick="openInIframe('<?= $url ?>')">📄 打开 (嵌入)</button>
                 <?php if ($edit_url): ?>
@@ -150,7 +151,7 @@ html, body {
         <div id="iframeContainer">
             <iframe id="wpIframe" src=""></iframe>
         </div>
-        <p>文章链接：<a href="<?= $url ?>" target="_blank">具体链接</a></p>
+        <!-- <p>文章链接：<a href="<?= $url ?>" target="_blank">具体链接</a></p> -->
         <script>
         function openInIframe(url) {
             const iframeContainer = document.getElementById("iframeContainer");

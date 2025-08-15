@@ -105,21 +105,40 @@ function updateRemaining() {
 <body>
 <div class="container">
     <!-- 左侧学生选择 -->
-    <div class="sidebar">
-        <h3>选择学生</h3>
-        <form method="POST">
-            <label>输入学号:</label><br>
-            <input type="text" name="sid" required value="<?php echo htmlspecialchars($selectedSID); ?>"><br><br>
-            <button type="submit">确认</button>
-        </form>
-        <hr>
-        <h4>所有学生</h4>
-        <?php foreach($students as $stu): ?>
-            <a href="?sid=<?php echo urlencode($stu['sid']); ?>">
-                <?php echo htmlspecialchars($stu['sid'] . " - " . $stu['name']); ?>
-            </a>
-        <?php endforeach; ?>
-    </div>
+<div class="sidebar">
+    <h3>选择学生</h3>
+    <form method="POST">
+        <label>输入学号:</label><br>
+        <input type="text" name="sid" required value="<?php echo htmlspecialchars($selectedSID); ?>"><br><br>
+        <button type="submit">确认</button>
+    </form>
+
+    <!-- 添加姓名搜索框 -->
+    <form method="GET" style="margin-top:10px;">
+        <label>姓名搜索:</label><br>
+        <input type="text" name="name_search" placeholder="输入姓名关键字" value="<?php echo isset($_GET['name_search']) ? htmlspecialchars($_GET['name_search']) : ''; ?>"><br><br>
+        <button type="submit">搜索</button>
+    </form>
+
+    <hr>
+    <h4>所有学生</h4>
+    <?php
+    // 如果有搜索关键字则按姓名模糊搜索
+    $filteredStudents = $students;
+    if (!empty($_GET['name_search'])) {
+        $keyword = $_GET['name_search'];
+        $filteredStudents = array_filter($students, function($stu) use ($keyword) {
+            return strpos($stu['name'], $keyword) !== false;
+        });
+    }
+    // else return 
+    foreach($filteredStudents as $stu): ?>
+        <a href="?sid=<?php echo urlencode($stu['sid']); ?>">
+            <?php echo htmlspecialchars($stu['sid'] . " - " . $stu['name']); ?>
+        </a>
+    <?php endforeach; ?>
+</div>
+
 
     <!-- 右侧卡片展示 -->
     <div class="main">
