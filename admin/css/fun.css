@@ -35,7 +35,7 @@
     margin-right: 8px;
 }
 
-.inputbox input {
+.inputbox input{
     flex: 1; /* 输入框自动填满剩余空间 */
     min-width: 100px;
     height: 20px;

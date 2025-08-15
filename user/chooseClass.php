@@ -90,7 +90,7 @@ if (!$can_select) {
 }
 
 // 追加选课记录
-$sql = "INSERT INTO student_course (sid, cid, score, status) VALUES (?, ?, NULL, 'N')";
+$sql = "INSERT INTO student_course (sid, cid, score, status) VALUES (?, ?, NULL, 1)";
 $stmt = mysqli_prepare($db, $sql);
 mysqli_stmt_bind_param($stmt, "ss", $sid, $cid);
 if (mysqli_stmt_execute($stmt)) {
