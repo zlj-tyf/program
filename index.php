@@ -40,11 +40,16 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
     <title>Login Page - Project Log System</title>
     <style>
         .tab {
+            display:flex;
+            justify-content:spae-between;
+            align:center;
             display: flex;
-            margin-bottom: 20px;
+            margin-bottom: 0px;
             cursor: pointer;
         }
         .tab div {
+            width:50%;
+            text-align:center;
             padding: 10px 20px;
             border: 1px solid #ddd;
             border-bottom: none;
@@ -58,6 +63,8 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
             border-bottom: 1px solid white;
         }
         .form-section {
+            align:center;
+            align-content:center;
             border: 1px solid #ddd;
             padding: 20px;
             border-radius: 0 5px 5px 5px;
@@ -74,9 +81,9 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
 <body>
     <div class="loginbox">
         <div class="title">
-            <span>Project Log System</span>
+            <span>统一比赛申报系统</span>
         </div>
-        <div class="subtitle">用户登录</div>
+        <div align=center class="subtitle">用户登录</div>
 
         <div class="tab">
             <div id="tab-student" class="$tabStudentClass" onclick="showForm('student')">学生登录</div>
@@ -88,8 +95,8 @@ if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
                 <input type="hidden" name="role" id="role" value="$role" />
 
                 <div class="radio-group">
-                    <label><input type="radio" name="login_type" value="id" $checkedId> 用ID登录</label>
-                    <label style="margin-left:20px;"><input type="radio" name="login_type" value="name" $checkedName> 用用户名登录</label>
+                    <label><input type="radio" name="login_type" value="id" $checkedId> 通过学号/ID登录</label>
+                    <label style="margin-left:flex;"><input type="radio" name="login_type" value="name" $checkedName> 通过用户名登录</label>
                 </div>
 
                 <div class="inputbox">

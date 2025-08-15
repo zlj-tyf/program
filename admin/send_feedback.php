@@ -7,7 +7,7 @@ $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 $feedback = isset($_POST['feedback']) ? trim($_POST['feedback']) : '';
 
 // 简单后端验证（防止绕过前端）
-if (!$name || !$student_id || !$feedback || (!$phone && !$email)) {
+if (!$name || !$student_id || !$feedback || !$phone || !$email) {
     echo "提交的数据不完整，请返回检查。";
     exit;
 }

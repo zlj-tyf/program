@@ -81,6 +81,7 @@
     background: linear-gradient(135deg, #5dade2, #48c9b0);
     transform: scale(1.05);
 }
+<<<<<<< Updated upstream
 .clickbox input:active {
     transform: scale(0.98);
 }
@@ -139,6 +140,11 @@ table tbody tr:hover {
 /* 最后一行去掉底边 */
 table tr:last-child td {
     border-bottom: none;
+=======
+.clickbox{
+    float: left;
+    width: 26%;
+>>>>>>> Stashed changes
 }
 
 /* 对 input 和 select 进行美化 */
